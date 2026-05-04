@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'Druk Wide Web';
+	src: url('DrukWide-BoldItalic-Web.woff2') format('woff2'),
+		 url('DrukWide-BoldItalic-Web.woff') format('woff');
+	font-weight: 700;
+	font-style: italic;
+	}
+
+.DrukWide-BoldItalic-Web {
+	font-family: 'Druk Wide Web';
+	font-weight: 700;
+	font-style: italic;
+	}

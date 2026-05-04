@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'Druk Wide Web';
+	src: url('DrukWide-Heavy-Web.woff2') format('woff2'),
+		 url('DrukWide-Heavy-Web.woff') format('woff');
+	font-weight: 800;
+	font-style: normal;
+	}
+
+.DrukWide-Heavy-Web {
+	font-family: 'Druk Wide Web';
+	font-weight: 800;
+	font-style: normal;
+	}

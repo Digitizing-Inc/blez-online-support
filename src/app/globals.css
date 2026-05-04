@@ -1,0 +1,793 @@
+@import 'tailwindcss';
+
+/* ─────────────────────────────────────────────────────────────
+ * Druk Wide — display face. Self-hosted from /public/fonts.
+ * Bold (700), Medium (500), Heavy (800), Heavy Italic (800).
+ * Per the design spec, display type is Heavy 800 italic uppercase.
+ * ───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('/fonts/DrukWide-Medium-Web.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('/fonts/DrukWide-Bold-Web.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('/fonts/DrukWide-Heavy-Web.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('/fonts/DrukWide-HeavyItalic-Web.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * Design tokens — derived from Assets/DESIGN_SYSTEM.md.
+ * The spec calls tokens.css the runtime source of truth; until
+ * the canonical tokens.css ships, these CSS variables ARE the
+ * source of truth for this app. Names match the spec verbatim.
+ * ───────────────────────────────────────────────────────────── */
+:root {
+  /* Brand */
+  --blez-blue: #0099ff;
+  --blez-blue-hover: #007acc;
+  --blez-blue-deep: #005c99;
+  --blez-blue-glow: rgba(0, 153, 255, 0.3);
+  --blez-blue-soft: rgba(0, 153, 255, 0.2);
+  --blez-blue-ghost: rgba(0, 153, 255, 0.08);
+  --blez-blue-ring: #54bbff;
+
+  /* Neutrals */
+  --neutral-0: #ffffff;
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e9eaeb;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-850: #202020;
+  --neutral-900: #171717;
+  --neutral-950: #101010;
+  --neutral-zinc: #09090b;
+  --neutral-black: #000000;
+
+  /* Surfaces */
+  --bg-canvas: #101010;
+  --bg-elevated: #1c1c1d;
+  --bg-surface-2: #262626;
+  --bg-overlay: rgba(9, 9, 11, 0.72);
+
+  /* Borders */
+  --border-subtle: var(--neutral-800);
+  --border-default: var(--neutral-700);
+  --border-strong: var(--neutral-500);
+  --border-ghost: rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --text-primary: var(--neutral-50);
+  --text-secondary: var(--neutral-300);
+  --text-muted: var(--neutral-400);
+  --text-faint: var(--neutral-500);
+  --text-disabled: var(--neutral-600);
+  --text-inverse: var(--neutral-950);
+  --text-link: var(--blez-blue);
+
+  /* Semantic */
+  --success: #16a34a;
+  --success-soft: #2c786c;
+  --warning: #ffde03;
+  --danger: #dc2626;
+  --danger-strong: #d80027;
+  --info: var(--blez-blue);
+
+  /* Tier rarity (card-rip context only — not used in support app) */
+  --tier-common: #a3a3a3;
+  --tier-rare: #0099ff;
+  --tier-epic: #9747ff;
+  --tier-legendary: #ffde03;
+  --tier-chase: #d80027;
+  --tier-grail: #ffde03;
+
+  /* Type */
+  --font-display: 'Druk Wide', 'Bebas Neue', system-ui, sans-serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  --font-supporting: 'Geist', system-ui, sans-serif;
+
+  /* Display scale (Druk Wide 800 italic uppercase) */
+  --display-h1: 60px;
+  --display-h2: 48px;
+  --display-h3: 38px;
+  --display-h4: 32px;
+  --display-h5: 26px;
+  --display-h6: 20px;
+
+  /* Body scale */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-md: 18px;
+  --text-lg: 20px;
+  --text-xl: 22px;
+
+  /* Eyebrow */
+  --eyebrow-sm: 11px;
+  --eyebrow-base: 12.8px;
+
+  /* Leading & tracking */
+  --leading-tight: 1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.6;
+  --tracking-tight: -0.01em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.16em;
+
+  /* Spacing — 4px base */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+
+  /* Radii */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-pill: 9999px;
+
+  /* Elevation */
+  --shadow-xs: 0 1px 2px rgba(10, 13, 18, 0.05);
+  --shadow-sm: 0 1px 3px rgba(10, 13, 18, 0.1),
+    0 1px 2px -1px rgba(10, 13, 18, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(10, 13, 18, 0.1),
+    0 2px 4px -2px rgba(10, 13, 18, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(10, 13, 18, 0.18),
+    0 4px 6px -4px rgba(10, 13, 18, 0.18);
+  --shadow-xl: 0 20px 25px -5px rgba(10, 13, 18, 0.25),
+    0 8px 10px -6px rgba(10, 13, 18, 0.2);
+  --glow-blue: 0 0 0 1px rgba(0, 153, 255, 0.35),
+    0 8px 28px -4px rgba(0, 153, 255, 0.45);
+  --glow-blue-soft: 0 6px 24px -6px rgba(0, 153, 255, 0.35);
+  --focus-ring: 0 0 0 2px var(--neutral-0),
+    0 0 0 4px rgba(0, 153, 255, 0.55);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --dur-slow: 280ms;
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * Tailwind theme bridge — exposes the tokens above as Tailwind
+ * utilities (text-blez-blue, bg-canvas, font-display, etc.).
+ * ───────────────────────────────────────────────────────────── */
+@theme inline {
+  --color-blez-blue: var(--blez-blue);
+  --color-blez-blue-hover: var(--blez-blue-hover);
+  --color-blez-blue-deep: var(--blez-blue-deep);
+  --color-blez-blue-ring: var(--blez-blue-ring);
+
+  --color-neutral-0: var(--neutral-0);
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-850: var(--neutral-850);
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-950: var(--neutral-950);
+
+  --color-canvas: var(--bg-canvas);
+  --color-elevated: var(--bg-elevated);
+  --color-surface-2: var(--bg-surface-2);
+
+  --color-text: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-border-ghost: var(--border-ghost);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-danger-strong: var(--danger-strong);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-pill: var(--radius-pill);
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * Base
+ *
+ * Wrapped in @layer base so component classes (e.g. `.btn-primary`
+ * setting white text) and utilities can reliably override these
+ * defaults. Without the layer, the unlayered `a { color: ... }`
+ * rule outranks layered components and breaks button text colors.
+ * ───────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background: var(--bg-canvas);
+  }
+
+  body {
+    background: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background: var(--blez-blue);
+    color: var(--text-inverse);
+  }
+
+  /* No default underline — too noisy against the dark broadcast aesthetic
+     and against tile/card components that wrap large clickable areas in
+     <a>. Inline links inside long-form prose should opt in via Tailwind
+     `underline underline-offset-4`. The Footer legal strip is the primary
+     consumer of opt-in underlines today. */
+  a {
+    color: var(--text-link);
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-radius: var(--radius-sm);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+ * Display & body type helpers
+ *
+ * Wrapped in @layer components so Tailwind utilities (hidden,
+ * not-italic, text-*, etc.) reliably win over these helpers.
+ * Without the layer, the unlayered rules outrank utilities and
+ * lead to subtle bugs (e.g. `hidden sm:inline-flex` failing
+ * against `.btn { display: inline-flex }`).
+ * ───────────────────────────────────────────────────────────── */
+@layer components {
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+.display-h1 { font-size: var(--display-h1); }
+.display-h2 { font-size: var(--display-h2); }
+.display-h3 { font-size: var(--display-h3); }
+.display-h4 { font-size: var(--display-h4); }
+.display-h5 { font-size: var(--display-h5); }
+.display-h6 { font-size: var(--display-h6); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--eyebrow-base);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.eyebrow-sm { font-size: var(--eyebrow-sm); }
+
+.body-xs { font-size: var(--text-xs); }
+.body-sm { font-size: var(--text-sm); }
+.body { font-size: var(--text-base); }
+.body-md { font-size: var(--text-md); }
+.body-lg { font-size: var(--text-lg); }
+
+/* ─────────────────────────────────────────────────────────────
+ * Components — class names match the design spec verbatim.
+ * When the canonical components.css ships, these can be replaced
+ * one-for-one without changing JSX.
+ * ───────────────────────────────────────────────────────────── */
+
+/* 8.1 Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0;
+  border: 1px solid transparent;
+  /* Square corners — broadcast/scoreboard feel matches the brand. */
+  border-radius: 0;
+  cursor: pointer;
+  transition: background var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+  user-select: none;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  /* `default` instead of `not-allowed` — the X-cursor reads as
+     hostile when a Send button is just waiting for input. */
+  cursor: default;
+  opacity: 0.5;
+}
+
+.btn-xl { height: 56px; padding: 0 var(--space-7); font-size: var(--text-md); }
+.btn-lg { height: 48px; padding: 0 var(--space-6); font-size: var(--text-base); }
+.btn-md { height: 40px; padding: 0 var(--space-5); font-size: var(--text-sm); }
+.btn-sm { height: 36px; padding: 0 var(--space-4); font-size: var(--text-sm); }
+
+.btn-primary {
+  background: var(--blez-blue);
+  color: var(--neutral-0);
+}
+.btn-primary:hover {
+  background: var(--blez-blue-hover);
+  box-shadow: var(--glow-blue-soft);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+.btn-secondary:hover {
+  border-color: var(--blez-blue);
+  color: var(--blez-blue);
+}
+
+.btn-tertiary {
+  background: transparent;
+  color: var(--text-secondary);
+}
+.btn-tertiary:hover {
+  color: var(--text-primary);
+  background: var(--blez-blue-ghost);
+}
+
+.btn-link {
+  background: transparent;
+  color: var(--text-link);
+  padding: 0;
+  height: auto;
+  border-radius: 0;
+}
+.btn-link:hover { text-decoration: underline; }
+
+.btn-destructive {
+  background: var(--danger);
+  color: var(--neutral-0);
+}
+.btn-destructive:hover { background: var(--danger-strong); }
+
+.btn-icon {
+  width: 40px;
+  padding: 0;
+}
+.btn-icon.btn-sm { width: 36px; }
+
+/* 8.2 Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  height: 22px;
+  padding: 0 var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.badge-brand {
+  background: var(--blez-blue-ghost);
+  color: var(--blez-blue);
+  border-color: rgba(0, 153, 255, 0.4);
+}
+.badge-secondary {
+  background: var(--bg-surface-2);
+  color: var(--text-secondary);
+  border-color: var(--border-default);
+}
+.badge-tertiary {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+}
+.badge-success {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--success);
+  border-color: rgba(22, 163, 74, 0.4);
+}
+.badge-warning {
+  background: var(--warning);
+  color: var(--text-inverse);
+}
+.badge-danger {
+  background: rgba(220, 38, 38, 0.12);
+  color: var(--danger);
+  border-color: rgba(220, 38, 38, 0.4);
+}
+
+/* 8.3 Input */
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.input-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.input-shell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 var(--space-4);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  transition: border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+.input-shell:hover {
+  border-color: var(--border-strong);
+}
+.input-shell:focus-within {
+  border-color: var(--blez-blue);
+  box-shadow: 0 0 0 3px rgba(0, 153, 255, 0.2);
+  outline: none;
+}
+.input-shell input,
+.input-shell textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  width: 100%;
+}
+.input-shell input::placeholder,
+.input-shell textarea::placeholder {
+  color: var(--text-faint);
+}
+/* The shell renders the focus state, so suppress the global focus ring
+   on the inner field — otherwise both fire and you get a white outline
+   on top of the blue glow. */
+.input-shell input:focus-visible,
+.input-shell textarea:focus-visible {
+  box-shadow: none;
+}
+/* WebKit/Chromium add a native clear button for type="search" — we render
+   our own, so hide the duplicate. */
+.input-shell input[type='search']::-webkit-search-cancel-button,
+.input-shell input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.input-help {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+.input-help.is-error {
+  color: var(--danger);
+}
+
+/* 8.4 Filter chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 32px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.chip-pill { border-radius: var(--radius-pill); }
+.chip:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+.chip.is-active {
+  background: var(--blez-blue);
+  color: var(--neutral-0);
+  border-color: var(--blez-blue);
+}
+
+/* 8.5 Tabs */
+.tabs {
+  display: flex;
+  gap: var(--space-7);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 48px;
+  padding: 0 var(--space-1);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color var(--dur-base) var(--ease-out);
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: transparent;
+  transition: background var(--dur-base) var(--ease-out);
+}
+.tab:hover {
+  color: var(--text-primary);
+}
+.tab.is-active {
+  color: var(--text-primary);
+}
+.tab.is-active::after {
+  background: var(--blez-blue);
+}
+
+/* 8.8 Card */
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+.card-padded { padding: var(--space-6); }
+.card-hover {
+  cursor: pointer;
+}
+/* Hover treatment matches the main shop card pattern:
+   - 2px blue outline (1px border + 1px inset shadow, so no layout shift)
+   - dark navy gradient washes the card surface
+   - card stays put — no Y translate */
+.card-hover:hover {
+  border-color: var(--blez-blue);
+  box-shadow:
+    inset 0 0 0 1px var(--blez-blue),
+    var(--glow-blue-soft);
+  background-image: linear-gradient(
+    135deg,
+    rgba(0, 92, 153, 0.45) 0%,
+    rgba(13, 45, 107, 0.25) 100%
+  );
+}
+
+/* BlezMark — square frame around the BlezBot icon. A bright "comet"
+   of light chases around the outline to signal the bot is ready to
+   think. Implementation is rotation-driven (no @property reliance):
+   - ::before is a 200% circular pseudo painted with a conic gradient,
+     rotating continuously
+   - ::after is a dark inner mask covering everything except a 3px
+     ring at the parent's edge
+   - parent's overflow + border-radius clip the spinning gradient to
+     the rounded-square shape, so the visible result is a band of
+     blue light traveling around the outline */
+.blez-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 0 16px rgba(84, 187, 255, 0.4);
+}
+.blez-mark::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  z-index: -2;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(0, 153, 255, 0.2) 0deg,
+    rgba(0, 153, 255, 0.45) 30deg,
+    rgba(84, 187, 255, 1) 70deg,
+    rgba(255, 255, 255, 1) 95deg,
+    rgba(84, 187, 255, 1) 120deg,
+    rgba(0, 153, 255, 0.45) 160deg,
+    rgba(0, 153, 255, 0.2) 200deg,
+    rgba(0, 153, 255, 0.2) 360deg
+  );
+  animation: blez-mark-spin 2s linear infinite;
+}
+.blez-mark::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+  border-radius: calc(var(--radius-lg) - 3px);
+  background: rgba(16, 16, 16, 0.95);
+}
+@keyframes blez-mark-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* BlezBot tile — special-cased on the support articles grid. Uses the
+   diagonal blue gradient from the brand, animated so the surface
+   shimmers slowly. Out-of-spec for general use; intended only as the
+   "Ask the BlezBot" CTA in the topic grid. */
+.blezbot-tile {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    225.32deg,
+    rgba(0, 92, 153, 0.9) 0%,
+    rgba(0, 153, 255, 0.9) 51.93%,
+    rgba(0, 92, 153, 0.9) 100%
+  );
+  background-size: 200% 200%;
+  border: 1px solid var(--blez-blue);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 40px rgba(0, 153, 255, 0.3);
+  animation: blezbot-shimmer 8s ease-in-out infinite;
+  transition: transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+.blezbot-tile:hover {
+  box-shadow: 0 6px 56px rgba(0, 153, 255, 0.5);
+}
+@keyframes blezbot-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Typography defaults for assistant chat replies rendered via
+   react-markdown. Scoped to `.prose-chat` so it doesn't leak. */
+.prose-chat {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-primary);
+}
+.prose-chat > :first-child { margin-top: 0; }
+.prose-chat > :last-child { margin-bottom: 0; }
+
+/* Faster shimmer used while the BlezBot is generating, to signal
+   "thinking right now" vs the resting "ready to think" pulse. */
+.blez-mark.is-thinking::before {
+  animation-duration: 1s;
+}
+
+/* 8.10 Live indicator */
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--blez-blue);
+  box-shadow: 0 0 0 0 rgba(0, 153, 255, 0.7);
+  animation: live-pulse 1.6s var(--ease-in-out) infinite;
+}
+@keyframes live-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 153, 255, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(0, 153, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 153, 255, 0);
+  }
+}
+
+/* Skip link (a11y) */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: var(--space-3) var(--space-5);
+  background: var(--blez-blue);
+  color: var(--neutral-0);
+  border-radius: var(--radius-md);
+  z-index: 100;
+}
+.skip-to-content:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}
+
+} /* end @layer components */
