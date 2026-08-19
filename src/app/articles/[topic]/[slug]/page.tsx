@@ -165,12 +165,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             ))}
           </article>
 
-          <div className="mt-12 flex flex-col gap-8">
+          <div className="mt-12">
             <WasThisHelpful
               articleSlug={article.slug}
               articleTitle={article.title}
             />
-            <StillNeedHelp subject={`Help with: ${article.title}`} />
+            {/* Contact escape hatch — inline on mobile/tablet where the TOC
+                sidebar is hidden; on lg+ it lives under the TOC instead. */}
+            <div className="mt-8 lg:hidden">
+              <StillNeedHelp subject={`Help with: ${article.title}`} />
+            </div>
           </div>
 
           {related.length > 0 && (
@@ -212,8 +216,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {/* Right TOC sidebar — hidden on small screens */}
         <aside className="hidden lg:block">
-          <div className="sticky top-24">
+          <div className="sticky top-24 flex flex-col gap-6">
             <TableOfContents items={tocItems} />
+            <StillNeedHelp
+              subject={`Help with: ${article.title}`}
+              compact
+            />
           </div>
         </aside>
       </div>
