@@ -83,6 +83,52 @@
     ]
   },
   {
+    "slug": "inside-the-blez-app",
+    "title": "Inside the Blez Online App: Rip Packs Anywhere, Anytime",
+    "category": "guide",
+    "publishedAt": "2026-08-19",
+    "excerpt": "A tour of the Blez Online app — the interactive on-screen rip, instant ship-or-sell-back, your Collect tab, every category, and Points, tiers, and daily drops.",
+    "readMinutes": 4,
+    "sections": [
+      {
+        "id": "anywhere-anytime",
+        "heading": "Rip anywhere, anytime",
+        "body": "The Blez Online app puts the whole experience in your pocket. There’s no live-stream schedule to catch and no waiting room — open the app whenever the mood strikes, browse the shop, and rip a pack at 2 a.m. or on your lunch break. It runs 24/7, so the hobby is always open.\n\nEvery pack shows a clear floor and ceiling price before you buy, so you always know the value range you’re stepping into."
+      },
+      {
+        "id": "interactive-rip",
+        "heading": "The interactive rip",
+        "body": "Opening a pack on Blez isn’t a static reveal — it’s an experience. You rip the pack open right on your screen with an interactive, animated reveal, and you can choose from multiple opening animations to set the mood. Each one is built to draw out the suspense and deliver that real pack-ripping rush the moment your card appears.\n\nPro tip: screen-record your rip and your reaction. The best pulls are meant to be shared."
+      },
+      {
+        "id": "ship-or-sell",
+        "heading": "Ship it or sell it back — instantly",
+        "body": "The moment your card is revealed, you decide:\n\n- Ship it. Love the pull? Send it to your door. Cards and sealed collectibles ship with tracking; memorabilia ships through our fulfillment partners.\n- Sell it back. Not feeling it? Sell it back in one tap for instant Blez Balance — 90% of value for cards and sealed collectibles, 80% for memorabilia. The funds land immediately, ready for your next rip.\n\nNo waiting rooms, no approval queue, no friction."
+      },
+      {
+        "id": "collect-tab",
+        "heading": "Your collection, organized",
+        "body": "Everything you pull lives in your Collect tab, sorted into Cards, Collectibles, and Memorabilia. From there you can track what you own, ship items to your door, or sell them back — all in a few taps. Non-graded cards are kept in protective cases until they ship."
+      },
+      {
+        "id": "categories",
+        "heading": "Every category in your pocket",
+        "body": "Browse the shop by category: Pokémon, One Piece, Basketball (NBA), Women’s Basketball (WNBA), Baseball (MLB), Football (NFL), Hockey, Disney, and Multi-Sport, plus sealed collectibles (like Labubu) and memorabilia. Pulls range from Common to Chase to Grail — and the rare Super Grail."
+      },
+      {
+        "id": "points-tiers",
+        "heading": "Points, tiers, and daily drops",
+        "body": "The app rewards you for playing. You earn Blez Points on activity, climb tiers from Base to Silver, Gold, Red, Black, and Blezendary, and can jump into daily drops for extra chances at prizes. Your Wallet keeps your Balance and Points in one place, and once you’re verified you can cash out to your bank."
+      },
+      {
+        "id": "why-it-matters",
+        "heading": "Why the app changes the experience",
+        "body": "Live breaking is fun, but you have to be there when it happens. The Blez app gives you the same curated product — hand-picked by our category specialists — on demand, with instant buyback as a safety net so your downside on any rip is capped. It’s the lowest-friction, highest-fun way to be in the hobby, whenever you want to be."
+      }
+    ],
+    "faq": []
+  },
+  {
     "slug": "how-blez-online-works",
     "title": "How Blez Online Works",
     "category": "guide",

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import JsonLd, { breadcrumbSchema } from '@/lib/seo/jsonld'
 import { siteConfig } from '@/lib/config'
 import { getAllResources } from '@/lib/resources'
-import ResourceCard from '@/components/ResourceCard'
+import ResourcesList from '@/components/ResourcesList'
 import ShopCTA from '@/components/ShopCTA'
 
 export const metadata: Metadata = {
@@ -58,17 +58,7 @@ export default function ResourcesPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-        {resources.length === 0 ? (
-          <p className="text-[var(--text-muted)]">No resources yet.</p>
-        ) : (
-          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {resources.map((r) => (
-              <li key={r.slug} className="flex">
-                <ResourceCard resource={r} />
-              </li>
-            ))}
-          </ul>
-        )}
+        <ResourcesList />
 
         <div className="mt-12">
           <ShopCTA />
