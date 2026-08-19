@@ -7,6 +7,7 @@ import TopicTile from '@/components/TopicTile'
 import ResourceCard from '@/components/ResourceCard'
 import { topics } from '@/lib/topics'
 import { getAllResources } from '@/lib/resources'
+import { getUrgentLinks } from '@/lib/quicklinks'
 
 export const metadata: Metadata = {
   title: 'Support Articles',
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const sorted = [...topics].sort((a, b) => a.order - b.order)
   const recentResources = getAllResources().slice(0, 3)
+  const urgent = getUrgentLinks()
 
   return (
     <>
@@ -40,6 +42,18 @@ export default function HomePage() {
             <div className="mt-8 text-left">
               <SearchBar />
             </div>
+            {urgent.length > 0 && (
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+                <span className="text-sm text-[var(--text-muted)]">
+                  Common:
+                </span>
+                {urgent.map((u) => (
+                  <Link key={u.href} href={u.href} className="chip chip-pill">
+                    {u.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>

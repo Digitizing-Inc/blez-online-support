@@ -6,6 +6,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import ResourceThumb from '@/components/ResourceThumb'
 import ResourceCard from '@/components/ResourceCard'
 import Prose from '@/components/Prose'
+import ShopCTA from '@/components/ShopCTA'
 import TableOfContents from '@/components/TableOfContents'
 import JsonLd, {
   blogPostingSchema,
@@ -87,6 +88,17 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
     .sort((a, b) => (a.category === resource.category ? -1 : 0))
     .slice(0, 3)
 
+  const shopCopy =
+    resource.category === 'comparison'
+      ? {
+          title: 'See it for yourself',
+          body: 'Browse Blez packs and rip one on the spot — with instant 90% buyback on every card.',
+        }
+      : {
+          title: 'Ready to rip?',
+          body: 'Browse hand-curated packs of real cards and open one on the spot.',
+        }
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
       <JsonLd data={schemas} />
@@ -164,6 +176,10 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
               </section>
             ))}
           </article>
+
+          <div className="mt-12">
+            <ShopCTA title={shopCopy.title} body={shopCopy.body} />
+          </div>
 
           <div className="mt-14 border-t border-[var(--border-subtle)] pt-8">
             <Link

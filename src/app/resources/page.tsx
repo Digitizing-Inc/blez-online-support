@@ -3,6 +3,7 @@ import JsonLd, { breadcrumbSchema } from '@/lib/seo/jsonld'
 import { siteConfig } from '@/lib/config'
 import { getAllResources } from '@/lib/resources'
 import ResourceCard from '@/components/ResourceCard'
+import ShopCTA from '@/components/ShopCTA'
 
 export const metadata: Metadata = {
   title: 'Resources — Guides, Comparisons & Collecting Tips',
@@ -68,6 +69,10 @@ export default function ResourcesPage() {
             ))}
           </ul>
         )}
+
+        <div className="mt-12">
+          <ShopCTA />
+        </div>
       </section>
     </>
   )

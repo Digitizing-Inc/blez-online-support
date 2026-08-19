@@ -1,8 +1,7 @@
 /**
- * Public surface for topic + article data. Note: `searchArticles` lives
- * in `./search.ts` and is NOT re-exported here. Import it from
- * `@/lib/topics/search` directly to keep MiniSearch out of bundles
- * that don't need it.
+ * Public surface for topic + article data. Full-text search lives in
+ * `@/lib/search` (unified across help articles + resources) so MiniSearch
+ * stays out of bundles that don't search.
  */
 
 export type { Article, ArticleSection, Topic } from './types'

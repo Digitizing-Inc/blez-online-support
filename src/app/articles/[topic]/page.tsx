@@ -79,6 +79,9 @@ export default async function TopicPage({ params }: TopicPageProps) {
               <p className="mt-3 max-w-2xl text-lg text-[var(--text-secondary)]">
                 {topic.description}
               </p>
+              <p className="eyebrow eyebrow-sm mt-4">
+                {articles.length} {articles.length === 1 ? 'article' : 'articles'}
+              </p>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { siteConfig } from '@/lib/config'
 
 /* How long the "all caught up" panel stays visible before sliding up
    and collapsing the banner. Refresh the page to bring the stack back. */
@@ -22,29 +23,29 @@ interface CardData {
 
 const CARDS: CardData[] = [
   {
-    eyebrow: 'Blez Mobile',
-    headline: 'Rip Packs on the Go',
+    eyebrow: 'Blez Online',
+    headline: 'Rip a Pack, Score Big',
     body:
-      'Faster reveals, push alerts on offers, your cards in your pocket.',
-    ctaLabel: 'Open in App',
-    ctaHref: '#',
+      'Hand-curated packs of real cards, opened on your screen. Ship it or sell back at 90%.',
+    ctaLabel: 'Browse packs',
+    ctaHref: siteConfig.shopUrl,
     imageSrc: '/cards/blez-mobile-phone.png',
   },
   {
-    eyebrow: "What's New",
-    headline: 'Saved Searches Are Live',
+    eyebrow: 'Resources',
+    headline: 'In-Depth Guides',
     body:
-      'Save a query and we will ping you when a fresh article lands on it.',
-    ctaLabel: 'Set One Up',
-    ctaHref: '#',
+      'Grading, investing, protecting your collection — the full guides in one place.',
+    ctaLabel: 'Explore guides',
+    ctaHref: '/resources',
   },
   {
-    eyebrow: 'Account',
-    headline: 'Verify Your Email',
+    eyebrow: 'Getting Started',
+    headline: 'Verify Your Identity',
     body:
-      'Unlock dispute tracking and faster responses from the support crew.',
-    ctaLabel: 'Verify Now',
-    ctaHref: '#',
+      'A quick, one-time ID check unlocks cashouts and higher-value shipments.',
+    ctaLabel: 'How to verify',
+    ctaHref: '/articles/getting-started/creating-account-id-verification',
   },
 ]
 

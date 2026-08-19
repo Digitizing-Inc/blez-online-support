@@ -5,6 +5,7 @@ import { ArrowRight, ChevronRight } from 'lucide-react'
 import Breadcrumb from '@/components/Breadcrumb'
 import TableOfContents from '@/components/TableOfContents'
 import WasThisHelpful from '@/components/WasThisHelpful'
+import StillNeedHelp from '@/components/StillNeedHelp'
 import JsonLd, {
   articleSchema,
   breadcrumbSchema,
@@ -144,8 +145,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             ))}
           </article>
 
-          <div className="mt-12">
-            <WasThisHelpful articleSlug={article.slug} />
+          <div className="mt-12 flex flex-col gap-8">
+            <WasThisHelpful
+              articleSlug={article.slug}
+              articleTitle={article.title}
+            />
+            <StillNeedHelp subject={`Help with: ${article.title}`} />
           </div>
 
           {related.length > 0 && (
@@ -173,6 +178,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </ul>
             </div>
           )}
+
+          <div className="mt-10">
+            <Link
+              href="/resources"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--blez-blue)] hover:no-underline"
+            >
+              Prefer a deep dive? Browse our guides
+              <ArrowRight className="h-4 w-4" strokeWidth={2} />
+            </Link>
+          </div>
         </div>
 
         {/* Right TOC sidebar — hidden on small screens */}

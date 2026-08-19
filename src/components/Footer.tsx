@@ -57,17 +57,17 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             <h2 className="display display-h4 not-italic">Need support?</h2>
             <p className="text-sm text-[var(--text-secondary)] sm:text-base">
-              Send us an email if you need help and we&rsquo;ll respond as
-              quickly as we can.
+              Tell us what&rsquo;s going on and we&rsquo;ll help as quickly as
+              we can. {siteConfig.supportResponseTime}
             </p>
           </div>
-          <a
-            href={`mailto:${siteConfig.supportEmail}`}
+          <Link
+            href="/contact"
             className="btn btn-primary btn-md self-start sm:self-auto"
           >
             <Mail className="h-4 w-4" strokeWidth={2} />
-            EMAIL SUPPORT
-          </a>
+            CONTACT SUPPORT
+          </Link>
         </div>
 
         {/* Body — logo / community+support / quick links */}
@@ -143,12 +143,20 @@ export default function Footer() {
 
             <div>
               <h3 className="display display-h6 not-italic">Support</h3>
-              <a
-                href={`mailto:${siteConfig.supportEmail}`}
-                className="mt-5 inline-block text-sm text-[var(--text-secondary)] underline underline-offset-4 transition-colors hover:text-[var(--blez-blue)]"
-              >
-                {siteConfig.supportEmail}
-              </a>
+              <div className="mt-5 flex flex-col gap-3 text-sm">
+                <Link
+                  href="/contact"
+                  className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  Contact support
+                </Link>
+                <a
+                  href={`mailto:${siteConfig.supportEmail}`}
+                  className="text-[var(--text-secondary)] underline underline-offset-4 transition-colors hover:text-[var(--blez-blue)]"
+                >
+                  {siteConfig.supportEmail}
+                </a>
+              </div>
             </div>
           </div>
 

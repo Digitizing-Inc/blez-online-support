@@ -3,9 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Search, X, Mail } from 'lucide-react'
-import { searchArticles } from '@/lib/topics/search'
-import { getTopic } from '@/lib/topics'
-import { siteConfig } from '@/lib/config'
+import { search } from '@/lib/search'
+import SearchResultList from './SearchResultList'
 
 const SEARCH_DEBOUNCE_MS = 100
 
@@ -15,8 +14,8 @@ export default function SearchBar() {
   const [open, setOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Debounce the query feeding into MiniSearch so each keystroke isn't a
-  // full search. Fast at 52 docs; matters at 500+.
+  // Debounce the query feeding into search so each keystroke isn't a full
+  // index query. Fast at this size; matters as content grows.
   useEffect(() => {
     const id = window.setTimeout(
       () => setDebouncedQuery(query),
@@ -25,10 +24,7 @@ export default function SearchBar() {
     return () => window.clearTimeout(id)
   }, [query])
 
-  const results = useMemo(
-    () => searchArticles(debouncedQuery),
-    [debouncedQuery],
-  )
+  const results = useMemo(() => search(debouncedQuery), [debouncedQuery])
 
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
@@ -69,8 +65,8 @@ export default function SearchBar() {
             setOpen(true)
           }}
           onFocus={() => setOpen(true)}
-          placeholder="Search for answers…"
-          aria-label="Search support articles"
+          placeholder="Search help articles and guides…"
+          aria-label="Search help articles and guides"
           className="text-base"
         />
         {query && (
@@ -93,30 +89,9 @@ export default function SearchBar() {
           {results.length === 0 ? (
             <NoMatchPanel query={trimmed} />
           ) : (
-            <ul className="max-h-96 overflow-y-auto py-2">
-              {results.map((r) => {
-                const topic = getTopic(r.topicSlug)
-                return (
-                  <li key={`${r.topicSlug}-${r.slug}`}>
-                    <Link
-                      href={`/articles/${r.topicSlug}/${r.slug}`}
-                      onClick={() => setOpen(false)}
-                      className="flex flex-col gap-1 px-5 py-3 transition-colors hover:bg-[var(--blez-blue-ghost)] hover:no-underline"
-                    >
-                      <span className="eyebrow eyebrow-sm">
-                        {topic?.title ?? r.topicSlug}
-                      </span>
-                      <span className="text-sm font-medium text-[var(--text-primary)]">
-                        {r.title}
-                      </span>
-                      <span className="line-clamp-1 text-xs text-[var(--text-muted)]">
-                        {r.summary}
-                      </span>
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
+            <div className="max-h-96 overflow-y-auto">
+              <SearchResultList hits={results} onSelect={() => setOpen(false)} />
+            </div>
           )}
         </div>
       )}
@@ -125,9 +100,9 @@ export default function SearchBar() {
 }
 
 /**
- * Shown when fuzzy search returns no hits. Always offers a recoverable
- * path — email support with the exact query pre-filled in the subject.
- * A search dead-end without this is the audit's #2 P0 finding.
+ * Shown when search returns no hits. Always offers a recoverable path — the
+ * contact form with the exact query carried through. A search dead-end
+ * without this is the audit's #2 P0 finding.
  */
 function NoMatchPanel({ query }: { query: string }) {
   return (
@@ -139,17 +114,13 @@ function NoMatchPanel({ query }: { query: string }) {
         </span>
         .
       </p>
-      <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
-        <a
-          href={`mailto:${siteConfig.supportEmail}?subject=${encodeURIComponent(
-            `Help with: ${query}`,
-          )}`}
-          className="btn btn-primary btn-sm flex-1 justify-center"
-        >
-          <Mail className="h-4 w-4" strokeWidth={2} />
-          Email support
-        </a>
-      </div>
+      <Link
+        href={`/contact?subject=${encodeURIComponent(`Help with: ${query}`)}`}
+        className="btn btn-primary btn-sm self-start"
+      >
+        <Mail className="h-4 w-4" strokeWidth={2} />
+        Contact support
+      </Link>
     </div>
   )
 }

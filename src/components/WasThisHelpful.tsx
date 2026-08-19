@@ -1,49 +1,90 @@
 'use client'
 
-import { useState } from 'react'
-import { ThumbsUp, ThumbsDown, Check } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { ThumbsUp, ThumbsDown, Check, Mail } from 'lucide-react'
 import { cn } from '@/lib/cn'
 
 interface WasThisHelpfulProps {
   /** Article slug — passed to the eventual backend so feedback is attributable. */
   articleSlug: string
+  /** Article title — used to pre-fill the contact form on an unhelpful vote. */
+  articleTitle: string
 }
 
 /**
- * Two-button "Was this helpful?" row with a follow-up textarea on No.
- * UI is fully wired but submission is a no-op for the prototype — the
- * dev should swap the placeholder `submit()` for a POST to `/api/feedback`
- * including `articleSlug`, `verdict`, and the optional comment.
+ * "Was this helpful?" with two upgrades over a basic thumbs widget:
+ *   1. The vote is remembered per-article (localStorage) so we don't re-ask.
+ *   2. An unhelpful vote escalates — it routes to the contact form with the
+ *      article + the user's comment carried through, instead of dead-ending.
+ * Submission itself is still a no-op stub; the dev should POST to
+ * `/api/feedback` with `articleSlug`, `verdict`, and the optional comment.
  */
-export default function WasThisHelpful({ articleSlug }: WasThisHelpfulProps) {
+export default function WasThisHelpful({
+  articleSlug,
+  articleTitle,
+}: WasThisHelpfulProps) {
   const [verdict, setVerdict] = useState<'yes' | 'no' | null>(null)
   const [comment, setComment] = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState<null | 'yes' | 'no'>(null)
+
+  const storageKey = `blez-helpful:${articleSlug}`
+
+  // Don't re-ask if this reader already voted on this article.
+  useEffect(() => {
+    try {
+      const prior = window.localStorage.getItem(storageKey)
+      if (prior === 'yes' || prior === 'no') setSubmitted(prior)
+    } catch {
+      // localStorage unavailable — just show the prompt.
+    }
+  }, [storageKey])
 
   function pick(value: 'yes' | 'no') {
     setVerdict(value)
-    if (value === 'yes') {
-      // Yes is a one-click submit — no follow-up question for positives.
-      submit('yes', '')
-    }
+    if (value === 'yes') submit('yes', '')
   }
 
-  async function submit(v: 'yes' | 'no', text: string) {
+  function submit(v: 'yes' | 'no', text: string) {
     // Placeholder. Replace with: await fetch('/api/feedback', { ... })
     void articleSlug
-    void v
     void text
-    setSubmitted(true)
+    try {
+      window.localStorage.setItem(storageKey, v)
+    } catch {
+      // ignore
+    }
+    setSubmitted(v)
   }
+
+  const contactHref = `/contact?subject=${encodeURIComponent(
+    `Help with: ${articleTitle}`,
+  )}${comment.trim() ? `&note=${encodeURIComponent(comment.trim())}` : ''}`
 
   if (submitted) {
     return (
-      <div className="flex items-center gap-2 rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-4 py-3 text-sm text-[var(--text-secondary)]">
-        <Check
-          className="h-4 w-4 flex-shrink-0 text-[var(--success)]"
-          strokeWidth={2.5}
-        />
-        Thanks — your feedback helps us prioritize what to fix next.
+      <div className="rounded-md border border-[var(--border-subtle)] bg-[var(--bg-elevated)] p-5">
+        <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
+          <Check
+            className="h-4 w-4 flex-shrink-0 text-[var(--success)]"
+            strokeWidth={2.5}
+          />
+          Thanks — your feedback helps us prioritize what to fix next.
+        </div>
+        {submitted === 'no' && (
+          <div className="mt-4 flex flex-col gap-3 border-t border-[var(--border-subtle)] pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-[var(--text-primary)]">
+              Still need a hand? Our team can help.
+            </p>
+            <Link
+              href={contactHref}
+              className="btn btn-primary btn-sm self-start sm:self-auto"
+            >
+              <Mail className="h-4 w-4" strokeWidth={2} />
+              Contact support
+            </Link>
+          </div>
+        )}
       </div>
     )
   }
@@ -98,7 +139,8 @@ export default function WasThisHelpful({ articleSlug }: WasThisHelpfulProps) {
             htmlFor={`feedback-${articleSlug}`}
             className="text-sm text-[var(--text-secondary)]"
           >
-            What was missing or wrong?
+            What was missing or wrong? We&rsquo;ll point you to a human if you
+            need one.
           </label>
           <div className="input-shell h-auto py-2">
             <textarea
@@ -110,10 +152,7 @@ export default function WasThisHelpful({ articleSlug }: WasThisHelpfulProps) {
               className="resize-none bg-transparent leading-relaxed"
             />
           </div>
-          <button
-            type="submit"
-            className="btn btn-primary btn-sm self-start"
-          >
+          <button type="submit" className="btn btn-primary btn-sm self-start">
             Send feedback
           </button>
         </form>
