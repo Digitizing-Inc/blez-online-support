@@ -20,7 +20,7 @@ export default function Prose({
   const blocks = body.split('\n\n').map((b) => b.trim()).filter(Boolean)
 
   return (
-    <div className="flex flex-col gap-4 text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
+    <div className="flex flex-col gap-4 text-[15px] leading-relaxed text-[var(--text-secondary)]">
       {blocks.map((block, i) => {
         const lines = block.split('\n')
         const isList = lines.every((l) => l.trim().startsWith('- '))

@@ -127,10 +127,10 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
             </span>
           </div>
 
-          <h1 className="mt-4 text-3xl font-bold leading-tight text-[var(--text-primary)] sm:text-4xl">
+          <h1 className="mt-4 text-2xl font-bold leading-tight text-[var(--text-primary)] sm:text-3xl">
             {resource.title}
           </h1>
-          <p className="mt-3 text-lg text-[var(--text-secondary)] sm:text-xl">
+          <p className="mt-3 text-base text-[var(--text-secondary)]">
             {resource.excerpt}
           </p>
 
@@ -167,7 +167,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
           <article className="mt-10 flex flex-col gap-10">
             {resource.sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-24">
-                <h2 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-3xl">
+                <h2 className="text-xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-2xl">
                   {section.heading}
                 </h2>
                 <div className="mt-4">
