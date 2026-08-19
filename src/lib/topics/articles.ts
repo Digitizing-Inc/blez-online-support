@@ -23,7 +23,7 @@ export const articles: Article[] = [
       {
         id: 'overview',
         heading: 'The basics',
-        body: 'Blez Online lets you buy and open packs online. Every pack contains one or more real, physical items — trading cards, sealed collectibles, or memorabilia — that are curated by our team rather than made by a manufacturer.\n\nYou open the pack with an interactive on-screen animation. Once the item is revealed, you decide what to do with it: keep it stashed to ship to your door later, or sell it back to Blez instantly for 90% of its value.',
+        body: 'Blez Online lets you buy and open packs online. Every pack contains one or more real, physical items — trading cards, sealed collectibles, or memorabilia — that are curated by our team rather than made by a manufacturer.\n\nYou open the pack with an interactive on-screen animation. Once the item is revealed, you decide what to do with it: keep it stashed to ship to your door later, or sell it back to Blez instantly for 90% of its value (80% for memorabilia).',
       },
       {
         id: 'currency',
@@ -33,7 +33,33 @@ export const articles: Article[] = [
       {
         id: 'categories',
         heading: 'What you can pull',
-        body: 'Packs span Basketball (NBA and WNBA), Baseball (MLB), Football (NFL), Hockey, Multi-Sport, Pokémon, One Piece, and memorabilia. Every item is graded by rarity — Grail (rarest, highest value), Chase (moderately rare), or Common (most frequent).\n\nEach pack shows a clear floor and ceiling price so you know the value range before you buy.',
+        body: 'Packs span Basketball (NBA and WNBA), Baseball (MLB), Football (NFL), Hockey, Multi-Sport, Pokémon, One Piece, and Disney — plus sealed collectibles (like Labubu) and memorabilia. Every item is graded by rarity — Grail (rarest, highest value), Chase (moderately rare), or Common (most frequent).\n\nEach pack shows a clear floor and ceiling price so you know the value range before you buy.',
+      },
+    ],
+  },
+  {
+    slug: 'cards-collectibles-memorabilia',
+    topicSlug: 'getting-started',
+    title: 'Cards, collectibles & memorabilia — what’s the difference?',
+    summary:
+      'Everything you pull falls into three buckets — cards, sealed collectibles, and memorabilia — and each has its own sell-back rate and shipping rules.',
+    body: 'Blez has three product types: cards, sealed collectibles, and memorabilia. Each has its own sell-back rate and holding rules.',
+    lastUpdated: '2026-08-19',
+    sections: [
+      {
+        id: 'three-types',
+        heading: 'The three product types',
+        body: 'Everything on Blez falls into one of three buckets, and you can filter your Collect tab by each:\n\n- Cards — individual trading cards you pull from packs.\n- Collectibles — sealed products such as tins, wax, and unopened packs. Figure lines like Labubu live here too.\n- Memorabilia — physical memorabilia items, fulfilled through our shipping partners.',
+      },
+      {
+        id: 'rules',
+        heading: 'How the rules differ',
+        body: 'The 72-hour clock and the sell-back rate work a little differently for each:\n\n- Cards: you have 72 hours to sell a card back at 90% of its value. After that the instant sell-back closes, but you can still ship the card whenever you like — there is no shipping deadline.\n- Sealed collectibles: mark them for shipping within 72 hours, or they are automatically sold back at 90% of value.\n- Memorabilia: mark them for shipping within 72 hours, or they are automatically sold back at 80% of value.',
+      },
+      {
+        id: 'shipping',
+        heading: 'How each one ships',
+        body: 'Cards and sealed collectibles ship through Blez with a tracking number you can follow. Memorabilia is fulfilled through our shipping partners (including Fanatics and Ghostwrite), so those orders move on the partner’s flow — you’ll see an order number and a “Pending Fanatics Shipping” status rather than a standard tracking link, and we email you the details as it moves.',
       },
     ],
   },
@@ -54,7 +80,7 @@ export const articles: Article[] = [
       {
         id: 'after',
         heading: 'After the reveal',
-        body: 'Collecting stashes the item in your collection so you can ship it later. Selling converts it to 90% of its value as Blez Balance right away.\n\nTrading cards can stay stashed as long as you like. Sealed collectibles and memorabilia have a 72-hour window to be marked for shipping before they are automatically sold back.',
+        body: 'Collecting stashes the item in your collection so you can ship it later. Selling converts it to Blez Balance right away — 90% of value for cards and sealed collectibles, 80% for memorabilia.\n\nA card has no shipping deadline (its instant sell-back option closes 72 hours after the pull). Sealed collectibles and memorabilia must be marked for shipping within 72 hours, or they are automatically sold back.',
       },
     ],
   },
@@ -410,7 +436,7 @@ export const articles: Article[] = [
       {
         id: 'look',
         heading: 'How to tell them apart',
-        body: 'Packs that contain trading cards look like a sachet, while packs that contain sealed collectibles look like a box. Remember that sealed collectibles and memorabilia carry a 72-hour shipping window, while trading cards can be held indefinitely.',
+        body: 'Packs that contain trading cards look like a sachet, while packs that contain sealed collectibles look like a box. Remember that sealed collectibles and memorabilia carry a 72-hour window to be shipped (or they auto-sell), while a card has no shipping deadline.',
       },
     ],
   },
@@ -437,19 +463,19 @@ export const articles: Article[] = [
     topicSlug: 'selling-withdrawals',
     title: 'Choosing between shipping your item and selling it back',
     summary:
-      'After a reveal you can keep the item to ship, or sell it back to Blez for 90% of its value. Trading cards can wait; sealed collectibles and memorabilia cannot.',
-    body: 'Keep an item to ship it, or sell it back for 90% of its value. Cards can be held indefinitely; sealed collectibles and memorabilia auto-sell after 72 hours.',
+      'After a reveal you can keep the item to ship, or sell it back instantly — 90% for cards and sealed collectibles, 80% for memorabilia. Cards can ship anytime; collectibles and memorabilia must be shipped within 72 hours.',
+    body: 'Keep an item to ship it, or sell it back instantly — 90% for cards and sealed collectibles, 80% for memorabilia. Cards can ship anytime; sealed collectibles and memorabilia auto-sell if not shipped within 72 hours.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'options',
         heading: 'Your two options',
-        body: 'When an item is revealed you can Collect it — stash it in your collection to ship later — or Sell it back to Blez instantly for 90% of its value, credited to your Blez Balance.',
+        body: 'When an item is revealed you can Collect it — stash it in your collection to ship later — or Sell it back to Blez instantly for Blez Balance. Cards and sealed collectibles sell back at 90% of value; memorabilia sells back at 80%.',
       },
       {
         id: 'timing',
         heading: 'How long you can wait',
-        body: 'Trading cards can stay stashed in your collection indefinitely, so there is no rush to decide. Sealed collectibles and memorabilia must be marked for shipping within 72 hours of purchase, or they are automatically sold back at 90% of value.',
+        body: 'A card has no shipping deadline — keep it stashed and ship whenever you like. (Its instant sell-back option does close 72 hours after the pull.) Sealed collectibles and memorabilia must be marked for shipping within 72 hours of purchase, or they are automatically sold back — sealed at 90%, memorabilia at 80%.',
       },
     ],
   },
@@ -458,14 +484,14 @@ export const articles: Article[] = [
     topicSlug: 'selling-withdrawals',
     title: 'How instant offer values are calculated',
     summary:
-      'The instant sell-back offer is 90% of an item’s assigned value, which itself reflects rarity, condition, demand, supply, and recent sales.',
-    body: 'Selling back pays 90% of the item’s assigned value. That value reflects rarity, condition, demand, supply, age, and recent sales.',
+      'The instant sell-back is a percentage of an item’s assigned value — 90% for cards and sealed collectibles, 80% for memorabilia — with value based on rarity, condition, demand, supply, and recent sales.',
+    body: 'Selling back pays 90% of the item’s assigned value for cards and sealed collectibles, and 80% for memorabilia. That value reflects rarity, condition, demand, supply, age, and recent sales.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'offer',
-        heading: 'The 90% offer',
-        body: 'When you sell an item back to Blez, you receive 90% of its assigned value as Blez Balance.',
+        heading: 'The sell-back offer',
+        body: 'When you sell an item back to Blez, you receive a share of its assigned value as Blez Balance instantly — 90% for cards and sealed collectibles, and 80% for memorabilia.',
       },
       {
         id: 'value',
@@ -479,19 +505,19 @@ export const articles: Article[] = [
     topicSlug: 'selling-withdrawals',
     title: 'Time limit for deciding to ship vs. sell back',
     summary:
-      'Trading cards have no deadline. Sealed collectibles and memorabilia auto-sell back at 90% if not marked for shipping within 72 hours.',
-    body: 'Cards have no deadline. Sealed collectibles and memorabilia auto-sell at 90% if not marked for shipping within 72 hours.',
+      'A card has a 72-hour window to sell back — after that you can still ship it anytime. Sealed collectibles and memorabilia must be shipped within 72 hours or they auto-sell (sealed 90%, memorabilia 80%).',
+    body: 'Cards: 72 hours to sell back, then ship anytime. Sealed collectibles and memorabilia: ship within 72 hours or they auto-sell (sealed 90%, memorabilia 80%).',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'cards',
-        heading: 'Trading cards: no deadline',
-        body: 'Trading cards can stay stashed in your collection for as long as you like. You can choose to ship or sell them whenever you want.',
+        heading: 'Cards: 72 hours to sell, ship anytime',
+        body: 'You have 72 hours after the pull to sell a card back at 90% of its value. After that window the instant sell-back is no longer available — but you can still ship the card whenever you like. There is no deadline to ship a card.',
       },
       {
         id: 'collectibles',
-        heading: 'Sealed collectibles & memorabilia: 72 hours',
-        body: 'Sealed collectibles and memorabilia have a 72-hour holding period. If you do not mark them for shipping within that window, they are automatically sold back to Blez for 90% of their value.',
+        heading: 'Sealed collectibles & memorabilia: 72 hours to ship',
+        body: 'Sealed collectibles and memorabilia have a 72-hour holding period to be marked for shipping. If you do not, they are automatically sold back — sealed collectibles at 90% of their value, and memorabilia at 80%.',
       },
     ],
   },
@@ -618,14 +644,14 @@ export const articles: Article[] = [
     topicSlug: 'shipping',
     title: 'How long we hold your items before shipping',
     summary:
-      'Trading cards can be stashed indefinitely; sealed collectibles and memorabilia must be marked for shipping within 72 hours.',
-    body: 'Trading cards can be held indefinitely. Sealed collectibles and memorabilia must be marked for shipping within 72 hours.',
+      'Cards have no shipping deadline (though their instant sell-back closes after 72 hours). Sealed collectibles and memorabilia must be shipped within 72 hours or they auto-sell — 90% sealed, 80% memorabilia.',
+    body: 'Cards can ship anytime; their instant sell-back closes after 72 hours. Sealed collectibles and memorabilia must be marked for shipping within 72 hours or they auto-sell (sealed 90%, memorabilia 80%).',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'holds',
         heading: 'Holding periods',
-        body: 'Trading cards have no holding limit — you can keep them stashed and ship whenever you are ready. Sealed collectibles and memorabilia must be marked for shipping within 72 hours of purchase, or they are automatically sold back at 90% of value.',
+        body: 'Cards have no holding limit for shipping — keep them stashed and ship whenever you are ready. (Their instant 90% sell-back option does close 72 hours after the pull.) Sealed collectibles and memorabilia must be marked for shipping within 72 hours of purchase, or they are automatically sold back — sealed collectibles at 90% of value, and memorabilia at 80%.',
       },
     ],
   },
@@ -658,6 +684,11 @@ export const articles: Article[] = [
         id: 'where',
         heading: 'Finding your tracking',
         body: 'When your order ships, you receive an email from no-reply@blezonline.com with your tracking number. The same tracking number also appears beneath the item in the Collect tab at the top of the page.',
+      },
+      {
+        id: 'memorabilia',
+        heading: 'Memorabilia orders',
+        body: 'Memorabilia is fulfilled through our shipping partners (including Fanatics), which use their own flow. For those orders you’ll see an order number and a “Pending Fanatics Shipping” status rather than a standard carrier tracking link, and we’ll email you the details as it moves.',
       },
       {
         id: 'emails',
