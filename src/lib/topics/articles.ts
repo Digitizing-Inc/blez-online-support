@@ -28,12 +28,12 @@ export const articles: Article[] = [
       {
         id: 'currency',
         heading: 'Points and Balance',
-        body: 'Blez uses two currencies. Blez Points are used to buy packs and can be topped up with a real-money purchase. Blez Balance is the cash you earn when you sell an item back; you can spend it on more packs or cash it out to your bank.\n\nNew accounts start with 10 Blez Points.',
+        body: 'Blez uses two currencies. Blez Points are used to buy packs and can be topped up with a real-money purchase. Blez Balance is the cash you earn when you sell an item back; you can spend it on more packs or cash it out to your bank.\n\nKeep an eye out for a sign-up deal or promo code — we often run them for a discount on your first purchase.',
       },
       {
         id: 'categories',
         heading: 'What you can pull',
-        body: 'Packs span Basketball (NBA and WNBA), Baseball (MLB), Football (NFL), Hockey, Multi-Sport, Pokémon, One Piece, and Disney — plus sealed collectibles (like Labubu) and memorabilia. Every item is graded by rarity — Grail (rarest, highest value), Chase (moderately rare), or Common (most frequent).\n\nEach pack shows a clear floor and ceiling price so you know the value range before you buy.',
+        body: 'Packs span Basketball (NBA and WNBA), Baseball (MLB), Football (NFL), Hockey, Multi-Sport, Pokémon, One Piece, and Disney — plus sealed collectibles (like Labubu) and memorabilia.\n\nEvery item is sorted by rarity — Super Grail (the rarest, top-tier chase), Grail (very rare, high value), Chase (moderately rare), and Common (most frequent). Each pack shows a clear floor and ceiling price and a full checklist of the possible pulls, so you can see what could be inside at a glance before you buy.\n\nThe cards themselves come graded or non-graded. Graded cards are professionally slabbed with a numbered grade; non-graded cards are kept in protective sleeves so they stay in the exact condition you pulled them in.',
       },
     ],
   },
@@ -96,7 +96,7 @@ export const articles: Article[] = [
       {
         id: 'sign-up',
         heading: 'Creating your account',
-        body: 'Click Sign Up in the upper-right corner and fill in your first and last name, a username, an alias, your email, and a password. Review and accept the Privacy Policy and Terms of Service, then click Create Account.\n\nCheck your inbox for a confirmation email and click Confirm My Email. Once confirmed, your account is ready and starts with 10 Blez Points.',
+        body: 'Click Sign Up in the upper-right corner and fill in your first and last name, a username, an alias, your email, and a password. Review and accept the Privacy Policy and Terms of Service, then click Create Account.\n\nCheck your inbox for a confirmation email and click Confirm My Email. Once confirmed, your account is ready to go. We often run sign-up deals or promo codes for a discount on your first purchase, so check for a current offer.',
       },
       {
         id: 'verification',
@@ -132,7 +132,7 @@ export const articles: Article[] = [
     title: 'Blez Points: what they are, how to earn them, how to spend them',
     summary:
       'Blez Points are the credit used to buy packs — earned from top-ups, purchase cash-back, referrals, daily drops, and tier rewards.',
-    body: 'Blez Points buy packs. You earn them from top-ups, purchase cash-back, sign-up and referral bonuses, daily drops, and tier rewards.',
+    body: 'Blez Points buy packs. You earn them from top-ups, purchase cash-back, referral bonuses, daily drops, and tier rewards.',
     lastUpdated: '2026-08-19',
     sections: [
       {
@@ -143,7 +143,7 @@ export const articles: Article[] = [
       {
         id: 'earning',
         heading: 'Ways to earn',
-        body: 'New accounts start with 10 Blez Points. Beyond that, Points come from purchase cash-back, referral bonuses, daily drops, and tier rewards for higher-tier members.\n\nBlez Points are separate from Blez Balance: Points buy packs, while Balance (earned from selling items) can be spent on packs or cashed out to your bank.',
+        body: 'Sign-up perks vary — we often run promos or codes for a discount on your first purchase, so check for a current offer when you join. Ongoing, Points come from purchase cash-back, referral bonuses, daily drops, and tier rewards for higher-tier members.\n\nBlez Points are separate from Blez Balance: Points buy packs, while Balance (earned from selling items) can be spent on packs or cashed out to your bank.',
       },
     ],
   },
