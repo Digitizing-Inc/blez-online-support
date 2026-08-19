@@ -54,10 +54,14 @@ per article). Notes:
 - A few real pages (Hendon Mob, Trustpilot, Sports Collectors Daily) return
   403 to automated checkers because they block bots — they work fine in a
   browser and were kept intentionally.
-- **Founder-name flag:** research corroborated Jared Bleznick and his
-  **$10M+ poker earnings (Hendon Mob)**, but could **not** verify a brother
-  named **"Scott"** — one third-party source named the co-founder **"Chad
-  Bleznick."** Confirm the correct name in `about-blez-online` before launch.
+- **Founders:** Jared Bleznick and his **$10M+ poker earnings** are
+  corroborated (Hendon Mob / PokerNews). The co-founder brother **Scott
+  Bleznick is confirmed** by the owner (a stray third-party source had
+  guessed "Chad" — disregard).
+- **Card Architects:** `about-blez-online` now lists the full roster — Jared,
+  Scott, and Jake plus **Swisher (Disney), Doug & Emily (Pokémon & One
+  Piece), RNG (football), and Sleevy (sealed)** — and the markets guide names
+  them in its "why experts" section.
 
 ## What was excluded (never published)
 

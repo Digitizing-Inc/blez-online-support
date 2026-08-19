@@ -5,6 +5,7 @@ export type {
   Resource,
   ResourceSection,
   ResourceFaq,
+  ResourceSource,
   ResourceCategory,
 } from './types'
 export {

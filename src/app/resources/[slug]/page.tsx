@@ -171,7 +171,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
                   {section.heading}
                 </h2>
                 <div className="mt-4">
-                  <Prose body={section.body} />
+                  <Prose body={section.body} sources={resource.sources} />
                 </div>
               </section>
             ))}

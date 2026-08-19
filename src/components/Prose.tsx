@@ -1,12 +1,22 @@
 import { Fragment } from 'react'
+import type { ResourceSource } from '@/lib/resources'
 
 /**
  * Renders a plain-text body into paragraphs and bullet lists. Blocks are
  * split on blank lines (`\n\n`); a block whose lines start with "- " becomes
- * a <ul>, everything else becomes a <p>. Keeps content data free of markup
- * while still supporting the bullet lists the source articles use.
+ * a <ul>, everything else becomes a <p>.
+ *
+ * Inline citations: a `[N]` token in the text (1-indexed into `sources`) is
+ * rendered as a superscript link to that source, so specific claims are
+ * cited in place and cross-reference the Sources bibliography.
  */
-export default function Prose({ body }: { body: string }) {
+export default function Prose({
+  body,
+  sources,
+}: {
+  body: string
+  sources?: ResourceSource[]
+}) {
   const blocks = body.split('\n\n').map((b) => b.trim()).filter(Boolean)
 
   return (
@@ -18,7 +28,7 @@ export default function Prose({ body }: { body: string }) {
           return (
             <ul key={i} className="flex list-disc flex-col gap-2 pl-5 marker:text-[var(--blez-blue)]">
               {lines.map((l, j) => (
-                <li key={j}>{l.replace(/^\s*-\s+/, '')}</li>
+                <li key={j}>{renderInline(l.replace(/^\s*-\s+/, ''), sources)}</li>
               ))}
             </ul>
           )
@@ -28,7 +38,7 @@ export default function Prose({ body }: { body: string }) {
             {lines.map((l, j) => (
               <Fragment key={j}>
                 {j > 0 && <br />}
-                {l}
+                {renderInline(l, sources)}
               </Fragment>
             ))}
           </p>
@@ -36,4 +46,33 @@ export default function Prose({ body }: { body: string }) {
       })}
     </div>
   )
+}
+
+/** Splits text on `[N]` citation tokens and renders each as a superscript link. */
+function renderInline(text: string, sources?: ResourceSource[]) {
+  if (!sources || sources.length === 0 || !text.includes('[')) return text
+  const parts = text.split(/(\[\d+\])/g)
+  return parts.map((part, i) => {
+    const m = part.match(/^\[(\d+)\]$/)
+    if (m) {
+      const n = Number(m[1])
+      const src = sources[n - 1]
+      if (src) {
+        return (
+          <sup key={i} className="whitespace-nowrap">
+            <a
+              href={src.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-0.5 text-[0.7em] font-medium text-[var(--blez-blue)] hover:underline"
+              aria-label={`Source ${n}: ${src.publisher ?? src.title}`}
+            >
+              [{n}]
+            </a>
+          </sup>
+        )
+      }
+    }
+    return <Fragment key={i}>{part}</Fragment>
+  })
 }
