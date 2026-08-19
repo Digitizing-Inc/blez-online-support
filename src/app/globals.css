@@ -303,6 +303,15 @@
     box-shadow: var(--focus-ring);
     border-radius: var(--radius-sm);
   }
+
+  /* Tailwind v4's Preflight leaves <button> on the default arrow cursor.
+     Restore the pointer for anything genuinely clickable so hover reads as
+     interactive. Disabled controls are excluded — the default cursor is the
+     correct signal that they're inert (and matches `.btn:disabled`). */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────
