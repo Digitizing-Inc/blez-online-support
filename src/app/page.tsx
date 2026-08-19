@@ -32,8 +32,8 @@ export default function HomePage() {
       <section className="border-b border-[var(--border-subtle)]">
         <div className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="display display-h2 not-italic">Search for answers</h1>
-            <p className="mt-3 text-lg text-[var(--text-secondary)] sm:text-xl">
+            <h1 className="display display-h3 not-italic">Search for answers</h1>
+            <p className="mt-3 text-base text-[var(--text-secondary)] sm:text-lg">
               Or browse by topic.
             </p>
             <div className="mt-8 text-left">

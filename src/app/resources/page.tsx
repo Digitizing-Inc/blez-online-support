@@ -47,10 +47,10 @@ export default function ResourcesPage() {
       <section className="border-b border-[var(--border-subtle)]">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
           <span className="eyebrow">Resources</span>
-          <h1 className="display display-h2 not-italic mt-3">
+          <h1 className="display display-h3 not-italic mt-3">
             Guides &amp; collecting tips
           </h1>
-          <p className="mt-3 max-w-2xl text-lg text-[var(--text-secondary)] sm:text-xl">
+          <p className="mt-3 max-w-2xl text-base text-[var(--text-secondary)] sm:text-lg">
             Long-form guides, honest platform comparisons, and everything we
             know about ripping, grading, and building a collection.
           </p>
