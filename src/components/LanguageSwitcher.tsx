@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Check, ChevronDown, ExternalLink } from 'lucide-react'
 import { siteConfig, type LanguageCode } from '@/lib/config'
 import { cn } from '@/lib/cn'
+import Flag from './Flag'
 
 const STORAGE_KEY = 'blez-support-lang'
 
@@ -75,9 +76,7 @@ export default function LanguageSwitcher() {
           'border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]',
         )}
       >
-        <span className="text-base leading-none" aria-hidden="true">
-          {active?.flag ?? '🌐'}
-        </span>
+        <Flag code={lang} />
         <ChevronDown
           className={cn(
             'h-3.5 w-3.5 transition-transform',
@@ -109,9 +108,7 @@ export default function LanguageSwitcher() {
                   )}
                 >
                   <span className="flex items-center gap-2.5">
-                    <span className="text-base leading-none" aria-hidden="true">
-                      {l.flag}
-                    </span>
+                    <Flag code={l.code} />
                     <span>{l.label}</span>
                   </span>
                   <span className="flex items-center gap-2 text-[var(--text-muted)]">
