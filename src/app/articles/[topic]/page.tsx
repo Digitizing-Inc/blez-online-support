@@ -90,13 +90,21 @@ export default async function TopicPage({ params }: TopicPageProps) {
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <ul className="flex flex-col divide-y divide-[var(--border-subtle)] overflow-hidden rounded-lg border border-[var(--border-subtle)]">
-          {articles.map((article) => (
+          {articles.map((article, i) => (
             <li key={article.slug}>
               <Link
                 href={`/articles/${topic.slug}/${article.slug}`}
-                className="group flex items-center justify-between gap-4 px-5 py-4 transition-colors hover:bg-[var(--blez-blue-ghost)] hover:no-underline sm:px-6"
+                className="group flex items-center gap-4 px-5 py-4 transition-colors hover:bg-[var(--blez-blue-ghost)] hover:no-underline sm:gap-5 sm:px-6"
               >
-                <div className="flex flex-col gap-1 min-w-0">
+                {/* Branded index — fixed width + right-aligned so single and
+                    double digits share the same edge; lights up on row hover. */}
+                <span
+                  aria-hidden="true"
+                  className="display display-h4 not-italic w-11 flex-shrink-0 text-right leading-none text-[var(--text-faint)] transition-colors group-hover:text-[var(--blez-blue)] sm:w-14"
+                >
+                  {i + 1}
+                </span>
+                <div className="flex flex-1 flex-col gap-1 min-w-0">
                   <span className="text-base font-medium text-[var(--text-primary)]">
                     {article.title}
                   </span>
