@@ -33,7 +33,7 @@ export const articles: Article[] = [
       {
         id: 'categories',
         heading: 'What you can pull',
-        body: 'Packs span Basketball (NBA and WNBA), Baseball (MLB), Football (NFL), Hockey, Multi-Sport, Pokémon, One Piece, and Disney — plus sealed collectibles (like Labubu) and memorabilia.\n\nEvery item is sorted by rarity — Super Grail (the rarest, top-tier chase), Grail (very rare, high value), Chase (moderately rare), and Common (most frequent). Each pack shows a clear floor and ceiling price and a full checklist of the possible pulls, so you can see what could be inside at a glance before you buy.\n\nThe cards themselves come graded or non-graded. Graded cards are professionally slabbed with a numbered grade; non-graded cards are kept in protective sleeves so they stay in the exact condition you pulled them in.',
+        body: 'Packs span Basketball (NBA and WNBA), Baseball (MLB), Football (NFL), Hockey, Multi-Sport, Pokémon, One Piece, and Disney — plus sealed collectibles and memorabilia.\n\nEvery item is sorted by rarity — Super Grail (the rarest, top-tier chase), Grail (very rare, high value), Chase (moderately rare), and Common (most frequent). Each pack shows a clear floor and ceiling price and a full checklist of the possible pulls, so you can see what could be inside at a glance before you buy.\n\nThe cards themselves come graded or non-graded. Graded cards are professionally slabbed with a numbered grade; non-graded cards are kept in protective sleeves so they stay in the exact condition you pulled them in.',
       },
     ],
   },
@@ -49,7 +49,7 @@ export const articles: Article[] = [
       {
         id: 'three-types',
         heading: 'The three product types',
-        body: 'Everything on Blez falls into one of three buckets, and you can filter your Collect tab by each:\n\n- Cards — individual trading cards you pull from packs.\n- Collectibles — sealed products such as tins, wax, and unopened packs. Figure lines like Labubu live here too.\n- Memorabilia — physical memorabilia items, fulfilled through our shipping partners.',
+        body: 'Everything on Blez falls into one of three buckets, and you can filter your Collect tab by each:\n\n- Cards — individual trading cards you pull from packs.\n- Collectibles — sealed products such as tins, wax, and unopened packs. Collectible figure lines live here too.\n- Memorabilia — physical memorabilia items, fulfilled through our shipping partners.',
       },
       {
         id: 'rules',
