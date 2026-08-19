@@ -48,7 +48,39 @@
         "body": "Notice the pattern: no two of these markets price the same way. A basketball specialist senses a playoff run coming. A Bowman expert knows which prospect is about to be called up. A Pokémon buyer knows when a reprint is on the way. A One Piece buyer knows English trades above Japanese. A WNBA specialist knows just how thin the supply really is. Get the category wrong and it's easy to overpay, misgrade, or buy right before a market cools.\n\nThat's why every Blez pack is built by a category expert. Our Card Architects source and price each card in the market they know best — spotting fakes and altered cards, timing buys around seasons and set releases, and reaching the right channels to find inventory. When you rip a Blez pack, the cards inside were chosen by someone who actually lives in that market, not a generalist guessing at comps.\n\nThat's the whole idea behind curation: the right expert, for the right category, on every single card."
       }
     ],
-    "faq": []
+    "faq": [],
+    "sources": [
+      {
+        "title": "More Than 105,000 Caitlin Clark Cards Graded By PSA Since 2024",
+        "url": "https://www.forbes.com/sites/jennnelson/2025/05/10/more-than-105000-caitlin-clark-cards-graded-by-psa-since-2024/",
+        "publisher": "Forbes"
+      },
+      {
+        "title": "Caitlin Clark fuels women's sports memorabilia market growth",
+        "url": "https://www.espn.com/wnba/story/_/id/46377428/caitlin-clark-cards-women-sports-memorabilia-collectibles-growth",
+        "publisher": "ESPN"
+      },
+      {
+        "title": "Fanatics takes over exclusive NFL trading card license",
+        "url": "https://www.espn.com/nfl/story/_/id/48375610/fanatics-takes-exclusive-nfl-trading-card-license",
+        "publisher": "ESPN"
+      },
+      {
+        "title": "Topps previews first NBA cards under new license",
+        "url": "https://sports.yahoo.com/article/topps-previews-first-nba-cards-140000965.html",
+        "publisher": "Yahoo Sports"
+      },
+      {
+        "title": "Expanding BANDAI CARD GAMES for the Growing Global Market (Integrated Report 2025)",
+        "url": "https://www.bandainamco.co.jp/en/ir/library/feature02_01_2025.html",
+        "publisher": "Bandai Namco Holdings"
+      },
+      {
+        "title": "Trading Card Game Market Outlook & Share Analysis",
+        "url": "https://www.mordorintelligence.com/industry-reports/trading-card-game-market",
+        "publisher": "Mordor Intelligence"
+      }
+    ]
   },
   {
     "slug": "how-blez-online-works",
@@ -87,6 +119,33 @@
         "id": "frequently-asked-questions",
         "heading": "Frequently Asked Questions",
         "body": "Is Blez Online free to sign up? Yes. Creating an account is free. You only pay when you purchase a pack.\n\nHow long does shipping take? Shipping timelines vary by location. We ship worldwide from Las Vegas, NV. Domestic US orders typically arrive within standard shipping windows. International delivery times depend on destination.\n\nCan I get a refund instead of using the buyback? Due to the collectible nature of our products, all sales are final. However, the 90% instant buyback means you can always recover the majority of your purchase if you're not satisfied with your pull. If an item arrives damaged or isn't as described, our support team will resolve it.\n\nWhat does \"floor and ceiling\" pricing mean? Every pack shows a minimum value (floor) and maximum value (ceiling) for the card inside. This means you always know the lowest and highest possible value of your pull before you buy. It's our way of being fully transparent about what you're getting.\n\nAre these real physical cards or digital-only? Real physical cards. The pack opening is a digital experience, but every pack contains an actual, physical trading card. You can ship it to your home or sell it back to us.\n\nHow do I know Blez Online is trustworthy? Blez Online is operated by Jared and Scott Bleznick, who have been professional card breakers since 2016 under TheBlez.com. They have a 4.9-star rating from 35,000+ reviews on Whatnot, have sold 357,000+ items, and Blez Online has processed 750,000+ transactions since July 2025. They've been featured by Beckett and invited by Panini to the NBA Rookie Photo Shoot.\n\nWhat happens to my card if I don't ship it right away? Your card is stored safely in your Blez Online inventory. You can decide to ship or sell back at any time."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Trading Card Grading Service",
+        "url": "https://www.psacard.com/services/tradingcardgrading",
+        "publisher": "PSA (Professional Sports Authenticator)"
+      },
+      {
+        "title": "Trading Card Grading Services",
+        "url": "https://www.beckett.com/grading",
+        "publisher": "Beckett Collectibles"
+      },
+      {
+        "title": "What are repacks? cllct's guide to the hobby's hot trend",
+        "url": "https://sports.yahoo.com/article/repacks-cllcts-guide-hobbys-hot-070000599.html",
+        "publisher": "cllct / Yahoo Sports"
+      },
+      {
+        "title": "PCI Security Standards (PCI DSS)",
+        "url": "https://www.pcisecuritystandards.org/standards/",
+        "publisher": "PCI Security Standards Council"
+      },
+      {
+        "title": "PCI DSS Quick Reference Guide (Understanding the Payment Card Industry Data Security Standard)",
+        "url": "https://listings.pcisecuritystandards.org/documents/PCI_DSS-QRG-v3_2_1.pdf",
+        "publisher": "PCI Security Standards Council"
       }
     ]
   },
@@ -246,6 +305,28 @@
         "q": "What is the best digital repack site in 2026?",
         "a": "We're biased, but here's what to look for: transparent pricing (floor/ceiling), instant buyback with no hoops, real human curation from people with track records in the hobby, and verified reviews from actual collectors. Blez Online checks every box — 750,000+ transactions, 4.9-star rating, 8+ years in the hobby, and instant 90% buyback on every pack. But don't take our word for it: try a pack on Blez and on any competitor, and see which experience you prefer."
       }
+    ],
+    "sources": [
+      {
+        "title": "Introducing PSA Certified Repack Service",
+        "url": "https://www.psacard.com/articles/articleview/15227/psa-certified-repack-service",
+        "publisher": "PSA (Professional Sports Authenticator)"
+      },
+      {
+        "title": "PSA, CardsHQ look to curb repack scams with new Graded Grails Repack Certification service",
+        "url": "https://sportscollectorsdigest.com/psa-cardshq-look-to-curb-repack-scams-with-new-graded-grails-repack-certification-service",
+        "publisher": "Sports Collectors Digest"
+      },
+      {
+        "title": "PCI Security Standards Council - PCI DSS",
+        "url": "https://www.pcisecuritystandards.org/standards/pci-dss/",
+        "publisher": "PCI Security Standards Council"
+      },
+      {
+        "title": "The Chase Is On: Trading Card Repacks Face Growing Legal Scrutiny",
+        "url": "https://www.womblebonddickinson.com/us/insights/alerts/chase-trading-card-repacks-face-growing-legal-scrutiny",
+        "publisher": "Womble Bond Dickinson"
+      }
     ]
   },
   {
@@ -296,6 +377,38 @@
         "heading": "Frequently Asked Questions",
         "body": "Is Blez Online an Arena Club alternative?\nYes. Blez Online is a digital repack platform offering the same core experience — buy packs, rip them digitally, receive physical cards — but with key differences: instant 90% buyback with zero additional fees, hand-curated packs by named Card Architects, transparent floor/ceiling pricing, and 8+ years of hobby credibility. No proprietary grading lock-in and no vault retrieval charges.\n\nHow does Arena Club's buyback compare to Blez?\nBlez offers instant 90% buyback with one tap — funds in your account immediately, no time limit. Arena Club offers a buyback (\"Arena Club Offer\") at their estimated value minus a 10% fee, but it's only available for 24 hours after your reveal. Their optional \"Slab Safe\" protection guarantees at least 80% back but costs an extra 10% premium upfront.\n\nIs Arena Club legit?\nArena Club is a real company co-founded by Derek Jeter with significant venture capital behind it. They do deliver graded cards. However, their app has a 3.9-star rating with recurring complaints about hidden fees, low card valuations, shipping costs, and app stability issues. Their proprietary grading brand also has limited resale recognition outside their own marketplace.\n\nWhat are Arena Club's hidden fees?\nArena Club charges a 10% seller fee on marketplace transactions, $1–$2 per card for vault retrieval, shipping and insurance costs based on declared value, and an optional 10% Slab Safe premium. These fees can add up significantly — users have reported paying $50+ in shipping alone for low-value packs.\n\nAre Arena Club Slab Packs worth it?\nIt depends on your tolerance for fees and ecosystem lock-in. Slab Pack cards are graded by Arena Club's proprietary service, which has limited resale value outside their platform. The buyback offer expires after 24 hours, and retrieving physical cards involves additional fees. If you want a simpler experience with transparent pricing and instant buyback, Blez Online is designed to deliver exactly that.\n\nDoes Arena Club grade cards?\nYes — Arena Club operates its own proprietary grading service at $10/card, which includes vault storage. They use AI-assisted analysis combined with human review. However, Arena Club grading has limited recognition outside their ecosystem. PSA, BGS, and SGC remain the industry standards for resale value.\n\nWhich platform has better card categories?\nBoth offer wide selections. Arena Club carries Football, Basketball, Baseball, Soccer, Pokémon, One Piece, and themed categories (Magical, Super). Blez Online offers Pokémon, Basketball (NBA), Women's Basketball (WNBA), Baseball (MLB), Football (NFL), Multi-Sport, and Labubu collectibles. Blez uniquely offers WNBA and Labubu; Arena Club uniquely offers One Piece and Soccer."
       }
+    ],
+    "sources": [
+      {
+        "title": "What are Arena Club Offers?",
+        "url": "https://arenaclubsupport.zendesk.com/hc/en-us/articles/33940515631771-What-are-Arena-Club-Offers",
+        "publisher": "Arena Club Support"
+      },
+      {
+        "title": "How does the Buyback Program work?",
+        "url": "https://arenaclubsupport.zendesk.com/hc/en-us/articles/33941041663259-How-does-the-Buyback-Program-work",
+        "publisher": "Arena Club Support"
+      },
+      {
+        "title": "What are the marketplace transaction fees?",
+        "url": "https://arenaclubsupport.zendesk.com/hc/en-us/articles/7692595000603-What-are-the-marketplace-transaction-fees",
+        "publisher": "Arena Club Support"
+      },
+      {
+        "title": "What are Slab Packs?",
+        "url": "https://arenaclubsupport.zendesk.com/hc/en-us/articles/30719021423899-What-are-Slab-Packs",
+        "publisher": "Arena Club Support"
+      },
+      {
+        "title": "Arenaclub Reviews | Read Customer Service Reviews of arenaclub.com",
+        "url": "https://www.trustpilot.com/review/arenaclub.com",
+        "publisher": "Trustpilot"
+      },
+      {
+        "title": "Digital Pack Openings 2026: Are Arena Club and Courtyard Slab Packs Worth It?",
+        "url": "https://thehobbywire.substack.com/p/buy-the-pack-sell-it-back-repeat",
+        "publisher": "The Hobby Wire"
+      }
     ]
   },
   {
@@ -335,6 +448,38 @@
         "id": "faq",
         "heading": "Frequently Asked Questions",
         "body": "Is Blez Online a Courtyard.io alternative?\nYes. Blez Online is a digital repack platform that offers the same core experience as Courtyard — buy digital packs, rip them open, ship or sell back — but with key differences: instant 90% buyback (no KYC delays), hand-curated packs by named Card Architects, transparent floor/ceiling pricing, and 8+ years of hobby credibility.\n\nWhich platform has better buyback — Blez or Courtyard?\nBoth advertise 90% buyback. The difference is speed and friction. On Blez, you tap one button and the money is in your account instantly. On Courtyard, the process involves KYC verification and a withdrawal flow that users have reported can be slow.\n\nIs Courtyard.io legit?\nCourtyard is a real company with $30M+ in funding. They do deliver cards. However, their Trustpilot rating is around 3.0 stars, with recurring complaints about customer service, withdrawal difficulties, and cards being minted to wrong accounts. Do your own research and read recent reviews before committing significant money.\n\nDoes Blez Online use blockchain or NFTs?\nNo. Blez Online is a straightforward buy-rip-ship platform without blockchain or NFT components. You buy a pack, open it, and either ship the physical card or sell it back for instant cash. No crypto wallets, no tokenization, no gas fees.\n\nWhich platform has more card categories?\nBlez Online currently offers Pokémon, Basketball (NBA), Women's Basketball (WNBA), Baseball (MLB), Football (NFL), Multi-Sport, and Labubu collectibles. Courtyard offers Pokémon, Basketball, Baseball, and Football. Blez has a wider selection including unique categories like WNBA and Labubu that Courtyard doesn't carry.\n\nCan I try both platforms before committing?\nAbsolutely — and we'd encourage it. Sign up for both, try a low-priced pack on each, and see which experience you prefer. We're confident that once you compare the buyback speed, pack quality, and overall experience, you'll see why 750,000+ transactions have happened on Blez Online in seven months."
+      }
+    ],
+    "sources": [
+      {
+        "title": "How It Works | Courtyard.io",
+        "url": "https://courtyard.io/about",
+        "publisher": "Courtyard"
+      },
+      {
+        "title": "Asset Redemption & Shipping",
+        "url": "https://docs.courtyard.io/courtyard/logistics-and-legal/asset-redemption-and-shipping",
+        "publisher": "Courtyard Docs"
+      },
+      {
+        "title": "KYC Process",
+        "url": "https://docs.courtyard.io/courtyard/logistics-and-legal/kyc-process",
+        "publisher": "Courtyard Docs"
+      },
+      {
+        "title": "Vault Your Cards",
+        "url": "https://docs.courtyard.io/courtyard/about-courtyard.io/vault-your-cards",
+        "publisher": "Courtyard Docs"
+      },
+      {
+        "title": "Courtyard.io Reviews | Read Customer Service Reviews of courtyard.io",
+        "url": "https://www.trustpilot.com/review/courtyard.io",
+        "publisher": "Trustpilot"
+      },
+      {
+        "title": "Courtyard.io Guide: Fees, Packs, Vault & Honest Verdict",
+        "url": "https://plisio.net/nft/courtyard",
+        "publisher": "Plisio"
       }
     ]
   },
@@ -386,6 +531,28 @@
         "heading": "Frequently Asked Questions",
         "body": "What is the PSA grading scale?\nThe PSA grading scale runs from 1 (Poor) to 10 (Gem Mint). A PSA 10 means the card has perfect centering (within 55/45), sharp corners, clean edges, and a flawless surface. PSA also uses qualifiers like OC (off-center), MC (miscut), ST (staining), and PD (print defect) that note specific issues while still assigning a numeric grade.\n\nHow much does it cost to get a card graded?\nGrading costs vary by company and turnaround time. PSA's standard service runs around $50 per card with a 60-90 business day turnaround. Economy tiers, when available, start around $20-25. BGS standard service is approximately $35-50 per card. CGC and SGC offer competitive pricing starting around $15-30 depending on the tier. Express and premium services at all companies cost significantly more.\n\nWhich grading company is best for sports cards?\nPSA is the most widely recognized and commands the highest resale premiums for most sports cards. BGS is preferred by collectors who value detailed subgrades and is especially popular for modern cards. SGC is gaining market share with faster turnarounds and strong credibility for vintage cards. CGC, newer to sports cards, offers competitive pricing and is well-established in the comics grading world. The best choice depends on the card, your goals, and your timeline.\n\nWhat are BGS subgrades?\nBGS (Beckett Grading Services) evaluates four subgrades on a half-point scale: Centering, Corners, Edges, and Surface. Each subgrade is printed on the label alongside the final grade. A BGS 9.5 Gem Mint with all four subgrades at 9.5 or higher is highly desirable. A perfect BGS 10 Pristine with four 10 subgrades (sometimes called a \"Black Label\") is one of the rarest and most valuable grades in the hobby.\n\nIs it worth getting a $20 card graded?\nGenerally, no. With grading fees starting at $15-50 plus shipping and insurance, you typically need a raw card worth at least $50-100 before grading makes financial sense. The exception is if you believe the card will grade a 9 or 10 and the graded value at that level is significantly higher than the raw value. Always check recent sales of the graded version on platforms like eBay before submitting.\n\nHow long does PSA grading take?\nPSA turnaround times vary by service level. As of early 2026, standard service (around $50/card) takes roughly 60-90 business days. Express service ($100-150/card) runs about 20-30 business days. Super Express and Walk-Through services offer faster returns at premium pricing ($200-600+). Actual times can fluctuate based on submission volume.\n\nWhat does PSA \"Authentic\" mean?\nA PSA Authentic designation (sometimes shown as \"A\") means PSA confirmed the card is genuine but did not assign a numeric grade. This typically happens when the card has been altered (trimmed, colored, or restored) or has significant damage that falls below the PSA 1 threshold. The card is still encapsulated, confirming its authenticity, but it carries no grade.\n\nCan you grade cards that are already in a case or sleeve?\nYes. All major grading companies accept cards in penny sleeves and toploaders, which is actually the recommended way to submit. You should not submit cards in magnetic cases (one-touches) or screw-down holders, as these can damage cards over time. Remove the card from hard cases before submitting and place it in a penny sleeve inside a semi-rigid card saver for best results.\n\nWhat is the difference between PSA 10 and BGS 10?\nA PSA 10 (Gem Mint) and a BGS 10 (Pristine) are not equivalent. BGS 10 is significantly harder to achieve because it requires all four subgrades (centering, corners, edges, surface) to be a perfect 10. A BGS 9.5 Gem Mint is generally considered comparable to a PSA 10. Because of this stricter standard, a BGS 10 \"Black Label\" typically commands a higher premium than a PSA 10 of the same card."
       }
+    ],
+    "sources": [
+      {
+        "title": "PSA Grading Standards",
+        "url": "https://www.psacard.com/gradingstandards",
+        "publisher": "PSA (Professional Sports Authenticator)"
+      },
+      {
+        "title": "BGS Card Grading Scale - Beckett Sports Card Standards",
+        "url": "https://www.beckett.com/grading/scale",
+        "publisher": "Beckett Grading Services"
+      },
+      {
+        "title": "SGC Grading Scale",
+        "url": "https://gosgc.com/card-grading/scale",
+        "publisher": "SGC (Sportscard Guaranty Company)"
+      },
+      {
+        "title": "CGC Cards Grading Scale",
+        "url": "https://www.cgccards.com/card-grading/grading-scale/",
+        "publisher": "CGC (Certified Guaranty Company)"
+      }
     ]
   },
   {
@@ -435,6 +602,33 @@
         "id": "how-blez-handles-it",
         "heading": "How Blez Online Handles Card Protection",
         "body": "We ship a lot of cards out of our Las Vegas headquarters. Here's what we do, and why.\n\nAll non-graded cards purchased through Blez Online are stored in protective cases before they ever reach a shipping station. When your order is packed, cards go into penny sleeves and toploaders, or magnetic holders for higher-value pulls, and every package gets cardboard reinforcement to prevent flex damage in transit. Graded slabs ship in fitted boxes with bubble wrap and fill so nothing moves. Every shipment includes tracking, and for high-value orders we add insurance and signature confirmation automatically.\n\nIf a card arrives damaged or anything looks off, our support team at support@blezonline.com will make it right. And if you'd rather skip shipping entirely, you can sell back at 90% instantly and use the balance for another rip.\n\nOur packaging and shipping process has been refined across more than a million transactions since July 2025."
+      }
+    ],
+    "sources": [
+      {
+        "title": "The Dilemma of a Growing Sports Card Collection",
+        "url": "https://www.psacard.com/articles/articleview/8870/collectors-journey-dilemma-growing-sports-card-collection",
+        "publisher": "PSA (Professional Sports Authenticator)"
+      },
+      {
+        "title": "A Complete Guide to Sports Card Storage & Protection",
+        "url": "https://rawrsportscards.com/storage-and-protection/sports-card-storage-guide/",
+        "publisher": "Rawr Sports Cards"
+      },
+      {
+        "title": "How to Store Trading Cards Long-Term (Trading Card Storage and Shipping Guide)",
+        "url": "https://cardsmania.fun/trading-card-storage-and-shipping-guide/",
+        "publisher": "Cards Mania"
+      },
+      {
+        "title": "Insure Sports Cards - Sports Card Insurance",
+        "url": "https://collectinsure.com/sports-card-insurance/",
+        "publisher": "Collectibles Insurance Services"
+      },
+      {
+        "title": "Sports Memorabilia & Trading Card Insurance",
+        "url": "https://americancollectors.com/insurance/collectibles/sports-cards/",
+        "publisher": "American Collectors Insurance"
       }
     ]
   },
@@ -486,6 +680,33 @@
         "heading": "How Blez Fits Into Your Card Strategy",
         "body": "We're not going to pretend Blez Online is a card-investing platform. It's a repack and breaking platform. But a few of its features are genuinely useful for collectors who think about risk.\n\n- Floor and ceiling transparency. Every pack shows a floor value and a ceiling value before you buy, so you know the range of possible outcomes. That's a fundamentally different proposition than buying a sealed box where the outcome is entirely unknown.\n- 90% buyback program. On select items, we offer a 90% buyback option, meaning your maximum downside on that purchase is 10%. It's a meaningful risk-management tool for collectors who want the upside of opening packs without the full downside. Cards are illiquid, and this addresses that directly: you know your exit before you buy, and the buyback is instant. It is not a substitute for careful investing.\n- Consistent pricing at scale. With over 1 million transactions processed since July 2025, our pricing reflects real market data, not guesswork. When you see a floor value on a Blez pack, it's backed by actual comparable sales.\n\nWhere it fits: the platform is built around the ripping experience with 90% instant buyback as a safety net. If you pull something great, ship it and hold it. If you don't, sell back at 90% and try again. It's designed to be fun with limited downside — which is the healthiest way to engage with this hobby, whether you think of it as collecting, investing, or both."
       }
+    ],
+    "sources": [
+      {
+        "title": "Getting Started With Grading",
+        "url": "https://www.psacard.com/info/get-started",
+        "publisher": "PSA"
+      },
+      {
+        "title": "How to Read a PSA, BGS, or CGC Population Report",
+        "url": "https://thecardshopfinder.com/guides/card-grading/how-to-read-pop-report/",
+        "publisher": "The Card Shop Finder"
+      },
+      {
+        "title": "Gold, Silver, Stocks: Baseball Cards Are Outperforming Traditional Assets",
+        "url": "https://www.si.com/collectibles/gold-silver-stocks-baseball-cards-outperforming-traditional-assets",
+        "publisher": "Sports Illustrated"
+      },
+      {
+        "title": "When Is the Best Time to Buy Sports Cards? Our Calendar Explains Seasonal Markets",
+        "url": "https://sports.yahoo.com/article/best-time-buy-sports-cards-213000461.html",
+        "publisher": "Yahoo Sports"
+      },
+      {
+        "title": "Strategies for Hobbyists and Investors, Part 2: Beginner's Guide to Sports Card Collecting and Investing",
+        "url": "https://www.cgccards.com/news/article/12898/strategies-hobbyists-investors-part-2/",
+        "publisher": "CGC Cards"
+      }
     ]
   },
   {
@@ -536,6 +757,28 @@
         "heading": "Collector's Glossary",
         "body": "Bookmark this list — you'll reference it more than you think.\n\n- Rookie Card (RC) — A player's first officially licensed trading card. Typically the most valuable card in their catalog.\n- Auto / Autograph — A card featuring the player's signature, either on-card or via a sticker applied during production.\n- Patch / Memorabilia — A card with an embedded piece of game-worn or player-worn jersey material.\n- Refractor — A parallel card with a reflective, prismatic finish. Originally a Topps Chrome term, now used broadly for similar effects.\n- Parallel — An alternate version of a base card, distinguished by color, finish, or numbering. Examples: Silver Prizm, Gold Refractor, Pink Ice.\n- Serial Numbered — A card stamped with its print run (e.g., 07/25 means card 7 out of 25 total). Lower numbers = higher value.\n- Base Card — The most common card in a set, with no special finish, numbering, or insert designation. The foundation of every product.\n- Insert — A card from a special subset within a product, distinct from the base set. Often themed or limited.\n- Hit — Industry slang for a premium pull — typically an autograph, patch, or low-numbered parallel.\n- Slab — Hobby slang for a graded card, named for the hard plastic case it's sealed in.\n- PC (Personal Collection) — Cards you keep because you like them, not for investment. \"That's going in the PC\" means you're holding it.\n- Buyback — The ability to sell a card back to a platform after opening. On Blez Online, buyback is 90% instant.\n- PSA — Professional Sports Authenticator. The most widely recognized card grading company. Uses a 1–10 scale.\n- BGS — Beckett Grading Services. Provides four sub-grades (centering, corners, edges, surface) plus an overall grade.\n- Raw — An ungraded card, not encased or evaluated by a grading company.\n- Graded — A card that has been professionally evaluated, scored, and sealed in a tamper-proof case.\n- Pop Report — A grading company's public database showing how many copies of a card have been graded at each score. Useful for gauging rarity.\n- Comp / Comparable Sale — A recent sold listing for the same card. The most reliable way to determine current market value.\n- Repack — A pack assembled by a third party (not the manufacturer) containing hand-selected cards. Quality depends entirely on the source.\n- Break / Card Break — A group opening where a breaker rips packs live and distributes cards to buyers based on team, slot, or other format.\n- One-of-One (1/1) — A card with a print run of exactly one. The only copy in existence. The ultimate chase card."
       }
+    ],
+    "sources": [
+      {
+        "title": "Getting Started With Grading",
+        "url": "https://www.psacard.com/info/get-started",
+        "publisher": "PSA (Professional Sports Authenticator)"
+      },
+      {
+        "title": "Collecting Tips",
+        "url": "https://www.beckett.com/news/category/collecting-tips-2/",
+        "publisher": "Beckett"
+      },
+      {
+        "title": "Sports Card Glossary",
+        "url": "https://www.sportscardinvestor.com/glossary/",
+        "publisher": "Sports Card Investor"
+      },
+      {
+        "title": "Sports Collectors Daily - Sports Card and Memorabilia News",
+        "url": "https://www.sportscollectorsdaily.com/",
+        "publisher": "Sports Collectors Daily"
+      }
     ]
   },
   {
@@ -575,6 +818,33 @@
         "id": "from-theblez-to-blez-online",
         "heading": "From TheBlez to Blez Online",
         "body": "TheBlez (theblez.com) is our live breaking operation: NFL, NBA, MLB, Pokemon, and non-sport breaks running 12-15 hours a day across Whatnot, YouTube, TikTok, and Twitch. We've been featured by Beckett, invited by Panini to the NBA Rookie Photo Shoot (where we broke with Lonzo Ball, Jayson Tatum, and other top picks), and have built one of the most active breaking communities in the hobby.\n\nBlez Online is the natural next step: same brothers, same standards, same cards, available 24/7 without needing to catch a live stream. Since launching in July 2025, we've processed over 750,000 transactions and expanded into categories including WNBA cards and Labubu collectible figures."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Jared Bleznick's Poker Statistics (career earnings $10,339,561)",
+        "url": "https://pokerdb.thehendonmob.com/player.php?a=s&n=68962",
+        "publisher": "The Hendon Mob Poker Database"
+      },
+      {
+        "title": "Poker Star Jared Bleznick Sells Super Rare Sports Card for $1.5 Million",
+        "url": "https://www.pokernews.com/news/2026/04/poker-star-jared-bleznick-sells-sports-card-51055.htm",
+        "publisher": "PokerNews"
+      },
+      {
+        "title": "Case Breaker of the Week: The Blez",
+        "url": "https://www.beckett.com/news/case-breaker-of-the-week-jared-bleznick-of-blez-brothers/",
+        "publisher": "Beckett News"
+      },
+      {
+        "title": "blezsportscards Seller Profile",
+        "url": "https://www.whatnot.com/user/blezsportscards",
+        "publisher": "Whatnot"
+      },
+      {
+        "title": "Sports Card Breakers, Box Breaks and Group Breaks (official site)",
+        "url": "https://theblez.com/",
+        "publisher": "TheBlez"
       }
     ]
   }

@@ -39,6 +39,26 @@ Several topics arrived as 2–3 near-duplicate drafts; those were deduped to a
 single best-of post (merge decisions are recorded per-file in the source
 conversion, summarized here where relevant).
 
+## Bibliographies / sources (added for trust + E-E-A-T)
+
+Every resource post now ends with a **Sources** bibliography, and the
+sources also feed the `BlogPosting` `citation` structured data. Sources were
+web-researched and **every URL was checked to resolve** (curl); links that
+404'd or were unreachable were dropped, leaving **50 verified sources** (4–6
+per article). Notes:
+
+- Sources favor primary/authoritative pages: the grading companies (PSA,
+  Beckett, SGC, CGC), PCI Security Standards Council, ESPN/Forbes/SI, the
+  competitors' own support docs (Arena Club Zendesk, Courtyard docs) +
+  Trustpilot, and The Hendon Mob for founder poker earnings.
+- A few real pages (Hendon Mob, Trustpilot, Sports Collectors Daily) return
+  403 to automated checkers because they block bots — they work fine in a
+  browser and were kept intentionally.
+- **Founder-name flag:** research corroborated Jared Bleznick and his
+  **$10M+ poker earnings (Hendon Mob)**, but could **not** verify a brother
+  named **"Scott"** — one third-party source named the co-founder **"Chad
+  Bleznick."** Confirm the correct name in `about-blez-online` before launch.
+
 ## What was excluded (never published)
 
 Five docs were **internal SEO/implementation briefings**, not public

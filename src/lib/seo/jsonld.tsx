@@ -102,6 +102,16 @@ export function blogPostingSchema(resource: Resource) {
       logo: { '@type': 'ImageObject', url: `${base}/blez-logo.webp` },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    ...(resource.sources && resource.sources.length > 0
+      ? {
+          citation: resource.sources.map((s) => ({
+            '@type': 'CreativeWork',
+            name: s.title,
+            ...(s.publisher ? { publisher: s.publisher } : {}),
+            url: s.url,
+          })),
+        }
+      : {}),
   }
 }
 

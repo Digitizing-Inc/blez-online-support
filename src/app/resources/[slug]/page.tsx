@@ -177,6 +177,35 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
             ))}
           </article>
 
+          {resource.sources && resource.sources.length > 0 && (
+            <section
+              id="sources"
+              className="mt-14 scroll-mt-24 border-t border-[var(--border-subtle)] pt-8"
+            >
+              <h2 className="eyebrow mb-4">Sources</h2>
+              <ol className="flex list-decimal flex-col gap-2 pl-5 text-sm leading-relaxed text-[var(--text-secondary)] marker:text-[var(--text-faint)]">
+                {resource.sources.map((s, i) => (
+                  <li key={i}>
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--blez-blue)] underline underline-offset-2 hover:text-[var(--blez-blue-hover)]"
+                    >
+                      {s.title}
+                    </a>
+                    {s.publisher && (
+                      <span className="text-[var(--text-muted)]">
+                        {' '}
+                        — {s.publisher}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
+
           <div className="mt-12">
             <ShopCTA title={shopCopy.title} body={shopCopy.body} />
           </div>

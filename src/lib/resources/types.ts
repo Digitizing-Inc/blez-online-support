@@ -19,6 +19,15 @@ export interface ResourceFaq {
   a: string
 }
 
+/** A cited source for the article's bibliography (builds trust + E-E-A-T). */
+export interface ResourceSource {
+  /** Title of the cited page/article. */
+  title: string
+  /** Publisher or site name (e.g. "PSA", "ESPN"). */
+  publisher?: string
+  url: string
+}
+
 export type ResourceCategory = 'guide' | 'comparison' | 'faq' | 'about'
 
 export interface Resource {
@@ -35,4 +44,6 @@ export interface Resource {
   sections: ResourceSection[]
   /** Present on FAQ-style posts; drives FAQPage structured data. */
   faq?: ResourceFaq[]
+  /** Cited sources rendered as a bibliography + BlogPosting `citation`. */
+  sources?: ResourceSource[]
 }
