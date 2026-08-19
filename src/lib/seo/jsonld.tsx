@@ -1,5 +1,6 @@
 import { siteConfig } from '@/lib/config'
 import type { Article, Topic } from '@/lib/topics'
+import type { Resource } from '@/lib/resources'
 
 /**
  * JSON-LD schema builders. All schemas use absolute URLs so the dev
@@ -79,6 +80,40 @@ export function articleSchema(article: Article, topic: Topic) {
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     articleSection: topic.title,
+  }
+}
+
+export function blogPostingSchema(resource: Resource) {
+  const url = `${base}/resources/${resource.slug}`
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: resource.title,
+    description: resource.excerpt,
+    url,
+    datePublished: resource.publishedAt,
+    dateModified: resource.publishedAt,
+    inLanguage: 'en-US',
+    image: `${url}/opengraph-image`,
+    author: { '@type': 'Organization', name: 'Blez Online' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Blez Online',
+      logo: { '@type': 'ImageObject', url: `${base}/blez-logo.webp` },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  }
+}
+
+export function faqPageSchema(faq: Array<{ q: string; a: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
   }
 }
 

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { siteConfig } from '@/lib/config'
 import { topics, articles } from '@/lib/topics'
+import { getAllResources } from '@/lib/resources'
 
 /**
  * Sitemap generated at build time from the topic + article tables.
@@ -56,10 +57,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  const resources = getAllResources()
+  const resourceRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${base}/resources`,
+      lastModified: resources.length
+        ? new Date(resources[0].publishedAt)
+        : latest,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...resources.map((r) => ({
+      url: `${base}/resources/${r.slug}`,
+      lastModified: new Date(r.publishedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ]
+
   // Until real article copy ships (NEXT_PUBLIC_ALLOW_INDEX), advertise only
-  // the home route so crawlers aren't handed ~60 placeholder URLs. Article
-  // and topic pages also carry a page-level noindex in that state.
+  // the home route so crawlers aren't handed ~60 placeholder URLs. Article,
+  // topic, and resource pages also carry a page-level noindex in that state.
   if (!siteConfig.allowIndex) return staticRoutes
 
-  return [...staticRoutes, ...topicRoutes, ...articleRoutes]
+  return [
+    ...staticRoutes,
+    ...topicRoutes,
+    ...articleRoutes,
+    ...resourceRoutes,
+  ]
 }
