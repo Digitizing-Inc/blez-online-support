@@ -1,5 +1,56 @@
 [
   {
+    "slug": "card-markets-by-category",
+    "title": "Card Markets by Category: How Pokémon, One Piece & Sports Cards Compare",
+    "category": "guide",
+    "publishedAt": "2026-08-19",
+    "excerpt": "How the card markets compare across Pokémon, One Piece, basketball, baseball, football, hockey, wrestling, and the WNBA — and why category experts matter.",
+    "readMinutes": 6,
+    "sections": [
+      {
+        "id": "common-ground",
+        "heading": "What every card market has in common",
+        "body": "Whether it's a Charizard, a Caitlin Clark rookie, or a One Piece alternate art, the same handful of forces set the price. Learn these once and every category makes more sense:\n\n- Scarcity — print runs, serial numbers, and how many copies survive in high grade.\n- Condition — a professional grade from PSA, BGS, or SGC can multiply a card's value; centering, corners, edges, and surface all count.\n- Demand — how popular the player, character, or team is, and how many people actually want the card right now.\n- The \"first\" premium — rookie cards, first editions, and debut sets almost always command more than later prints.\n- Liquidity — how quickly a card turns into cash. Blue-chip cards sell in minutes; niche cards can wait weeks for the right buyer.\n- Cycles — every market runs hot and cold. The skill is knowing where each one sits at any given moment.\n\nThose fundamentals are universal. What changes — a lot — is how each category behaves."
+      },
+      {
+        "id": "tcg",
+        "heading": "Trading card games: Pokémon and One Piece",
+        "body": "Trading card games are driven by characters, artwork, and set rarity rather than real-world stats — which gives them a very different rhythm from sports cards.\n\nPokémon is the giant of the hobby. Its appeal is global and nostalgia-driven, and because characters never get injured, retire, or land in a scandal, values track pop-culture cycles instead of box scores. It's also extremely liquid — a graded vintage chase card can sell anywhere in the world within minutes. Value tends to anchor on vintage (first-edition and shadowless WOTC cards), chase artwork (alternate arts and special illustration rares), and sealed product.\n\nOne Piece is the fast riser. The game only launched in 2022, but it's tied to one of the biggest manga and anime franchises on earth. A quirk to know: English and Japanese printings of the same card trade at different prices (English usually commands more). The chases are manga-style alternate arts, and the market moves fast in both directions — a hot set can spike, then give back a large share of its value as supply catches up.\n\nThe common thread with TCGs: you're reading artwork, print runs, and fandom momentum — not a stat line."
+      },
+      {
+        "id": "basketball-wnba",
+        "heading": "Basketball — and the WNBA surge",
+        "body": "NBA cards are the most hype-sensitive corner of sports. A rookie's monster week or a deep playoff run can send prices ripping; a single injury can dump them just as fast. The upside is staying power: a true franchise player's rookie card has the longest runway in the hobby, backed by long careers and a massive global fanbase. Prizm is the flagship, with Optic, Select, and National Treasures rounding out the top of the market.\n\nThe WNBA is the fastest-growing story in cards, full stop. Caitlin Clark, Angel Reese, and Paige Bueckers rewrote the market almost overnight — recent WNBA Prizm boxes have out-priced the NBA release, and Clark alone accounts for well over 100,000 graded cards. Because historical supply is so thin, even small shifts in demand move prices hard, which cuts both ways."
+      },
+      {
+        "id": "baseball",
+        "heading": "Baseball — the prospect game",
+        "body": "Baseball has the deepest rookie tradition and the most stable long-term market of any sport — with one big twist: prospects. Through Bowman, and especially Bowman Chrome, you can buy a player's very first cards before he ever reaches the majors. That makes the market swing around spring training, Opening Day rosters, and call-ups, as collectors bet on who becomes the next star.\n\nFor established rookies, Topps Chrome is the modern gold standard. And vintage baseball is famously condition-obsessed — a one-point difference in grade can mean a massive difference in price."
+      },
+      {
+        "id": "football",
+        "heading": "Football — quarterback season",
+        "body": "Football is the most seasonal market. Demand builds into and through the NFL season, and collectors overwhelmingly chase rookie quarterbacks — a hit QB can carry an entire release, while a bust can weigh one down. Prizm leads here too.\n\nBecause careers are shorter and far more position-dependent than in the NBA, timing matters more in football than almost anywhere else. Buying the right rookie at the wrong moment is an easy way to overpay."
+      },
+      {
+        "id": "wrestling-hockey",
+        "heading": "Wrestling, hockey, and everything else",
+        "body": "Not every category plays by sports rules:\n\n- Wrestling (WWE and AEW) is entertainment, not sport — value follows storylines, careers, and marquee moments rather than stats, so a legend's retirement run can move a whole release. It's a passionate, and lately growing, niche; Topps handles WWE while Upper Deck has brought AEW into the fold.\n- Hockey (NHL) is a smaller, more regional market, but it has one of the most iconic rookie subsets in the entire hobby — Upper Deck Young Guns — which anchors modern hockey collecting.\n- Multi-sport, collectible figures, and other products each carry their own crowd and their own rules.\n\nDifferent audiences, different value drivers, different seasons."
+      },
+      {
+        "id": "licensing",
+        "heading": "Why the license landscape matters right now",
+        "body": "Even the question of who prints the cards is in flux. Fanatics and Topps have taken over the exclusive NBA and NFL licenses from Panini, and MLB already sits with Topps. Transitions like these change which products are officially licensed, reshuffle scarcity across brands, and quietly create winners and losers among cards that already exist.\n\nIt's exactly the kind of market context that's easy to overlook — and expensive to overlook. Knowing it is part of buying well."
+      },
+      {
+        "id": "why-experts",
+        "heading": "Why we use a category expert for every buy",
+        "body": "Notice the pattern: no two of these markets price the same way. A basketball specialist senses a playoff run coming. A Bowman expert knows which prospect is about to be called up. A Pokémon buyer knows when a reprint is on the way. A One Piece buyer knows English trades above Japanese. A WNBA specialist knows just how thin the supply really is. Get the category wrong and it's easy to overpay, misgrade, or buy right before a market cools.\n\nThat's why every Blez pack is built by a category expert. Our Card Architects source and price each card in the market they know best — spotting fakes and altered cards, timing buys around seasons and set releases, and reaching the right channels to find inventory. When you rip a Blez pack, the cards inside were chosen by someone who actually lives in that market, not a generalist guessing at comps.\n\nThat's the whole idea behind curation: the right expert, for the right category, on every single card."
+      }
+    ],
+    "faq": []
+  },
+  {
     "slug": "how-blez-online-works",
     "title": "How Blez Online Works",
     "category": "guide",

@@ -6,7 +6,7 @@ marketing/SEO source docs into structured data in
 `src/lib/resources/resources.data.json`. **Every post needs human
 verification before launch.**
 
-## What was published (9 posts)
+## What was published (10 posts)
 
 | Slug | Category | Source |
 |---|---|---|
@@ -19,6 +19,21 @@ verification before launch.**
 | `sports-card-investing-101` | guide | deduped from 2 drafts |
 | `new-collectors-roadmap` | guide | deduped from 3 drafts |
 | `about-blez-online` | about | single doc |
+| `card-markets-by-category` | guide | **net-new, web-researched** |
+
+### `card-markets-by-category` — extra review notes
+
+This one was written fresh (not from a source doc), researched from public
+market coverage. Verify before launch:
+
+- **Market facts** — e.g. the WNBA "100,000+ graded Clark cards" and box-price
+  claims, One Piece launching in 2022, and the **Fanatics/Topps vs Panini
+  license shift** (NBA in 2025, NFL multi-year). These were accurate at time
+  of writing but move fast; confirm they're still current.
+- **Category experts** — the piece speaks generally about using a category
+  specialist per market, and names only the established Card Architects
+  (Jared / Scott / Jake, per the About post). If Blez has specific buyers for
+  Pokémon, One Piece, WNBA, wrestling, or hockey, name them for credibility.
 
 Several topics arrived as 2–3 near-duplicate drafts; those were deduped to a
 single best-of post (merge decisions are recorded per-file in the source
