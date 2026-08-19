@@ -37,6 +37,9 @@ export async function generateMetadata({
     title: article.title,
     description: article.summary,
     alternates: { canonical: url },
+    // Placeholder bodies stay out of the index until real copy ships — flip
+    // NEXT_PUBLIC_ALLOW_INDEX=true to release. See siteConfig.allowIndex.
+    robots: siteConfig.allowIndex ? undefined : { index: false, follow: true },
     openGraph: {
       type: 'article',
       title: article.title,

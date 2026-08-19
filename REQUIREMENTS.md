@@ -3,6 +3,8 @@
 **Status:** draft v0.1
 **Last updated:** 2026-05-01
 
+> ⚠️ **Scope update (2026-08):** The AI chatbot ("BlezBot") has been **descoped**. The shipped product is an **article-only help center** — search + browse-by-topic + per-article pages. All chatbot sections below (§3.3, FR-5/6, the `/chat` route and `/api/chat`, chatbot open questions) are retained for historical context only and do **not** reflect the current build. Treat the searchable article library as the whole product.
+
 A standalone support site for Blez Online, modeled after `support.claude.com`. Two primary modes: an AI chatbot that answers Blez questions, and a searchable library of support articles organized by topic.
 
 The companion product (theblez) lives at `d:/CLaude/Projects/theblez/` and runs on Next.js 16 / React 19 / Tailwind 4 / Supabase. This support site is intended to live alongside it as a separate deployment.

@@ -6,6 +6,6 @@
  */
 
 export type { Article, ArticleSection, Topic } from './types'
-export { topics, getTopic, getUrgentArticles, type TopicSlug } from './topics'
+export { topics, getTopic, type TopicSlug } from './topics'
 export { articles, getArticle, getArticlesForTopic } from './articles'
 export { getArticleSections } from './sections'

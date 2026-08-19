@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Search, X, Sparkles, Mail } from 'lucide-react'
+import { Search, X, Mail } from 'lucide-react'
 import { searchArticles } from '@/lib/topics/search'
 import { getTopic } from '@/lib/topics'
 import { siteConfig } from '@/lib/config'
@@ -91,13 +91,7 @@ export default function SearchBar() {
       {showResults && (
         <div className="absolute left-0 right-0 top-full z-30 mt-2 overflow-hidden rounded-lg border border-[var(--border-default)] bg-[var(--bg-elevated)] shadow-[var(--shadow-lg)]">
           {results.length === 0 ? (
-            <NoMatchPanel
-              query={trimmed}
-              onClose={() => {
-                setOpen(false)
-                setQuery('')
-              }}
-            />
+            <NoMatchPanel query={trimmed} />
           ) : (
             <ul className="max-h-96 overflow-y-auto py-2">
               {results.map((r) => {
@@ -131,17 +125,11 @@ export default function SearchBar() {
 }
 
 /**
- * Shown when fuzzy search returns no hits. Always offers two recoverable
- * paths: ask the BlezBot with the exact query pre-filled, or email
- * support. A search dead-end without these is the audit's #2 P0 finding.
+ * Shown when fuzzy search returns no hits. Always offers a recoverable
+ * path — email support with the exact query pre-filled in the subject.
+ * A search dead-end without this is the audit's #2 P0 finding.
  */
-function NoMatchPanel({
-  query,
-  onClose,
-}: {
-  query: string
-  onClose: () => void
-}) {
+function NoMatchPanel({ query }: { query: string }) {
   return (
     <div className="flex flex-col gap-4 px-5 py-5">
       <p className="text-sm text-[var(--text-secondary)]">
@@ -152,19 +140,11 @@ function NoMatchPanel({
         .
       </p>
       <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
-        <Link
-          href={`/chat?q=${encodeURIComponent(query)}`}
-          onClick={onClose}
-          className="btn btn-primary btn-sm flex-1 justify-center"
-        >
-          <Sparkles className="h-4 w-4" strokeWidth={2} />
-          Ask BlezBot about “{query}”
-        </Link>
         <a
           href={`mailto:${siteConfig.supportEmail}?subject=${encodeURIComponent(
             `Help with: ${query}`,
           )}`}
-          className="btn btn-secondary btn-sm flex-1 justify-center"
+          className="btn btn-primary btn-sm flex-1 justify-center"
         >
           <Mail className="h-4 w-4" strokeWidth={2} />
           Email support

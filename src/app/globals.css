@@ -312,7 +312,9 @@
 @layer components {
 .display {
   font-family: var(--font-display);
-  font-weight: 800;
+  /* One step down from the spec's Heavy 800 — Bold 700 reads a touch
+     lighter while staying self-hosted (DrukWide-Bold-Web is loaded). */
+  font-weight: 700;
   font-style: normal;
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
@@ -646,131 +648,27 @@
   );
 }
 
-/* BlezMark — square frame around the BlezBot icon. A bright "comet"
-   of light chases around the outline to signal the bot is ready to
-   think. Implementation is rotation-driven (no @property reliance):
-   - ::before is a 200% circular pseudo painted with a conic gradient,
-     rotating continuously
-   - ::after is a dark inner mask covering everything except a 3px
-     ring at the parent's edge
-   - parent's overflow + border-radius clip the spinning gradient to
-     the rounded-square shape, so the visible result is a band of
-     blue light traveling around the outline */
-.blez-mark {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  isolation: isolate;
-  box-shadow: 0 0 16px rgba(84, 187, 255, 0.4);
+/* Old-CRT "TV power off" collapse — first the panel snaps vertically
+   into a thin horizontal line, then the line shrinks to nothing.
+   Used by the CardStackBanner empty state on collapse. The center-top
+   origin keeps the line riding the top edge so the wrapper's parallel
+   max-height collapse doesn't clip it mid-animation. */
+.tv-off-anim {
+  animation: tv-off 420ms cubic-bezier(0.55, 0, 0.45, 1) forwards;
+  transform-origin: center top;
 }
-.blez-mark::before {
-  content: '';
-  position: absolute;
-  inset: -50%;
-  z-index: -2;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    rgba(0, 153, 255, 0.2) 0deg,
-    rgba(0, 153, 255, 0.45) 30deg,
-    rgba(84, 187, 255, 1) 70deg,
-    rgba(255, 255, 255, 1) 95deg,
-    rgba(84, 187, 255, 1) 120deg,
-    rgba(0, 153, 255, 0.45) 160deg,
-    rgba(0, 153, 255, 0.2) 200deg,
-    rgba(0, 153, 255, 0.2) 360deg
-  );
-  animation: blez-mark-spin 2s linear infinite;
-}
-.blez-mark::after {
-  content: '';
-  position: absolute;
-  inset: 3px;
-  z-index: -1;
-  border-radius: calc(var(--radius-lg) - 3px);
-  background: rgba(16, 16, 16, 0.95);
-}
-@keyframes blez-mark-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* BlezBot tile — special-cased on the support articles grid. Uses the
-   diagonal blue gradient from the brand, animated so the surface
-   shimmers slowly. Out-of-spec for general use; intended only as the
-   "Ask the BlezBot" CTA in the topic grid. */
-.blezbot-tile {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(
-    225.32deg,
-    rgba(0, 92, 153, 0.9) 0%,
-    rgba(0, 153, 255, 0.9) 51.93%,
-    rgba(0, 92, 153, 0.9) 100%
-  );
-  background-size: 200% 200%;
-  border: 1px solid var(--blez-blue);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 40px rgba(0, 153, 255, 0.3);
-  animation: blezbot-shimmer 8s ease-in-out infinite;
-  transition: transform var(--dur-base) var(--ease-out),
-    box-shadow var(--dur-base) var(--ease-out);
-}
-.blezbot-tile:hover {
-  box-shadow: 0 6px 56px rgba(0, 153, 255, 0.5);
-}
-@keyframes blezbot-shimmer {
+@keyframes tv-off {
   0% {
-    background-position: 0% 50%;
+    transform: scaleY(1) scaleX(1);
+    opacity: 1;
   }
-  50% {
-    background-position: 100% 50%;
+  55% {
+    transform: scaleY(0.02) scaleX(1);
+    opacity: 1;
   }
   100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Typography defaults for assistant chat replies rendered via
-   react-markdown. Scoped to `.prose-chat` so it doesn't leak. */
-.prose-chat {
-  font-size: var(--text-base);
-  line-height: var(--leading-relaxed);
-  color: var(--text-primary);
-}
-.prose-chat > :first-child { margin-top: 0; }
-.prose-chat > :last-child { margin-bottom: 0; }
-
-/* Faster shimmer used while the BlezBot is generating, to signal
-   "thinking right now" vs the resting "ready to think" pulse. */
-.blez-mark.is-thinking::before {
-  animation-duration: 1s;
-}
-
-/* 8.10 Live indicator */
-.live-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-pill);
-  background: var(--blez-blue);
-  box-shadow: 0 0 0 0 rgba(0, 153, 255, 0.7);
-  animation: live-pulse 1.6s var(--ease-in-out) infinite;
-}
-@keyframes live-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(0, 153, 255, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 8px rgba(0, 153, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 153, 255, 0);
+    transform: scaleY(0.02) scaleX(0);
+    opacity: 0;
   }
 }
 
@@ -791,3 +689,21 @@
 }
 
 } /* end @layer components */
+
+/* ─────────────────────────────────────────────────────────────
+ * Reduced motion — honor the OS "reduce motion" setting app-wide.
+ * Unlayered + !important so it also neutralizes the CardStackBanner's
+ * inline `transition`/animation styles (inline styles otherwise win over
+ * layered rules). Near-zero durations rather than `none` so transition/
+ * animation end events still fire and JS state settles.
+ * ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

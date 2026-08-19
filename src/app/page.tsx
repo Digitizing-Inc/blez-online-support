@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
+import CardStackBanner from '@/components/CardStackBanner'
 import SearchBar from '@/components/SearchBar'
 import TopicTile from '@/components/TopicTile'
-import BlezBotTile from '@/components/BlezBotTile'
 import { topics } from '@/lib/topics'
 
 export const metadata: Metadata = {
@@ -23,7 +23,10 @@ export default function HomePage() {
   return (
     <>
       <section className="border-b border-[var(--border-subtle)]">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 sm:pt-12 lg:px-8">
+          <CardStackBanner />
+        </div>
+        <div className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="display display-h2 not-italic">Search for answers</h1>
             <p className="mt-3 text-lg text-[var(--text-secondary)] sm:text-xl">
@@ -43,9 +46,6 @@ export default function HomePage() {
               <TopicTile topic={t} />
             </li>
           ))}
-          <li className="flex">
-            <BlezBotTile />
-          </li>
         </ul>
       </section>
     </>

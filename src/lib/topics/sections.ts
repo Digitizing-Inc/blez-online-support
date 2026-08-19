@@ -25,7 +25,7 @@ const defaultSectionsByTopic: Record<
     {
       id: 'next',
       heading: 'Where to next',
-      body: 'Browse other Getting Started articles, or ask the BlezBot.',
+      body: 'Browse the other Getting Started articles, or contact support.',
     },
   ],
   'buying-payments': (a) => [

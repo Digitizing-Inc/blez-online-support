@@ -9,8 +9,6 @@ import {
   Scale,
 } from 'lucide-react'
 import type { Topic } from './types'
-import { articles } from './articles'
-import type { Article } from './types'
 
 export const topics: readonly Topic[] = [
   {
@@ -72,27 +70,10 @@ export const topics: readonly Topic[] = [
 ] as const
 
 /** Compile-time string union of every topic slug. Use this on consumers
- *  that index by slug (URGENT_SLUGS, defaultSectionsByTopic) so renames
- *  break the build instead of failing silently at runtime. */
+ *  that index by slug (e.g. defaultSectionsByTopic) so renames break the
+ *  build instead of failing silently at runtime. */
 export type TopicSlug = (typeof topics)[number]['slug']
 
 export function getTopic(slug: string): Topic | undefined {
   return topics.find((t) => t.slug === slug)
-}
-
-/**
- * Articles surfaced in the BlezBot empty-state suggested prompts. Slugs
- * must exist in the `articles` table.
- */
-const URGENT: ReadonlyArray<{ topicSlug: TopicSlug; slug: string }> = [
-  { topicSlug: 'ripping-reveals', slug: 'reveal-glitch' },
-  { topicSlug: 'buying-payments', slug: 'why-payment-declined' },
-  { topicSlug: 'shipping', slug: 'lost-stolen-damaged' },
-  { topicSlug: 'account-security', slug: 'cant-log-in' },
-]
-
-export function getUrgentArticles(): Article[] {
-  return URGENT.map(({ topicSlug, slug }) =>
-    articles.find((a) => a.topicSlug === topicSlug && a.slug === slug),
-  ).filter((a): a is Article => Boolean(a))
 }

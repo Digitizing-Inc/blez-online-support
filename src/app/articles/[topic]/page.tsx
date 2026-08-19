@@ -30,6 +30,9 @@ export async function generateMetadata({
     title: topic.title,
     description: topic.description,
     alternates: { canonical: url },
+    // Kept out of the index until article content is real — flip
+    // NEXT_PUBLIC_ALLOW_INDEX=true to release. See siteConfig.allowIndex.
+    robots: siteConfig.allowIndex ? undefined : { index: false, follow: true },
     openGraph: {
       title: topic.title,
       description: topic.description,

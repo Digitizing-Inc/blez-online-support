@@ -67,8 +67,8 @@ export default function OG() {
               maxWidth: 900,
             }}
           >
-            Search the help center or ask the BlezBot anything about packs,
-            payments, shipping, ripping, and your account.
+            Search the help center for answers about packs, payments,
+            shipping, ripping, and your account.
           </div>
         </div>
         <div

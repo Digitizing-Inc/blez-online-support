@@ -93,14 +93,14 @@ export default function Footer() {
           <div className="flex flex-col gap-10">
             <div>
               <h3 className="display display-h6 not-italic">Community</h3>
-              <ul className="mt-5 flex items-center gap-5 text-[var(--text-secondary)]">
+              <ul className="mt-4 -ml-3 flex items-center gap-1 text-[var(--text-secondary)]">
                 <li>
                   <a
                     href={siteConfig.social.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    className="block transition-colors hover:text-[var(--blez-blue)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-md transition-colors hover:text-[var(--blez-blue)]"
                   >
                     <Facebook className="h-5 w-5" strokeWidth={1.75} />
                   </a>
@@ -111,7 +111,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="X"
-                    className="block transition-colors hover:text-[var(--blez-blue)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-md transition-colors hover:text-[var(--blez-blue)]"
                   >
                     <XIcon className="h-5 w-5" />
                   </a>
@@ -122,7 +122,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="block transition-colors hover:text-[var(--blez-blue)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-md transition-colors hover:text-[var(--blez-blue)]"
                   >
                     <Instagram className="h-5 w-5" strokeWidth={1.75} />
                   </a>
@@ -133,7 +133,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="YouTube"
-                    className="block transition-colors hover:text-[var(--blez-blue)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-md transition-colors hover:text-[var(--blez-blue)]"
                   >
                     <Youtube className="h-5 w-5" strokeWidth={1.75} />
                   </a>
