@@ -101,7 +101,7 @@ export const articles: Article[] = [
       {
         id: 'verification',
         heading: 'Identity verification (KYC)',
-        body: 'To cash out, or to ship items valued over $2,500, you complete a one-time identity verification handled by our partner Plaid. You verify a phone number by text code and upload a valid, unexpired government ID that clearly shows your name and date of birth. Some international users are also asked to record a short selfie video.\n\nIf verification does not pass on the first try, contact support — we can reset your attempts so you can try again.',
+        body: 'To cash out, or to ship higher-value items, you complete a one-time identity verification handled by our partner Plaid. You verify a phone number by text code and upload a valid, unexpired government ID that clearly shows your name and date of birth. Some international users are also asked to record a short selfie video.\n\nIf verification does not pass on the first try, contact support and we can help you get it sorted.',
       },
     ],
   },
@@ -317,7 +317,7 @@ export const articles: Article[] = [
     topicSlug: 'buying-payments',
     title: 'Refund policy (and the "all sales final" rule explained)',
     summary:
-      'All Blez Pack sales are final, with a few clear exceptions: failed purchases, account closures, and items that arrive damaged or not as described.',
+      'All Blez Pack sales are final. Rare exceptions — like an item that arrives damaged or not as described — are reviewed case by case.',
     body: 'Blez Pack sales are final. Exceptions: a failed purchase you were charged for, account closure, or a damaged/incorrect item (claim within 7 days).',
     lastUpdated: '2026-08-19',
     sections: [
@@ -329,7 +329,7 @@ export const articles: Article[] = [
       {
         id: 'exceptions',
         heading: 'When we do refund',
-        body: 'There are a few exceptions: a purchase that failed while your payment still went through, a refund tied to closing your account, and items that arrive damaged or do not match their description.\n\nFor a damaged or incorrect item, submit a claim with photos of both the packaging and the item within 7 days of the carrier’s reported delivery time.',
+        body: 'In rare cases we’ll make things right — for example, if a payment went through on a purchase that did not complete, or an item arrives damaged or not as described. These are reviewed on a case-by-case basis, so reach out to support with the details as soon as you can after delivery (clear photos help us sort it out quickly).',
       },
     ],
   },
@@ -373,7 +373,7 @@ export const articles: Article[] = [
       {
         id: 'random',
         heading: 'How the draw works',
-        body: 'Each pack draws from a finite run of real cards in a randomized order that no one — including our team — knows in advance, so you cannot influence which card a single rip gives you.\n\nBecause the run is finite, every pull removes a card from it: as a run is opened, the remaining mix changes and the live odds drift from the published snapshot. As part of that transparency, you can also see which cards have already been pulled from the run.',
+        body: 'Each pack draws from a finite run of real cards in a randomized order that no one — including our team — knows in advance, so you cannot influence which card a single rip gives you.\n\nBecause the run is finite, every pull removes a card from it: as a run is opened, the remaining mix changes and the live odds drift from the published snapshot.',
       },
     ],
   },
@@ -394,7 +394,7 @@ export const articles: Article[] = [
       {
         id: 'depletes',
         heading: 'Odds shift as a run is opened',
-        body: 'Because each run is finite, every pull removes a card from it. As a run gets opened, what is left changes — so the live odds naturally drift from the published snapshot over the life of the run.\n\nThat keeps a run transparent as it plays out: because pulled cards leave the pool, over time you can see which cards are still in the run and which have already been pulled.',
+        body: 'Because each run is finite, every pull removes a card from it. As a run gets opened, what is left changes — so the live odds naturally drift from the published snapshot over the life of the run.\n\nThe odds are published up front, so you always know the makeup of the run you are buying into.',
       },
     ],
   },
@@ -526,14 +526,14 @@ export const articles: Article[] = [
     topicSlug: 'selling-withdrawals',
     title: 'Can I change my mind after choosing?',
     summary:
-      'If you sold an item by accident, contact support quickly — a reversal is sometimes possible.',
-    body: 'Sold something by mistake? Contact support quickly — reversing a sale is sometimes possible.',
+      'Sold an item by accident? Contact support quickly and we’ll do our best to help.',
+    body: 'Sold something by mistake? Contact support quickly and we’ll do our best to help.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'reverse',
         heading: 'If you sold by accident',
-        body: 'If you sold an item back by mistake, reach out to support as soon as possible. In many cases we can reverse the sale by returning the item and pulling the sale amount back from your account.\n\nIf your Balance no longer covers the sale amount, we will ask which payment method you would like to use to complete the reversal.',
+        body: 'If you sold an item back by mistake, reach out to support as soon as possible. We can’t promise every sale can be undone, but the sooner you contact us, the more we can do.',
       },
     ],
   },
@@ -1032,7 +1032,7 @@ export const articles: Article[] = [
       {
         id: 'overview',
         heading: 'Limits and verification',
-        body: 'Withdrawing your balance requires completed identity verification (KYC), and higher-value shipments over $2,500 also require it.\n\nNote for reviewers: the internal guide does not document specific daily, weekly, or monthly deposit or withdrawal limits. Confirm any caps before publishing.',
+        body: 'Withdrawing your balance requires completed identity verification (KYC), and higher-value shipments also require it.\n\nNote for reviewers: the internal guide does not document specific daily, weekly, or monthly deposit or withdrawal limits. Confirm any caps before publishing.',
       },
     ],
   },
@@ -1064,7 +1064,7 @@ export const articles: Article[] = [
       {
         id: 'kyc',
         heading: 'One-time verification',
-        body: 'Identity verification through Plaid is a one-time step that unlocks the ability to cash out and to ship items valued over $2,500. It confirms real customers and reduces fraud and chargebacks across the marketplace.',
+        body: 'Identity verification through Plaid is a one-time step that unlocks the ability to cash out and to ship higher-value items. It confirms real customers and reduces fraud and chargebacks across the marketplace.',
       },
       {
         id: 'monitoring',
