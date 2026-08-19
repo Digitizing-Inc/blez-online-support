@@ -96,11 +96,12 @@ export default async function TopicPage({ params }: TopicPageProps) {
                 href={`/articles/${topic.slug}/${article.slug}`}
                 className="group flex items-center gap-4 px-5 py-4 transition-colors hover:bg-[var(--blez-blue-ghost)] hover:no-underline sm:gap-5 sm:px-6"
               >
-                {/* Branded index — fixed width + right-aligned so single and
-                    double digits share the same edge; lights up on row hover. */}
+                {/* Branded index — Druk numeral centered in a circle badge
+                    that fills blez-blue on row hover. Fixed circle size keeps
+                    single and double digits in the same footprint. */}
                 <span
                   aria-hidden="true"
-                  className="display display-h4 not-italic w-11 flex-shrink-0 text-right leading-none text-[var(--text-faint)] transition-colors group-hover:text-[var(--blez-blue)] sm:w-14"
+                  className="display not-italic flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--bg-elevated)] text-base leading-none text-[var(--text-secondary)] transition-colors group-hover:border-[var(--blez-blue)] group-hover:bg-[var(--blez-blue)] group-hover:text-white sm:h-11 sm:w-11 sm:text-lg"
                 >
                   {i + 1}
                 </span>
