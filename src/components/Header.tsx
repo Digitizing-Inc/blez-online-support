@@ -14,7 +14,7 @@ export default function Header() {
           <Link
             href="/"
             aria-label={`${siteConfig.name} — home`}
-            className="inline-flex items-center gap-3 hover:no-underline"
+            className="inline-flex items-center gap-3 hover:no-underline sm:gap-3.5"
           >
             <Image
               src="/blez-logo.webp"
@@ -24,8 +24,16 @@ export default function Header() {
               priority
               className="h-12 w-auto sm:h-14"
             />
-            <span className="display not-italic hidden text-[18px] leading-none text-[var(--text-secondary)] sm:inline sm:text-[22px]">
-              SUPPORT
+            {/* Brand lockup: hairline divider + quiet descriptor, so "SUPPORT"
+                reads as a sub-brand of the logo rather than floating text. */}
+            <span className="hidden items-center gap-3 sm:inline-flex sm:gap-3.5">
+              <span
+                className="h-7 w-px bg-[var(--border-strong)]"
+                aria-hidden="true"
+              />
+              <span className="display not-italic text-[15px] uppercase leading-none tracking-[0.06em] text-[var(--text-muted)] sm:text-[18px]">
+                Support
+              </span>
             </span>
           </Link>
           <HeaderNav />

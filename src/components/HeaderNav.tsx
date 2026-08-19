@@ -23,7 +23,7 @@ const LINKS = [
 export default function HeaderNav() {
   const pathname = usePathname()
   return (
-    <nav aria-label="Primary" className="hidden items-center sm:flex">
+    <nav aria-label="Primary" className="hidden items-center gap-6 sm:flex">
       {LINKS.map((l) => {
         const active = l.isActive(pathname)
         return (
@@ -31,10 +31,10 @@ export default function HeaderNav() {
             key={l.href}
             href={l.href}
             aria-current={active ? 'page' : undefined}
-            className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:no-underline ${
+            className={`relative py-1 text-sm font-medium transition-colors hover:no-underline after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-[var(--blez-blue)] after:transition-opacity ${
               active
-                ? 'bg-[var(--blez-blue-ghost)] font-semibold text-[var(--blez-blue)]'
-                : 'text-[var(--text-secondary)] hover:bg-[var(--blez-blue-ghost)] hover:text-[var(--text-primary)]'
+                ? 'text-[var(--text-primary)] after:opacity-100'
+                : 'text-[var(--text-secondary)] after:opacity-0 hover:text-[var(--text-primary)]'
             }`}
           >
             {l.label}
