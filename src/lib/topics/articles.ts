@@ -347,7 +347,7 @@ export const articles: Article[] = [
       {
         id: 'random',
         heading: 'How the draw works',
-        body: 'Each pack draws from a finite run of real cards in a randomized order that no one — including our team — knows in advance, so you cannot influence which card a single rip gives you.\n\nBecause the run is finite, every pull removes a card from it: as a run is opened, the remaining mix changes and the live odds drift from the published snapshot. Opening packs also shows you which cards are already gone from the run — information you are free to use however you like.',
+        body: 'Each pack draws from a finite run of real cards in a randomized order that no one — including our team — knows in advance, so you cannot influence which card a single rip gives you.\n\nBecause the run is finite, every pull removes a card from it: as a run is opened, the remaining mix changes and the live odds drift from the published snapshot. As part of that transparency, you can also see which cards have already been pulled from the run.',
       },
     ],
   },
@@ -368,7 +368,7 @@ export const articles: Article[] = [
       {
         id: 'depletes',
         heading: 'Odds shift as a run is opened',
-        body: 'Because each run is finite, every pull removes a card from it. As a run gets opened, what is left changes — so the live odds naturally drift from the published snapshot over the life of the run.\n\nThat also means opening packs gives you real information: you can see which cards are no longer in the run. You are welcome to use that however you like when deciding whether to keep ripping.',
+        body: 'Because each run is finite, every pull removes a card from it. As a run gets opened, what is left changes — so the live odds naturally drift from the published snapshot over the life of the run.\n\nThat keeps a run transparent as it plays out: because pulled cards leave the pool, over time you can see which cards are still in the run and which have already been pulled.',
       },
     ],
   },
