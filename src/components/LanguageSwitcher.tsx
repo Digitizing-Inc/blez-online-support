@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Globe, Check, ChevronDown, ExternalLink } from 'lucide-react'
+import { Check, ChevronDown, ExternalLink } from 'lucide-react'
 import { siteConfig, type LanguageCode } from '@/lib/config'
 import { cn } from '@/lib/cn'
 
@@ -69,14 +69,15 @@ export default function LanguageSwitcher() {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
+        aria-label={`Language: ${active?.label ?? 'English'}`}
         className={cn(
-          'flex h-10 items-center gap-2 rounded-md border px-3 text-sm font-medium transition-colors',
+          'flex h-10 items-center gap-1.5 rounded-md border px-2.5 transition-colors',
           'border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]',
         )}
       >
-        <Globe className="h-4 w-4" strokeWidth={2} />
-        <span className="hidden sm:inline">{active?.label ?? 'English'}</span>
-        <span className="sm:hidden uppercase">{lang}</span>
+        <span className="text-base leading-none" aria-hidden="true">
+          {active?.flag ?? '🌐'}
+        </span>
         <ChevronDown
           className={cn(
             'h-3.5 w-3.5 transition-transform',
@@ -107,7 +108,12 @@ export default function LanguageSwitcher() {
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--blez-blue-ghost)]',
                   )}
                 >
-                  <span>{l.label}</span>
+                  <span className="flex items-center gap-2.5">
+                    <span className="text-base leading-none" aria-hidden="true">
+                      {l.flag}
+                    </span>
+                    <span>{l.label}</span>
+                  </span>
                   <span className="flex items-center gap-2 text-[var(--text-muted)]">
                     {!isEnglish && (
                       <ExternalLink className="h-3.5 w-3.5" strokeWidth={2} />
