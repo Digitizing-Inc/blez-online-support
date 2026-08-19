@@ -145,6 +145,18 @@ export default function Footer() {
               <h3 className="display display-h6 not-italic">Support</h3>
               <div className="mt-5 flex flex-col gap-3 text-sm">
                 <Link
+                  href="/"
+                  className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  Help Center
+                </Link>
+                <Link
+                  href="/resources"
+                  className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  Resources
+                </Link>
+                <Link
                   href="/contact"
                   className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
                 >
@@ -152,7 +164,7 @@ export default function Footer() {
                 </Link>
                 <a
                   href={`mailto:${siteConfig.supportEmail}`}
-                  className="text-[var(--text-secondary)] underline underline-offset-4 transition-colors hover:text-[var(--blez-blue)]"
+                  className="break-all text-[var(--text-secondary)] underline underline-offset-4 transition-colors hover:text-[var(--blez-blue)]"
                 >
                   {siteConfig.supportEmail}
                 </a>

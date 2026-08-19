@@ -29,7 +29,7 @@ export default function HeaderSearch() {
         onClick={() => setOpen(true)}
         aria-label="Search"
         aria-keyshortcuts="Meta+K Control+K"
-        className="inline-flex items-center gap-2 rounded-md border border-[var(--border-default)] px-2.5 py-2 text-sm text-[var(--text-muted)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--text-primary)] sm:px-3"
+        className="inline-flex h-10 items-center gap-2 rounded-md border border-[var(--border-default)] px-3 text-sm text-[var(--text-muted)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
       >
         <Search className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
         <span className="hidden md:inline">Search</span>

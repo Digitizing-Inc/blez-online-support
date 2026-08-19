@@ -110,13 +110,14 @@
   --font-mono: 'Geist Mono', ui-monospace, monospace;
   --font-supporting: 'Geist', system-ui, sans-serif;
 
-  /* Display scale (Druk Wide 800 italic uppercase) */
-  --display-h1: 60px;
-  --display-h2: 48px;
-  --display-h3: 38px;
-  --display-h4: 32px;
-  --display-h5: 26px;
-  --display-h6: 20px;
+  /* Display scale (Druk Wide, uppercase). Fluid so long single words in the
+     very wide Druk face don't overflow small screens. */
+  --display-h1: clamp(34px, 9vw, 60px);
+  --display-h2: clamp(28px, 8vw, 48px);
+  --display-h3: clamp(24px, 6vw, 38px);
+  --display-h4: clamp(22px, 5vw, 32px);
+  --display-h5: clamp(20px, 4.5vw, 26px);
+  --display-h6: clamp(18px, 4vw, 20px);
 
   /* Body scale */
   --text-xs: 12px;
@@ -276,6 +277,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-variant-numeric: tabular-nums;
+    /* Safety net: never let a stray wide element scroll the whole page.
+       `clip` (not `hidden`) doesn't create a scroll container, so it leaves
+       the sticky header and fixed dialogs unaffected. */
+    overflow-x: clip;
   }
 
   ::selection {
@@ -319,6 +324,7 @@
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-tight);
   text-transform: uppercase;
+  overflow-wrap: break-word;
 }
 .display-h1 { font-size: var(--display-h1); }
 .display-h2 { font-size: var(--display-h2); }
