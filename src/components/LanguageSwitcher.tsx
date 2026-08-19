@@ -26,9 +26,13 @@ export default function LanguageSwitcher() {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as LanguageCode | null
-    if (stored && siteConfig.languages.some((l) => l.code === stored)) {
-      setLang(stored)
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY) as LanguageCode | null
+      if (stored && siteConfig.languages.some((l) => l.code === stored)) {
+        setLang(stored)
+      }
+    } catch {
+      // localStorage unavailable (e.g. private mode) — default to English.
     }
   }, [])
 
@@ -52,7 +56,11 @@ export default function LanguageSwitcher() {
 
   function select(code: LanguageCode) {
     setLang(code)
-    localStorage.setItem(STORAGE_KEY, code)
+    try {
+      localStorage.setItem(STORAGE_KEY, code)
+    } catch {
+      // Persisting the choice is best-effort — don't block selection.
+    }
     document.documentElement.lang = code
     setOpen(false)
     // English is the source — no translation needed.

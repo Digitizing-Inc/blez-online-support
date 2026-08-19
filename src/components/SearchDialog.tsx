@@ -27,6 +27,7 @@ export default function SearchDialog({
 }) {
   const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
   const [query, setQuery] = useState('')
   const [debounced, setDebounced] = useState('')
   const [active, setActive] = useState(0)
@@ -38,7 +39,12 @@ export default function SearchDialog({
   }, [query])
 
   const trimmed = query.trim()
-  const hits = useMemo(() => (trimmed ? search(trimmed) : []), [trimmed, debounced])
+  // Search on the debounced value so each keystroke isn't a full index query;
+  // the input field itself stays on `query` for responsiveness.
+  const hits = useMemo(() => {
+    const q = debounced.trim()
+    return q ? search(q) : []
+  }, [debounced])
 
   // Reset + focus on open; lock body scroll while open.
   useEffect(() => {
@@ -55,6 +61,35 @@ export default function SearchDialog({
   }, [open])
 
   useEffect(() => setActive(0), [debounced])
+
+  // Trap Tab focus within the panel and restore focus to the opener on close.
+  useEffect(() => {
+    if (!open) return
+    const opener = document.activeElement as HTMLElement | null
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key !== 'Tab') return
+      const panel = panelRef.current
+      if (!panel) return
+      const focusables = panel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input, textarea, [tabindex]:not([tabindex="-1"])',
+      )
+      if (focusables.length === 0) return
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      opener?.focus?.()
+    }
+  }, [open])
 
   // Render nothing until open, and only on the client (portal needs document).
   if (!open || typeof document === 'undefined') return null
@@ -90,7 +125,10 @@ export default function SearchDialog({
         className="absolute inset-0 bg-[var(--bg-overlay)] backdrop-blur-sm"
       />
 
-      <div className="relative z-10 flex max-h-[78vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--bg-elevated)] shadow-[var(--shadow-xl)]">
+      <div
+        ref={panelRef}
+        className="relative z-10 flex max-h-[78vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--bg-elevated)] shadow-[var(--shadow-xl)]"
+      >
         {/* input */}
         <div className="flex h-14 flex-shrink-0 items-center gap-3 border-b border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-4 focus-within:border-[var(--blez-blue)]">
           <Search

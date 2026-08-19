@@ -15,7 +15,8 @@ interface BreadcrumbProps {
  *   - Container: 6px gap, 12px bottom margin
  *   - Inactive crumb: Inter 400 / 14px / `--text-muted` (#A3A3A3)
  *   - Active crumb: Inter 600 / 14px / `--text-primary` (#FAFAFA)
- *   - Separator: 24×24 ChevronRight icon, 2px stroke, --text-muted
+ *   - Separator: 16×16 ChevronRight icon (scaled from the 24px spec to sit
+ *     proportionally against the 14px crumb text), 2px stroke, --text-muted
  */
 export default function Breadcrumb({ trail }: BreadcrumbProps) {
   return (
@@ -42,7 +43,7 @@ export default function Breadcrumb({ trail }: BreadcrumbProps) {
               )}
               {!isLast && (
                 <ChevronRight
-                  className="h-6 w-6 flex-shrink-0 text-[var(--text-muted)]"
+                  className="h-4 w-4 flex-shrink-0 text-[var(--text-muted)]"
                   strokeWidth={2}
                   aria-hidden="true"
                 />

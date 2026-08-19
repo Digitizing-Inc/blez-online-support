@@ -83,7 +83,9 @@
   --text-primary: var(--neutral-50);
   --text-secondary: var(--neutral-300);
   --text-muted: var(--neutral-400);
-  --text-faint: var(--neutral-500);
+  /* Bumped off --neutral-500 (#737373 ≈ 4.0:1 on the canvas) to clear WCAG
+     AA 4.5:1 for the 12px meta text that uses it (dates, view counts, etc.). */
+  --text-faint: #8f8f8f;
   --text-disabled: var(--neutral-600);
   --text-inverse: var(--neutral-950);
   --text-link: var(--blez-blue);

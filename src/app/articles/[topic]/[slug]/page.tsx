@@ -14,6 +14,7 @@ import JsonLd, {
   breadcrumbSchema,
 } from '@/lib/seo/jsonld'
 import { siteConfig } from '@/lib/config'
+import { formatDate } from '@/lib/date'
 import {
   articles,
   getArticle,
@@ -120,7 +121,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <div className="mt-4 flex flex-wrap items-center text-xs text-[var(--text-faint)]">
             <span>
               Last updated{' '}
-              <time dateTime={article.lastUpdated}>{article.lastUpdated}</time>
+              <time dateTime={article.lastUpdated}>
+                {formatDate(article.lastUpdated)}
+              </time>
             </span>
             <ViewCount slug={article.slug} />
           </div>

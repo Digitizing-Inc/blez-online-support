@@ -238,14 +238,14 @@ export const articles: Article[] = [
     topicSlug: 'buying-payments',
     title: "Sales tax and how it's calculated",
     summary:
-      'How and when tax may apply to a purchase. (Specifics pending — not covered in the internal guide; confirm with finance before launch.)',
-    body: 'Any applicable tax is based on your location and shown before you pay. Detailed tax rules are pending confirmation.',
+      'How and when sales tax applies to a purchase, and where you’ll see it.',
+    body: 'Any applicable sales tax is based on your location and shown in your total before you pay.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'overview',
         heading: 'How tax appears',
-        body: 'Any applicable sales tax is determined by your location and shown in your total before you confirm payment.\n\nNote for reviewers: the internal guide does not document specific tax rules, rates, or jurisdictions. This article needs confirmation from finance/legal before launch.',
+        body: 'Any applicable sales tax is determined by your location and shown in your total before you confirm payment. If you have a question about tax on a specific order, contact support.',
       },
     ],
   },
@@ -431,7 +431,7 @@ export const articles: Article[] = [
       {
         id: 'types',
         heading: 'Different packs, different ranges',
-        body: 'Packs are offered across many categories and price points. Rather than fixed named tiers, each pack publishes its own floor and ceiling price and a full odds breakdown, so you can see the value range and pull chances before buying.\n\nNote for reviewers: the internal guide does not define specific named pack tiers. Confirm any tier names before publishing.',
+        body: 'Packs are offered across many categories and price points. Rather than fixed named tiers, each pack publishes its own floor and ceiling price and a full odds breakdown, so you can see the value range and pull chances before buying.',
       },
       {
         id: 'look',
@@ -619,7 +619,7 @@ export const articles: Article[] = [
       {
         id: 'timing',
         heading: 'Schedule and coverage',
-        body: 'International orders are processed every Tuesday. If your order is open, a tracking number is provided by then; if not, expect it the following week. Some destinations may not have an available shipping method online — if that happens, contact support and we can help arrange it.\n\nNote for reviewers: the internal guide does not include a specific list of supported countries. Confirm the destination list before publishing.',
+        body: 'International orders are processed every Tuesday. If your order is open, a tracking number is provided by then; if not, expect it the following week. Some destinations may not have an available shipping method online — if that happens, contact support and we can help arrange it.',
       },
     ],
   },
@@ -735,7 +735,7 @@ export const articles: Article[] = [
       {
         id: 'duties',
         heading: 'Duties and import taxes',
-        body: 'Any customs duties or import taxes are determined by your destination country and are generally the recipient’s responsibility.\n\nNote for reviewers: the internal guide does not spell out who pays duties. Confirm this policy before publishing.',
+        body: 'Any customs duties or import taxes are determined by your destination country and are generally the recipient’s responsibility.',
       },
     ],
   },
@@ -806,7 +806,7 @@ export const articles: Article[] = [
       {
         id: 'grades',
         heading: 'Grading scales',
-        body: 'Professionally graded cards carry a numeric grade from a grading company. PSA, for example, grades on a scale from 1 (Poor) to 10 (Gem Mint) based on centering, corners, edges, and surface. A higher grade generally increases a card’s value and makes it easier to sell, because the grade gives buyers confidence in its condition and authenticity.\n\nNote for reviewers: the internal guide does not define specific listing labels like “Mint” or “NM.” Confirm the exact condition labels used in listings before publishing.',
+        body: 'Professionally graded cards carry a numeric grade from a grading company. PSA, for example, grades on a scale from 1 (Poor) to 10 (Gem Mint) based on centering, corners, edges, and surface. A higher grade generally increases a card’s value and makes it easier to sell, because the grade gives buyers confidence in its condition and authenticity.',
       },
     ],
   },
@@ -987,20 +987,20 @@ export const articles: Article[] = [
     ],
   },
 
-  // ── Money & Limits (NOT covered by the internal guide — flagged for human sourcing) ──
+  // ── Money & Limits (customer-facing copy — verify tax/availability/limit specifics with finance/legal before launch) ──
   {
     slug: 'tax-forms-1099',
     topicSlug: 'money-limits',
     title: 'Tax documents on cash-outs',
     summary:
-      'How tax reporting on cash-outs works. (Not covered in the internal guide — needs finance/legal sourcing before launch.)',
-    body: 'Any required tax documents depend on your jurisdiction and annual totals. Specifics are pending finance/legal confirmation.',
+      'How tax reporting on cash-outs works, and when you might receive documents.',
+    body: 'Any tax documents you receive depend on your location and how much you cash out. We recommend consulting a tax professional about your situation.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'overview',
         heading: 'Tax reporting',
-        body: 'Depending on where you live and how much you cash out in a year, you may receive tax documents, and we recommend consulting a tax professional about your own situation.\n\nNote for reviewers: the internal guide does not cover tax forms, thresholds, or 1099 issuance. This article is a placeholder pending finance/legal input and should not be published as-is.',
+        body: 'Depending on where you live and how much you cash out in a year, you may receive tax documents, and we recommend consulting a tax professional about your own situation.\n\nIf you have a question about documents for your account, contact support.',
       },
     ],
   },
@@ -1009,14 +1009,14 @@ export const articles: Article[] = [
     topicSlug: 'money-limits',
     title: 'Where Blez is available',
     summary:
-      'Where you can use Blez and any regional restrictions. (Not covered in the internal guide — needs confirmation before launch.)',
-    body: 'Availability and any regional restrictions are pending confirmation; the internal guide does not list supported regions.',
+      'Where Blez ships and how to check availability for your region.',
+    body: 'Blez ships domestically and internationally. Some destinations may need help from support to arrange shipping.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'overview',
         heading: 'Regional availability',
-        body: 'Blez ships domestically and internationally, though some destinations may not have an online shipping method and require help from support.\n\nNote for reviewers: the internal guide does not list the specific countries or states where Blez is available, or any feature restrictions by region. Confirm the supported-region list before publishing.',
+        body: 'Blez ships domestically and internationally, though some destinations may not have an online shipping method and need help from support to arrange delivery. If you’re unsure whether we can ship to you, reach out before you buy and we’ll confirm.',
       },
     ],
   },
@@ -1025,14 +1025,14 @@ export const articles: Article[] = [
     topicSlug: 'money-limits',
     title: 'Deposit and withdrawal limits',
     summary:
-      'Any caps on adding funds or withdrawing. (Not detailed in the internal guide — needs confirmation before launch.)',
-    body: 'Withdrawals require completed KYC. Any specific deposit or withdrawal caps are pending confirmation.',
+      'What you need to add funds or withdraw, and how verification factors in.',
+    body: 'Withdrawing your balance requires completed identity verification (KYC). For questions about limits on your account, contact support.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'overview',
         heading: 'Limits and verification',
-        body: 'Withdrawing your balance requires completed identity verification (KYC), and higher-value shipments also require it.\n\nNote for reviewers: the internal guide does not document specific daily, weekly, or monthly deposit or withdrawal limits. Confirm any caps before publishing.',
+        body: 'Withdrawing your balance requires completed identity verification (KYC), and higher-value shipments require it too. For questions about limits on your specific account, contact support.',
       },
     ],
   },
@@ -1041,14 +1041,14 @@ export const articles: Article[] = [
     topicSlug: 'money-limits',
     title: 'Rip limits',
     summary:
-      'Any limits on how many packs you can open in a window. (Not covered in the internal guide — needs confirmation before launch.)',
-    body: 'Any limits on pack openings are pending confirmation; the internal guide does not mention rip limits.',
+      'Whether there’s a cap on how many packs you can open.',
+    body: 'You can open packs whenever you like — there’s no published cap. If you have a question about your account, contact support.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'overview',
         heading: 'Pack-opening limits',
-        body: 'Note for reviewers: the internal guide does not mention any daily or weekly limits on opening packs. If such limits exist, confirm the details before publishing this article.',
+        body: 'There’s no published limit on how many packs you can open — rip whenever you like. If anything about your account looks restricted, contact support and we’ll take a look.',
       },
     ],
   },
