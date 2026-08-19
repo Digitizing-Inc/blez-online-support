@@ -8,7 +8,7 @@ import { siteConfig } from '@/lib/config'
  */
 export default function ShopCTA({
   title = 'Ready to start ripping?',
-  body = 'Create your account and get your first points today.',
+  body = 'Get back to the hunt — browse packs and pull your next great card.',
   cta = 'Start ripping now',
 }: {
   title?: string

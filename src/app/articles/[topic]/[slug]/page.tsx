@@ -74,8 +74,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     topicSlug === 'getting-started'
       ? {
           title: 'New to Blez?',
-          body: 'Create your account and get 10 Blez Points to start ripping.',
-          cta: 'Get started',
+          body: 'See how it works — browse packs and find your first great card.',
+          cta: 'Browse packs',
         }
       : topicSlug === 'ripping-reveals'
         ? {
