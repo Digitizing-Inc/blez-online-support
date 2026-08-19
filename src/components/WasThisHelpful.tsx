@@ -40,21 +40,22 @@ export default function WasThisHelpful({
     }
   }, [storageKey])
 
-  function pick(value: 'yes' | 'no') {
-    setVerdict(value)
-    if (value === 'yes') submit('yes', '')
-  }
-
-  function submit(v: 'yes' | 'no', text: string) {
-    // Placeholder. Replace with: await fetch('/api/feedback', { ... })
-    void articleSlug
-    void text
+  function record(v: 'yes' | 'no') {
+    // No backend yet — persist locally so we don't re-ask this reader. When
+    // /api/feedback lands, also POST { articleSlug, verdict: v } from here.
     try {
       window.localStorage.setItem(storageKey, v)
     } catch {
       // ignore
     }
-    setSubmitted(v)
+  }
+
+  function pick(value: 'yes' | 'no') {
+    setVerdict(value)
+    record(value)
+    // Yes → thank them immediately. No → keep the escalation form open so they
+    // can send detail to the team (a real path, not a dropped stub).
+    if (value === 'yes') setSubmitted('yes')
   }
 
   const contactHref = `/contact?subject=${encodeURIComponent(
@@ -128,19 +129,13 @@ export default function WasThisHelpful({
       </div>
 
       {verdict === 'no' && (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault()
-            submit('no', comment.trim())
-          }}
-          className="mt-4 flex flex-col gap-3"
-        >
+        <div className="mt-4 flex flex-col gap-3">
           <label
             htmlFor={`feedback-${articleSlug}`}
             className="text-sm text-[var(--text-secondary)]"
           >
-            What was missing or wrong? We&rsquo;ll point you to a human if you
-            need one.
+            Sorry about that. Tell our team what was missing and we&rsquo;ll
+            help.
           </label>
           <div className="input-shell h-auto py-2">
             <textarea
@@ -148,14 +143,15 @@ export default function WasThisHelpful({
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               rows={3}
-              placeholder="Optional, but helpful."
+              placeholder="What were you looking for? (optional)"
               className="resize-none bg-transparent leading-relaxed"
             />
           </div>
-          <button type="submit" className="btn btn-primary btn-sm self-start">
-            Send feedback
-          </button>
-        </form>
+          <Link href={contactHref} className="btn btn-primary btn-sm self-start">
+            <Mail className="h-4 w-4" strokeWidth={2} />
+            Send to our team
+          </Link>
+        </div>
       )}
     </div>
   )

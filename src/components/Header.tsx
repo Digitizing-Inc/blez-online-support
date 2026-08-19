@@ -3,6 +3,7 @@ import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
 import HeaderSearch from './HeaderSearch'
 import HeaderNav from './HeaderNav'
+import MobileNav from './MobileNav'
 import { siteConfig } from '@/lib/config'
 
 export default function Header() {
@@ -45,6 +46,7 @@ export default function Header() {
             aria-hidden="true"
           />
           <div className="flex items-center gap-1.5 sm:gap-2">
+            <MobileNav />
             <HeaderSearch />
             <LanguageSwitcher />
           </div>
