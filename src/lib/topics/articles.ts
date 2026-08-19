@@ -335,19 +335,19 @@ export const articles: Article[] = [
     topicSlug: 'ripping-reveals',
     title: 'How pack odds work in our repacks',
     summary:
-      'Every pack publishes its full odds. Lower-value items are pulled far more often than high-value ones, and the draw is completely random.',
-    body: 'Each pack publishes its odds in the description. Lower-value items are more likely to be pulled; the draw is completely random.',
+      'Every pack publishes its full odds — a snapshot of a finite run of real cards. Lower-value items are pulled far more often than high-value ones, and the draw order is random.',
+    body: 'Each pack publishes its odds as a snapshot of a finite run. Lower-value items are more likely to be pulled; the draw order is random, and the run depletes as packs are opened.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'odds',
         heading: 'Where the odds come from',
-        body: 'Every pack lists a full odds breakdown — scroll down in the pack’s description to see it. Odds are based on item value: lower-value items have a higher chance of being pulled, and higher-value items are rarer.\n\nAs an example, in one basketball pack the cheapest items carried roughly a 71.85% chance while the most valuable sat around 3.45%.',
+        body: 'Every pack lists a full odds breakdown — scroll down in the pack’s description to see it. Odds are based on item value: lower-value items have a higher chance of being pulled, and higher-value items are rarer. That breakdown is a snapshot of the run at the time the pack goes live.\n\nAs an example, in one basketball pack the cheapest items carried roughly a 71.85% chance while the most valuable sat around 3.45%.',
       },
       {
         id: 'random',
-        heading: 'The draw is random',
-        body: 'What you pull is determined entirely by these published odds. There is no way to increase your chances of a higher-value pull — every rip is completely random.',
+        heading: 'How the draw works',
+        body: 'Each pack draws from a finite run of real cards in a randomized order that no one — including our team — knows in advance, so you cannot influence which card a single rip gives you.\n\nBecause the run is finite, every pull removes a card from it: as a run is opened, the remaining mix changes and the live odds drift from the published snapshot. Opening packs also shows you which cards are already gone from the run — information you are free to use however you like.',
       },
     ],
   },
@@ -356,19 +356,19 @@ export const articles: Article[] = [
     topicSlug: 'ripping-reveals',
     title: 'Are repacks truly random? Our fairness policy',
     summary:
-      'Yes — every pack’s odds are published up front, the draw is random, and the value range is shown before you buy.',
-    body: 'Every pack publishes its odds, shows a floor and ceiling price, and draws completely at random.',
+      'Yes. Each pack draws from a finite run of real cards in a randomized order no one — not even our team — knows in advance. The published odds are a snapshot of the run when it goes live.',
+    body: 'Packs draw from a finite run of real cards in a randomized, unknown order. Published odds are a snapshot at publication; as cards are pulled, the run depletes and the remaining odds shift.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'fair',
-        heading: 'How we keep it fair',
-        body: 'Each pack is published with a full odds breakdown and a clear floor and ceiling price, so you know both the value range and the exact pull chances before you buy. The pull itself is completely random and follows those published odds.',
+        heading: 'How the draw works',
+        body: 'Every pack is filled from a finite run of real cards, and each pack lists a full odds breakdown plus a clear floor and ceiling price. Those published odds are a snapshot of the run’s makeup at the moment it goes live.\n\nThe order the cards come out is randomized, and no one — including our own team — knows which card any given rip will produce. Nothing is pre-arranged, and no account is given different odds than the run itself.',
       },
       {
-        id: 'note',
-        heading: 'No way to tilt the odds',
-        body: 'Because draws are random, nothing you do changes your chances on a given rip, and no account gets different odds than what the pack publishes.',
+        id: 'depletes',
+        heading: 'Odds shift as a run is opened',
+        body: 'Because each run is finite, every pull removes a card from it. As a run gets opened, what is left changes — so the live odds naturally drift from the published snapshot over the life of the run.\n\nThat also means opening packs gives you real information: you can see which cards are no longer in the run. You are welcome to use that however you like when deciding whether to keep ripping.',
       },
     ],
   },
@@ -419,14 +419,14 @@ export const articles: Article[] = [
     topicSlug: 'ripping-reveals',
     title: "Why you can't see the item before you rip",
     summary:
-      'You see the odds and value range up front, but not the specific item — because every pull is a random draw at the moment you rip.',
-    body: 'You see each pack’s odds and value range, but not the specific item, because the pull is a random draw at rip time.',
+      'You see the odds and value range up front, but not the specific item — the card you get comes out of the run in a randomized order no one knows in advance.',
+    body: 'You see each pack’s odds and value range up front, but not the specific item — the order cards come out of the run is randomized and unknown until you open.',
     lastUpdated: '2026-08-19',
     sections: [
       {
         id: 'why',
         heading: 'Why it stays sealed',
-        body: 'A pack’s specific contents are not shown before you open it because the pull is a random draw made at the moment you rip. What you can always see up front is the pack’s odds breakdown and its floor and ceiling price — the full value range you are buying into.',
+        body: 'A pack’s specific card is not shown before you open it because the order cards come out of the run is randomized and unknown to everyone — including our team — until the moment you rip. What you can always see up front is the pack’s odds breakdown (a snapshot of the run) and its floor and ceiling price — the full value range you are buying into.',
       },
     ],
   },
