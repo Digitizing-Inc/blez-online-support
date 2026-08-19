@@ -8,6 +8,9 @@ import ResourceCard from '@/components/ResourceCard'
 import Prose from '@/components/Prose'
 import ShopCTA from '@/components/ShopCTA'
 import TableOfContents from '@/components/TableOfContents'
+import ReadingProgress from '@/components/ReadingProgress'
+import SectionHeading from '@/components/SectionHeading'
+import ViewCount from '@/components/ViewCount'
 import JsonLd, {
   blogPostingSchema,
   breadcrumbSchema,
@@ -101,6 +104,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+      <ReadingProgress />
       <JsonLd data={schemas} />
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_220px] xl:gap-16 xl:grid-cols-[minmax(0,1fr)_240px]">
         {/* Main column */}
@@ -125,6 +129,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
             <span className="text-sm text-[var(--text-faint)]">
               · {resource.readMinutes} min read
             </span>
+            <ViewCount slug={resource.slug} />
           </div>
 
           <h1 className="mt-4 text-2xl font-bold leading-tight text-[var(--text-primary)] sm:text-3xl">
@@ -167,9 +172,9 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
           <article className="mt-10 flex flex-col gap-10">
             {resource.sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-24">
-                <h2 className="text-xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-2xl">
+                <SectionHeading id={section.id}>
                   {section.heading}
-                </h2>
+                </SectionHeading>
                 <div className="mt-4">
                   <Prose body={section.body} sources={resource.sources} />
                 </div>

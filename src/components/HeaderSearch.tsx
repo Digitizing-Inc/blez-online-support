@@ -16,6 +16,21 @@ export default function HeaderSearch() {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault()
         setOpen((o) => !o)
+        return
+      }
+      // "/" is a common search shortcut — but only when the user isn't
+      // already typing into a field (input, textarea, or contenteditable).
+      if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        const t = e.target as HTMLElement | null
+        const typing =
+          !!t &&
+          (t.tagName === 'INPUT' ||
+            t.tagName === 'TEXTAREA' ||
+            t.isContentEditable)
+        if (!typing) {
+          e.preventDefault()
+          setOpen(true)
+        }
       }
     }
     window.addEventListener('keydown', onKey)
@@ -28,7 +43,7 @@ export default function HeaderSearch() {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="Search"
-        aria-keyshortcuts="Meta+K Control+K"
+        aria-keyshortcuts="Meta+K Control+K /"
         className="inline-flex h-10 items-center gap-2 rounded-md border border-[var(--border-default)] px-3 text-sm text-[var(--text-muted)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--text-primary)]"
       >
         <Search className="h-4 w-4" strokeWidth={2} aria-hidden="true" />

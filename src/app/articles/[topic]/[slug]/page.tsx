@@ -7,6 +7,9 @@ import TableOfContents from '@/components/TableOfContents'
 import WasThisHelpful from '@/components/WasThisHelpful'
 import StillNeedHelp from '@/components/StillNeedHelp'
 import ShopCTA from '@/components/ShopCTA'
+import ReadingProgress from '@/components/ReadingProgress'
+import SectionHeading from '@/components/SectionHeading'
+import ViewCount from '@/components/ViewCount'
 import JsonLd, {
   articleSchema,
   breadcrumbSchema,
@@ -98,6 +101,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+      <ReadingProgress />
       <JsonLd data={[articleSchema(article, topic), breadcrumbLd]} />
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_220px] xl:gap-16 xl:grid-cols-[minmax(0,1fr)_240px]">
         {/* Main column */}
@@ -115,10 +119,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <p className="mt-3 text-base text-[var(--text-secondary)]">
             {article.summary}
           </p>
-          <p className="mt-4 text-xs text-[var(--text-faint)]">
-            Last updated{' '}
-            <time dateTime={article.lastUpdated}>{article.lastUpdated}</time>
-          </p>
+          <div className="mt-4 flex flex-wrap items-center text-xs text-[var(--text-faint)]">
+            <span>
+              Last updated{' '}
+              <time dateTime={article.lastUpdated}>{article.lastUpdated}</time>
+            </span>
+            <ViewCount slug={article.slug} />
+          </div>
 
           {/* Mobile-only TOC: native <details> disclosure so phone readers
               can still jump between sections of long articles. The desktop
@@ -153,9 +160,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <article className="mt-12 flex flex-col gap-12">
             {sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-24">
-                <h2 className="text-xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-2xl">
+                <SectionHeading id={section.id}>
                   {section.heading}
-                </h2>
+                </SectionHeading>
                 <div className="mt-4 flex flex-col gap-4 text-[15px] leading-relaxed text-[var(--text-secondary)]">
                   {section.body.split('\n\n').map((paragraph, i) => (
                     <p key={i}>{paragraph}</p>
