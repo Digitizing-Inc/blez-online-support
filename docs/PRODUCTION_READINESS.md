@@ -24,9 +24,8 @@ is left for the inheriting dev.
   `noindex, follow` and the sitemap lists only `/` until
   `NEXT_PUBLIC_ALLOW_INDEX=true`. Prevents ~60 thin pages being indexed.
 - **Footer social tap targets** raised from ~20px to 44px (`Footer.tsx`).
-- **Home banner LCP** — first card image now `priority` (`CardStackBanner`).
 - **Reduced-motion support** — global `prefers-reduced-motion` guard
-  neutralizes transitions/animations, including the banner's inline ones.
+  neutralizes transitions/animations app-wide.
 - **Dead `.live-dot` CSS** (chatbot-era) removed.
 
 ## Open — for the inheriting dev

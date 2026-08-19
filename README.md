@@ -36,18 +36,15 @@ npm run build        # production build
 │   ├── DESIGN_SYSTEM.md            # canonical spec
 │   └── fonts/                      # licensed Druk Wide woff/woff2
 ├── docs/
-│   ├── TOPICS.md                   # source of truth for topic + article list
-│   └── CardStackBanner-handoff.md  # spec for the home hero card-stack banner
+│   └── TOPICS.md                   # source of truth for topic + article list
 ├── public/
 │   ├── blez-logo.webp              # header / footer brand mark
-│   ├── blez-mark.png               # small square brand mark (banner empty state)
-│   ├── cards/                      # card-stack banner imagery
 │   └── fonts/                      # Druk Wide subset shipped at runtime
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx              # root layout — fonts, JSON-LD, OG metadata
 │   │   ├── globals.css             # design tokens + component classes
-│   │   ├── page.tsx                # / — card banner + search + topic tile grid
+│   │   ├── page.tsx                # / — search + topic tiles + resources
 │   │   ├── articles/[topic]/
 │   │   │   ├── page.tsx            # /articles/:topic — article list
 │   │   │   └── [slug]/page.tsx     # /articles/:topic/:slug — article
@@ -62,7 +59,6 @@ npm run build        # production build
 │   │   ├── Footer.tsx              # Need-support callout + 3-col + legal
 │   │   ├── LanguageSwitcher.tsx    # opens Google Translate proxy
 │   │   ├── SearchBar.tsx           # MiniSearch + no-match fallback panel
-│   │   ├── CardStackBanner.tsx     # home hero — dismissable stacked cards
 │   │   ├── TopicTile.tsx           # tile shown on home grid
 │   │   ├── TableOfContents.tsx     # desktop sticky on-this-page list
 │   │   ├── Breadcrumb.tsx          # crumb (Inter 400 inactive / 600 active, ChevronRight)

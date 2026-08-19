@@ -648,30 +648,6 @@
   );
 }
 
-/* Old-CRT "TV power off" collapse — first the panel snaps vertically
-   into a thin horizontal line, then the line shrinks to nothing.
-   Used by the CardStackBanner empty state on collapse. The center-top
-   origin keeps the line riding the top edge so the wrapper's parallel
-   max-height collapse doesn't clip it mid-animation. */
-.tv-off-anim {
-  animation: tv-off 420ms cubic-bezier(0.55, 0, 0.45, 1) forwards;
-  transform-origin: center top;
-}
-@keyframes tv-off {
-  0% {
-    transform: scaleY(1) scaleX(1);
-    opacity: 1;
-  }
-  55% {
-    transform: scaleY(0.02) scaleX(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scaleY(0.02) scaleX(0);
-    opacity: 0;
-  }
-}
-
 /* Skip link (a11y) */
 .skip-to-content {
   position: absolute;
@@ -692,10 +668,10 @@
 
 /* ─────────────────────────────────────────────────────────────
  * Reduced motion — honor the OS "reduce motion" setting app-wide.
- * Unlayered + !important so it also neutralizes the CardStackBanner's
- * inline `transition`/animation styles (inline styles otherwise win over
- * layered rules). Near-zero durations rather than `none` so transition/
- * animation end events still fire and JS state settles.
+ * Unlayered + !important so it also neutralizes any inline
+ * `transition`/animation styles (inline styles otherwise win over layered
+ * rules). Near-zero durations rather than `none` so transition/animation
+ * end events still fire and JS state settles.
  * ───────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,
