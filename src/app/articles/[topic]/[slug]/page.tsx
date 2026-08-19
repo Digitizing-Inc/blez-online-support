@@ -109,10 +109,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               { label: article.title },
             ]}
           />
-          <h1 className="mt-6 text-3xl font-bold leading-tight text-[var(--text-primary)] sm:text-4xl">
+          <h1 className="mt-6 text-2xl font-bold leading-tight text-[var(--text-primary)] sm:text-3xl">
             {article.title}
           </h1>
-          <p className="mt-3 text-base text-[var(--text-secondary)] sm:text-lg">
+          <p className="mt-3 text-base text-[var(--text-secondary)]">
             {article.summary}
           </p>
           <p className="mt-4 text-xs text-[var(--text-faint)]">
@@ -153,10 +153,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <article className="mt-12 flex flex-col gap-12">
             {sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-24">
-                <h2 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-3xl">
+                <h2 className="text-xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-2xl">
                   {section.heading}
                 </h2>
-                <div className="mt-4 flex flex-col gap-4 text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
+                <div className="mt-4 flex flex-col gap-4 text-[15px] leading-relaxed text-[var(--text-secondary)]">
                   {section.body.split('\n\n').map((paragraph, i) => (
                     <p key={i}>{paragraph}</p>
                   ))}
