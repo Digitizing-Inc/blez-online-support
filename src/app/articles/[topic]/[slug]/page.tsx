@@ -7,7 +7,6 @@ import TableOfContents from '@/components/TableOfContents'
 import WasThisHelpful from '@/components/WasThisHelpful'
 import StillNeedHelp from '@/components/StillNeedHelp'
 import ShopCTA from '@/components/ShopCTA'
-import ReadingProgress from '@/components/ReadingProgress'
 import SectionHeading from '@/components/SectionHeading'
 import ViewCount from '@/components/ViewCount'
 import JsonLd, {
@@ -101,7 +100,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
-      <ReadingProgress />
       <JsonLd data={[articleSchema(article, topic), breadcrumbLd]} />
       <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_220px] xl:gap-16 xl:grid-cols-[minmax(0,1fr)_240px]">
         {/* Main column */}
