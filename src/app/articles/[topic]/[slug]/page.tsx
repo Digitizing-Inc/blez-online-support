@@ -6,6 +6,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import TableOfContents from '@/components/TableOfContents'
 import WasThisHelpful from '@/components/WasThisHelpful'
 import StillNeedHelp from '@/components/StillNeedHelp'
+import ShopCTA from '@/components/ShopCTA'
 import JsonLd, {
   articleSchema,
   breadcrumbSchema,
@@ -68,6 +69,25 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const related = getArticlesForTopic(topicSlug)
     .filter((a) => a.slug !== article.slug)
     .slice(0, 4)
+
+  const ripCopy =
+    topicSlug === 'getting-started'
+      ? {
+          title: 'New to Blez?',
+          body: 'Create your account and get 10 Blez Points to start ripping.',
+          cta: 'Get started',
+        }
+      : topicSlug === 'ripping-reveals'
+        ? {
+            title: 'Ready to rip?',
+            body: 'Browse hand-curated packs of real cards and open one on the spot.',
+            cta: 'Browse packs',
+          }
+        : {
+            title: 'Ready to rip?',
+            body: 'Ship what you pull or sell it back instantly at 90% — browse the packs.',
+            cta: 'Browse packs',
+          }
 
   const base = siteConfig.siteUrl.replace(/\/$/, '')
   const breadcrumbLd = breadcrumbSchema([
@@ -196,6 +216,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <TableOfContents items={tocItems} />
           </div>
         </aside>
+      </div>
+
+      <div className="mt-16">
+        <ShopCTA title={ripCopy.title} body={ripCopy.body} cta={ripCopy.cta} />
       </div>
     </div>
   )

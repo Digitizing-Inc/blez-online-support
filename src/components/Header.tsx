@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowUpRight } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
 import HeaderSearch from './HeaderSearch'
+import HeaderNav from './HeaderNav'
 import { siteConfig } from '@/lib/config'
 
 export default function Header() {
@@ -29,29 +29,7 @@ export default function Header() {
 
         <div className="flex items-center gap-1 sm:gap-2">
           <HeaderSearch />
-          <nav aria-label="Primary" className="hidden items-center sm:flex">
-            <Link
-              href="/"
-              className="rounded-md px-3 py-2 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:bg-[var(--blez-blue-ghost)] hover:text-[var(--text-primary)] hover:no-underline"
-            >
-              Help Center
-            </Link>
-            <Link
-              href="/resources"
-              className="rounded-md px-3 py-2 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:bg-[var(--blez-blue-ghost)] hover:text-[var(--text-primary)] hover:no-underline"
-            >
-              Resources
-            </Link>
-            <a
-              href={siteConfig.shopUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-[var(--blez-blue)] transition-colors hover:bg-[var(--blez-blue-ghost)] hover:no-underline"
-            >
-              Shop
-              <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2.5} />
-            </a>
-          </nav>
+          <HeaderNav />
           <LanguageSwitcher />
         </div>
       </div>

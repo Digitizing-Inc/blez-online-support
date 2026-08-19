@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight, ChevronLeft } from 'lucide-react'
 import Breadcrumb from '@/components/Breadcrumb'
+import ShopCTA from '@/components/ShopCTA'
 import JsonLd, { breadcrumbSchema } from '@/lib/seo/jsonld'
 import { siteConfig } from '@/lib/config'
 import {
@@ -121,6 +122,10 @@ export default async function TopicPage({ params }: TopicPageProps) {
             All topics
           </Link>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
+        <ShopCTA />
       </section>
     </>
   )

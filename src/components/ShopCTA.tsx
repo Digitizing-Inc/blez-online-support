@@ -1,40 +1,37 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { siteConfig } from '@/lib/config'
 
 /**
- * Conversion CTA back to the storefront. Placed on the Resources posts and
- * listing (the surfaces SEO traffic lands on) so a reader's natural next step
- * — "browse packs" — is one tap away. Opens the main shop in a new tab.
+ * Bottom-of-page conversion banner back to the storefront, styled after the
+ * main site's "Ready to start ripping?" call-to-action. Copy is passed per
+ * page so it matches the surrounding context. Opens the shop in a new tab.
  */
 export default function ShopCTA({
-  title = 'Ready to rip?',
-  body = 'Browse hand-curated packs of real cards and open one on the spot.',
-  cta = 'Browse packs',
+  title = 'Ready to start ripping?',
+  body = 'Create your account and get your first points today.',
+  cta = 'Start ripping now',
 }: {
   title?: string
   body?: string
   cta?: string
 }) {
   return (
-    <a
-      href={siteConfig.shopUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex flex-col gap-5 overflow-hidden rounded-xl border border-[var(--blez-blue)] p-6 hover:no-underline sm:flex-row sm:items-center sm:justify-between sm:p-7"
-      style={{
-        background:
-          'linear-gradient(225.32deg, rgba(0, 92, 153, 0.95) 0%, rgba(0, 153, 255, 0.95) 51.93%, rgba(0, 92, 153, 0.95) 100%)',
-        boxShadow: 'var(--glow-blue-soft)',
-      }}
-    >
-      <div className="min-w-0">
-        <p className="display display-h5 not-italic text-white">{title}</p>
-        <p className="mt-1.5 text-white/85">{body}</p>
-      </div>
-      <span className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-md bg-white px-5 py-3 text-sm font-semibold uppercase tracking-wider text-[var(--blez-blue-deep)] transition-transform group-hover:-translate-y-0.5">
+    <section className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-elevated)] px-6 py-12 text-center sm:py-16">
+      <h2 className="display display-h3 not-italic mx-auto max-w-2xl text-[var(--text-primary)]">
+        {title}
+      </h2>
+      <p className="mx-auto mt-3 max-w-xl text-[var(--text-secondary)] sm:text-lg">
+        {body}
+      </p>
+      <a
+        href={siteConfig.shopUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn btn-primary btn-lg mt-8 uppercase tracking-wider hover:no-underline"
+      >
         {cta}
-        <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />
-      </span>
-    </a>
+        <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+      </a>
+    </section>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Search, X, Mail, ArrowRight, Library } from 'lucide-react'
@@ -55,7 +56,8 @@ export default function SearchDialog({
 
   useEffect(() => setActive(0), [debounced])
 
-  if (!open) return null
+  // Render nothing until open, and only on the client (portal needs document).
+  if (!open || typeof document === 'undefined') return null
 
   function onKeyDown(e: React.KeyboardEvent) {
     if (e.key === 'Escape') {
@@ -73,9 +75,9 @@ export default function SearchDialog({
     }
   }
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex justify-center px-4 pt-[10vh] sm:pt-[12vh]"
+      className="fixed inset-0 z-[60] flex justify-center px-4 pt-[10vh] sm:pt-[12vh]"
       role="dialog"
       aria-modal="true"
       aria-label="Search"
@@ -90,9 +92,9 @@ export default function SearchDialog({
 
       <div className="relative z-10 flex max-h-[78vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--bg-elevated)] shadow-[var(--shadow-xl)]">
         {/* input */}
-        <div className="input-shell h-14 rounded-none border-0 border-b border-[var(--border-subtle)]">
+        <div className="flex h-14 flex-shrink-0 items-center gap-3 border-b border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-4">
           <Search
-            className="h-5 w-5 text-[var(--text-muted)]"
+            className="h-5 w-5 flex-shrink-0 text-[var(--blez-blue)]"
             strokeWidth={2}
             aria-hidden="true"
           />
@@ -107,7 +109,7 @@ export default function SearchDialog({
             aria-activedescendant={
               hits.length ? `dialog-hit-${active}` : undefined
             }
-            className="text-base"
+            className="h-full flex-1 bg-transparent text-base text-[var(--text-primary)] outline-none placeholder:text-[var(--text-faint)]"
           />
           <button
             type="button"
@@ -183,6 +185,7 @@ export default function SearchDialog({
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }

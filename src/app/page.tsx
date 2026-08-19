@@ -5,6 +5,7 @@ import CardStackBanner from '@/components/CardStackBanner'
 import SearchBar from '@/components/SearchBar'
 import TopicTile from '@/components/TopicTile'
 import ResourceCard from '@/components/ResourceCard'
+import ShopCTA from '@/components/ShopCTA'
 import { topics } from '@/lib/topics'
 import { getAllResources } from '@/lib/resources'
 import { getUrgentLinks } from '@/lib/quicklinks'
@@ -100,6 +101,10 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
+        <ShopCTA />
+      </section>
     </>
   )
 }
