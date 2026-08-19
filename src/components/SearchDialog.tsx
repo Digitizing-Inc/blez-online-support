@@ -92,7 +92,7 @@ export default function SearchDialog({
 
       <div className="relative z-10 flex max-h-[78vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--bg-elevated)] shadow-[var(--shadow-xl)]">
         {/* input */}
-        <div className="flex h-14 flex-shrink-0 items-center gap-3 border-b border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-4">
+        <div className="flex h-14 flex-shrink-0 items-center gap-3 border-b border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-4 focus-within:border-[var(--blez-blue)]">
           <Search
             className="h-5 w-5 flex-shrink-0 text-[var(--blez-blue)]"
             strokeWidth={2}
@@ -109,7 +109,7 @@ export default function SearchDialog({
             aria-activedescendant={
               hits.length ? `dialog-hit-${active}` : undefined
             }
-            className="h-full flex-1 bg-transparent text-base text-[var(--text-primary)] outline-none placeholder:text-[var(--text-faint)]"
+            className="h-full flex-1 bg-transparent text-base text-[var(--text-primary)] outline-none placeholder:text-[var(--text-faint)] focus:shadow-none focus-visible:shadow-none"
           />
           <button
             type="button"
