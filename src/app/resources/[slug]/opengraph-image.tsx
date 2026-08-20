@@ -1,16 +1,24 @@
 import { ImageResponse } from 'next/og'
-import { siteConfig } from '@/lib/config'
+import { resources, getResource, CATEGORY_LABELS } from '@/lib/resources'
 
-export const alt = 'Blez Online Support'
+export const alt = 'Blez Online Resources'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-/**
- * Default OG image generated at build time. Per-route OG images can
- * override by exporting their own `opengraph-image.tsx` in their route
- * folder, or returning an `openGraph.images` from `generateMetadata`.
- */
-export default function OG() {
+export function generateStaticParams() {
+  return resources.map((r) => ({ slug: r.slug }))
+}
+
+export default async function OG({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+  const resource = getResource(slug)
+  const title = resource?.title ?? 'Blez Online Resources'
+  const kicker = resource ? CATEGORY_LABELS[resource.category] : 'Resources'
+
   return new ImageResponse(
     (
       <div
@@ -19,11 +27,10 @@ export default function OG() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-start',
           justifyContent: 'space-between',
           padding: 80,
           background:
-            'linear-gradient(135deg, #005c99 0%, #0099ff 50%, #005c99 100%)',
+            'linear-gradient(135deg, #0a1f33 0%, #005c99 55%, #0099ff 100%)',
           color: '#FAFAFA',
           fontFamily: 'system-ui, sans-serif',
         }}
@@ -33,7 +40,7 @@ export default function OG() {
             display: 'flex',
             alignItems: 'center',
             gap: 16,
-            fontSize: 28,
+            fontSize: 26,
             letterSpacing: 4,
             textTransform: 'uppercase',
             opacity: 0.9,
@@ -41,35 +48,19 @@ export default function OG() {
         >
           <span>BLEZ ONLINE</span>
           <span style={{ opacity: 0.6 }}>·</span>
-          <span>SUPPORT</span>
+          <span>{kicker.toUpperCase()}</span>
         </div>
         <div
           style={{
+            fontSize: title.length > 60 ? 60 : 76,
+            fontWeight: 800,
+            letterSpacing: -1,
+            lineHeight: 1.05,
+            maxWidth: 1040,
             display: 'flex',
-            flexDirection: 'column',
-            gap: 16,
           }}
         >
-          <div
-            style={{
-              fontSize: 84,
-              fontWeight: 800,
-              letterSpacing: -1,
-              lineHeight: 1,
-            }}
-          >
-            Real answers, instant.
-          </div>
-          <div
-            style={{
-              fontSize: 28,
-              opacity: 0.85,
-              maxWidth: 900,
-            }}
-          >
-            Search the help center for answers about packs, payments,
-            shipping, ripping, and your account.
-          </div>
+          {title}
         </div>
         <div
           style={{
@@ -80,7 +71,7 @@ export default function OG() {
             opacity: 0.7,
           }}
         >
-          <span>{siteConfig.siteUrl.replace(/^https?:\/\//, '')}</span>
+          <span>blezonline.com</span>
           <span>Rip a Pack, Score Big.</span>
         </div>
       </div>

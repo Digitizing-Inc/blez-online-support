@@ -1,0 +1,229 @@
+'use client'
+
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { Search, X, Mail, ArrowRight, Library } from 'lucide-react'
+import { search } from '@/lib/search'
+import { getUrgentLinks } from '@/lib/quicklinks'
+import { siteConfig } from '@/lib/config'
+import SearchResultList from './SearchResultList'
+
+const DEBOUNCE_MS = 100
+
+/**
+ * Full-screen search overlay opened from the header (and ⌘K / Ctrl-K), so
+ * search is reachable from every page — not just the home hero. Unified
+ * across help articles + resources, with keyboard navigation, a zero-state
+ * of common issues, and a contact fallback on no match.
+ */
+export default function SearchDialog({
+  open,
+  onClose,
+}: {
+  open: boolean
+  onClose: () => void
+}) {
+  const router = useRouter()
+  const inputRef = useRef<HTMLInputElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const [query, setQuery] = useState('')
+  const [debounced, setDebounced] = useState('')
+  const [active, setActive] = useState(0)
+  const urgent = useMemo(() => getUrgentLinks(), [])
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setDebounced(query), DEBOUNCE_MS)
+    return () => window.clearTimeout(id)
+  }, [query])
+
+  const trimmed = query.trim()
+  // Search on the debounced value so each keystroke isn't a full index query;
+  // the input field itself stays on `query` for responsiveness.
+  const hits = useMemo(() => {
+    const q = debounced.trim()
+    return q ? search(q) : []
+  }, [debounced])
+
+  // Reset + focus on open; lock body scroll while open.
+  useEffect(() => {
+    if (!open) return
+    setQuery('')
+    setActive(0)
+    const t = window.setTimeout(() => inputRef.current?.focus(), 20)
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.clearTimeout(t)
+      document.body.style.overflow = prev
+    }
+  }, [open])
+
+  useEffect(() => setActive(0), [debounced])
+
+  // Trap Tab focus within the panel and restore focus to the opener on close.
+  useEffect(() => {
+    if (!open) return
+    const opener = document.activeElement as HTMLElement | null
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key !== 'Tab') return
+      const panel = panelRef.current
+      if (!panel) return
+      const focusables = panel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input, textarea, [tabindex]:not([tabindex="-1"])',
+      )
+      if (focusables.length === 0) return
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      opener?.focus?.()
+    }
+  }, [open])
+
+  // Render nothing until open, and only on the client (portal needs document).
+  if (!open || typeof document === 'undefined') return null
+
+  function onKeyDown(e: React.KeyboardEvent) {
+    if (e.key === 'Escape') {
+      onClose()
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault()
+      setActive((i) => Math.min(i + 1, hits.length - 1))
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault()
+      setActive((i) => Math.max(i - 1, 0))
+    } else if (e.key === 'Enter' && hits[active]) {
+      e.preventDefault()
+      onClose()
+      router.push(hits[active].href)
+    }
+  }
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[60] flex justify-center px-4 pt-20 sm:pt-28"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Search"
+    >
+      {/* backdrop */}
+      <button
+        type="button"
+        aria-label="Close search"
+        onClick={onClose}
+        className="absolute inset-0 bg-[var(--bg-overlay)] backdrop-blur-sm"
+      />
+
+      <div
+        ref={panelRef}
+        className="relative z-10 flex max-h-[78vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl border border-[var(--border-default)] bg-[var(--bg-elevated)] shadow-[var(--shadow-xl)]"
+      >
+        {/* input */}
+        <div className="flex h-14 flex-shrink-0 items-center gap-3 border-b border-[var(--border-subtle)] bg-[var(--bg-canvas)] px-4 focus-within:border-[var(--blez-blue)]">
+          <Search
+            className="h-5 w-5 flex-shrink-0 text-[var(--blez-blue)]"
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+          <input
+            ref={inputRef}
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={onKeyDown}
+            placeholder="Search help articles and guides…"
+            aria-label="Search help articles and guides"
+            aria-activedescendant={
+              hits.length ? `dialog-hit-${active}` : undefined
+            }
+            className="h-full flex-1 bg-transparent text-base text-[var(--text-primary)] outline-none placeholder:text-[var(--text-faint)] focus:shadow-none focus-visible:shadow-none"
+          />
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close search"
+            className="-mr-1 inline-flex h-10 w-10 items-center justify-center rounded-md text-[var(--text-muted)] transition-colors hover:bg-[var(--blez-blue-ghost)] hover:text-[var(--text-primary)]"
+          >
+            <X className="h-5 w-5" strokeWidth={2} />
+          </button>
+        </div>
+
+        <div className="overflow-y-auto">
+          {!trimmed ? (
+            <div className="flex flex-col gap-5 p-5">
+              <div>
+                <p className="eyebrow eyebrow-sm mb-3">Common issues</p>
+                <div className="flex flex-wrap gap-2">
+                  {urgent.map((u) => (
+                    <Link
+                      key={u.href}
+                      href={u.href}
+                      onClick={onClose}
+                      className="chip chip-pill"
+                    >
+                      {u.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <Link
+                href="/resources"
+                onClick={onClose}
+                className="flex items-center justify-between gap-3 rounded-md border border-[var(--border-subtle)] px-4 py-3 text-sm transition-colors hover:border-[var(--blez-blue)] hover:no-underline"
+              >
+                <span className="flex items-center gap-2 text-[var(--text-primary)]">
+                  <Library
+                    className="h-4 w-4 text-[var(--blez-blue)]"
+                    strokeWidth={2}
+                  />
+                  Browse guides &amp; collecting tips
+                </span>
+                <ArrowRight
+                  className="h-4 w-4 text-[var(--text-muted)]"
+                  strokeWidth={2}
+                />
+              </Link>
+            </div>
+          ) : hits.length > 0 ? (
+            <SearchResultList
+              hits={hits}
+              idPrefix="dialog-hit"
+              activeIndex={active}
+              onSelect={onClose}
+            />
+          ) : (
+            <div className="flex flex-col gap-4 p-5">
+              <p className="text-sm text-[var(--text-secondary)]">
+                No matches for{' '}
+                <span className="font-medium text-[var(--text-primary)]">
+                  “{trimmed}”
+                </span>
+                .
+              </p>
+              <Link
+                href={`/contact?subject=${encodeURIComponent(`Help with: ${trimmed}`)}`}
+                onClick={onClose}
+                className="btn btn-primary btn-sm self-start"
+              >
+                <Mail className="h-4 w-4" strokeWidth={2} />
+                Contact support
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>,
+    document.body,
+  )
+}

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowRight, ChevronLeft } from 'lucide-react'
 import Breadcrumb from '@/components/Breadcrumb'
+import ShopCTA from '@/components/ShopCTA'
 import JsonLd, { breadcrumbSchema } from '@/lib/seo/jsonld'
 import { siteConfig } from '@/lib/config'
 import {
@@ -30,6 +31,9 @@ export async function generateMetadata({
     title: topic.title,
     description: topic.description,
     alternates: { canonical: url },
+    // Kept out of the index until article content is real — flip
+    // NEXT_PUBLIC_ALLOW_INDEX=true to release. See siteConfig.allowIndex.
+    robots: siteConfig.allowIndex ? undefined : { index: false, follow: true },
     openGraph: {
       title: topic.title,
       description: topic.description,
@@ -76,6 +80,9 @@ export default async function TopicPage({ params }: TopicPageProps) {
               <p className="mt-3 max-w-2xl text-lg text-[var(--text-secondary)]">
                 {topic.description}
               </p>
+              <p className="eyebrow eyebrow-sm mt-4">
+                {articles.length} {articles.length === 1 ? 'article' : 'articles'}
+              </p>
             </div>
           </div>
         </div>
@@ -83,13 +90,22 @@ export default async function TopicPage({ params }: TopicPageProps) {
 
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <ul className="flex flex-col divide-y divide-[var(--border-subtle)] overflow-hidden rounded-lg border border-[var(--border-subtle)]">
-          {articles.map((article) => (
+          {articles.map((article, i) => (
             <li key={article.slug}>
               <Link
                 href={`/articles/${topic.slug}/${article.slug}`}
-                className="group flex items-center justify-between gap-4 px-5 py-4 transition-colors hover:bg-[var(--blez-blue-ghost)] hover:no-underline sm:px-6"
+                className="group flex items-center gap-4 px-5 py-4 transition-colors hover:bg-[var(--blez-blue-ghost)] hover:no-underline sm:gap-5 sm:px-6"
               >
-                <div className="flex flex-col gap-1 min-w-0">
+                {/* Branded index — Druk numeral centered in a circle badge
+                    that fills blez-blue on row hover. Fixed circle size keeps
+                    single and double digits in the same footprint. */}
+                <span
+                  aria-hidden="true"
+                  className="display not-italic flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-[var(--border-default)] bg-[var(--bg-elevated)] text-base leading-none text-[var(--text-secondary)] transition-colors group-hover:border-[var(--blez-blue)] group-hover:bg-[var(--blez-blue)] group-hover:text-white sm:h-11 sm:w-11 sm:text-lg"
+                >
+                  {i + 1}
+                </span>
+                <div className="flex flex-1 flex-col gap-1 min-w-0">
                   <span className="text-base font-medium text-[var(--text-primary)]">
                     {article.title}
                   </span>
@@ -115,6 +131,10 @@ export default async function TopicPage({ params }: TopicPageProps) {
             All topics
           </Link>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
+        <ShopCTA />
       </section>
     </>
   )

@@ -57,17 +57,17 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             <h2 className="display display-h4 not-italic">Need support?</h2>
             <p className="text-sm text-[var(--text-secondary)] sm:text-base">
-              Send us an email if you need help and we&rsquo;ll respond as
-              quickly as we can.
+              Tell us what&rsquo;s going on and we&rsquo;ll help as quickly as
+              we can. {siteConfig.supportResponseTime}
             </p>
           </div>
-          <a
-            href={`mailto:${siteConfig.supportEmail}`}
+          <Link
+            href="/contact"
             className="btn btn-primary btn-md self-start sm:self-auto"
           >
             <Mail className="h-4 w-4" strokeWidth={2} />
-            EMAIL SUPPORT
-          </a>
+            CONTACT SUPPORT
+          </Link>
         </div>
 
         {/* Body — logo / community+support / quick links */}
@@ -93,14 +93,14 @@ export default function Footer() {
           <div className="flex flex-col gap-10">
             <div>
               <h3 className="display display-h6 not-italic">Community</h3>
-              <ul className="mt-5 flex items-center gap-5 text-[var(--text-secondary)]">
+              <ul className="mt-4 -ml-3 flex items-center gap-1 text-[var(--text-secondary)]">
                 <li>
                   <a
                     href={siteConfig.social.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    className="block transition-colors hover:text-[var(--blez-blue)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-md transition-colors hover:text-[var(--blez-blue)]"
                   >
                     <Facebook className="h-5 w-5" strokeWidth={1.75} />
                   </a>
@@ -111,7 +111,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="X"
-                    className="block transition-colors hover:text-[var(--blez-blue)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-md transition-colors hover:text-[var(--blez-blue)]"
                   >
                     <XIcon className="h-5 w-5" />
                   </a>
@@ -122,7 +122,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="block transition-colors hover:text-[var(--blez-blue)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-md transition-colors hover:text-[var(--blez-blue)]"
                   >
                     <Instagram className="h-5 w-5" strokeWidth={1.75} />
                   </a>
@@ -133,7 +133,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="YouTube"
-                    className="block transition-colors hover:text-[var(--blez-blue)]"
+                    className="flex h-11 w-11 items-center justify-center rounded-md transition-colors hover:text-[var(--blez-blue)]"
                   >
                     <Youtube className="h-5 w-5" strokeWidth={1.75} />
                   </a>
@@ -143,12 +143,32 @@ export default function Footer() {
 
             <div>
               <h3 className="display display-h6 not-italic">Support</h3>
-              <a
-                href={`mailto:${siteConfig.supportEmail}`}
-                className="mt-5 inline-block text-sm text-[var(--text-secondary)] underline underline-offset-4 transition-colors hover:text-[var(--blez-blue)]"
-              >
-                {siteConfig.supportEmail}
-              </a>
+              <div className="mt-5 flex flex-col gap-3 text-sm">
+                <Link
+                  href="/"
+                  className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  Help Center
+                </Link>
+                <Link
+                  href="/resources"
+                  className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  Resources
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+                >
+                  Contact support
+                </Link>
+                <a
+                  href={`mailto:${siteConfig.supportEmail}`}
+                  className="break-all text-[var(--text-secondary)] underline underline-offset-4 transition-colors hover:text-[var(--blez-blue)]"
+                >
+                  {siteConfig.supportEmail}
+                </a>
+              </div>
             </div>
           </div>
 

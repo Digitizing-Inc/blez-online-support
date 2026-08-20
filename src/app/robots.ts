@@ -8,9 +8,8 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        // Block API routes that may exist once the chatbot backend is
-        // wired (e.g. /api/chat). Search engines have no business
-        // crawling them.
+        // Block any API routes that get wired in later — search engines
+        // have no business crawling them.
         disallow: ['/api/'],
       },
     ],

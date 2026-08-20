@@ -1,14 +1,15 @@
 import type { MetadataRoute } from 'next'
 import { siteConfig } from '@/lib/config'
 import { topics, articles } from '@/lib/topics'
+import { getAllResources } from '@/lib/resources'
 
 /**
  * Sitemap generated at build time from the topic + article tables.
  *
  * `lastModified` is computed per-row from real signals (article
- * `lastUpdated`, max-of-children for topics). The home and chat routes
- * use the most recent article date so their freshness tracks content
- * updates rather than build time — crawlers learn to trust the signal.
+ * `lastUpdated`, max-of-children for topics). The home route uses the
+ * most recent article date so its freshness tracks content updates
+ * rather than build time — crawlers learn to trust the signal.
  *
  * When the CMS lands, this file should keep working as long as the
  * accessors return current rows; trigger a revalidation hook on
@@ -30,12 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: latest,
       changeFrequency: 'weekly',
       priority: 1,
-    },
-    {
-      url: `${base}/chat`,
-      lastModified: latest,
-      changeFrequency: 'monthly',
-      priority: 0.6,
     },
   ]
 
@@ -62,5 +57,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticRoutes, ...topicRoutes, ...articleRoutes]
+  const resources = getAllResources()
+  const resourceRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${base}/resources`,
+      lastModified: resources.length
+        ? new Date(resources[0].publishedAt)
+        : latest,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...resources.map((r) => ({
+      url: `${base}/resources/${r.slug}`,
+      lastModified: new Date(r.publishedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ]
+
+  // Until real article copy ships (NEXT_PUBLIC_ALLOW_INDEX), advertise only
+  // the home route so crawlers aren't handed ~60 placeholder URLs. Article,
+  // topic, and resource pages also carry a page-level noindex in that state.
+  if (!siteConfig.allowIndex) return staticRoutes
+
+  return [
+    ...staticRoutes,
+    ...topicRoutes,
+    ...articleRoutes,
+    ...resourceRoutes,
+  ]
 }

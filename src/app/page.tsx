@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import SearchBar from '@/components/SearchBar'
 import TopicTile from '@/components/TopicTile'
-import BlezBotTile from '@/components/BlezBotTile'
+import ResourceCard from '@/components/ResourceCard'
+import ShopCTA from '@/components/ShopCTA'
 import { topics } from '@/lib/topics'
+import { getAllResources } from '@/lib/resources'
+import { getUrgentLinks } from '@/lib/quicklinks'
 
 export const metadata: Metadata = {
   title: 'Support Articles',
@@ -19,19 +24,33 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const sorted = [...topics].sort((a, b) => a.order - b.order)
+  const recentResources = getAllResources().slice(0, 3)
+  const urgent = getUrgentLinks()
 
   return (
     <>
       <section className="border-b border-[var(--border-subtle)]">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="display display-h2 not-italic">Search for answers</h1>
-            <p className="mt-3 text-lg text-[var(--text-secondary)] sm:text-xl">
+            <h1 className="display display-h3 not-italic">Search for answers</h1>
+            <p className="mt-3 text-base text-[var(--text-secondary)] sm:text-lg">
               Or browse by topic.
             </p>
             <div className="mt-8 text-left">
               <SearchBar />
             </div>
+            {urgent.length > 0 && (
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+                <span className="text-sm text-[var(--text-muted)]">
+                  Common:
+                </span>
+                {urgent.map((u) => (
+                  <Link key={u.href} href={u.href} className="chip chip-pill">
+                    {u.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -43,10 +62,44 @@ export default function HomePage() {
               <TopicTile topic={t} />
             </li>
           ))}
-          <li className="flex">
-            <BlezBotTile />
-          </li>
         </ul>
+      </section>
+
+      {recentResources.length > 0 && (
+        <section className="border-t border-[var(--border-subtle)]">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <span className="eyebrow">Resources</span>
+                <h2 className="display display-h4 not-italic mt-2">
+                  Guides &amp; collecting tips
+                </h2>
+                <p className="mt-2 max-w-xl text-[var(--text-secondary)]">
+                  Long-form guides, platform comparisons, and everything we
+                  know about ripping, grading, and building a collection.
+                </p>
+              </div>
+              <Link
+                href="/resources"
+                className="btn btn-secondary btn-md shrink-0"
+              >
+                Browse all resources
+                <ArrowRight className="h-4 w-4" strokeWidth={2} />
+              </Link>
+            </div>
+            <ul className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {recentResources.map((r) => (
+                <li key={r.slug} className="flex">
+                  <ResourceCard resource={r} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
+        <ShopCTA />
       </section>
     </>
   )

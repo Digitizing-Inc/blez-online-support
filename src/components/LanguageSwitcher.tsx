@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Globe, Check, ChevronDown, ExternalLink } from 'lucide-react'
+import { Check, ChevronDown, ExternalLink } from 'lucide-react'
 import { siteConfig, type LanguageCode } from '@/lib/config'
 import { cn } from '@/lib/cn'
+import Flag from './Flag'
 
 const STORAGE_KEY = 'blez-support-lang'
 
@@ -25,9 +26,13 @@ export default function LanguageSwitcher() {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as LanguageCode | null
-    if (stored && siteConfig.languages.some((l) => l.code === stored)) {
-      setLang(stored)
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY) as LanguageCode | null
+      if (stored && siteConfig.languages.some((l) => l.code === stored)) {
+        setLang(stored)
+      }
+    } catch {
+      // localStorage unavailable (e.g. private mode) — default to English.
     }
   }, [])
 
@@ -51,7 +56,11 @@ export default function LanguageSwitcher() {
 
   function select(code: LanguageCode) {
     setLang(code)
-    localStorage.setItem(STORAGE_KEY, code)
+    try {
+      localStorage.setItem(STORAGE_KEY, code)
+    } catch {
+      // Persisting the choice is best-effort — don't block selection.
+    }
     document.documentElement.lang = code
     setOpen(false)
     // English is the source — no translation needed.
@@ -69,14 +78,13 @@ export default function LanguageSwitcher() {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
+        aria-label={`Language: ${active?.label ?? 'English'}`}
         className={cn(
-          'flex h-10 items-center gap-2 rounded-md border px-3 text-sm font-medium transition-colors',
+          'flex h-10 items-center gap-1.5 rounded-md border px-2.5 transition-colors',
           'border-[var(--border-default)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--border-strong)]',
         )}
       >
-        <Globe className="h-4 w-4" strokeWidth={2} />
-        <span className="hidden sm:inline">{active?.label ?? 'English'}</span>
-        <span className="sm:hidden uppercase">{lang}</span>
+        <Flag code={lang} />
         <ChevronDown
           className={cn(
             'h-3.5 w-3.5 transition-transform',
@@ -107,7 +115,10 @@ export default function LanguageSwitcher() {
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--blez-blue-ghost)]',
                   )}
                 >
-                  <span>{l.label}</span>
+                  <span className="flex items-center gap-2.5">
+                    <Flag code={l.code} />
+                    <span>{l.label}</span>
+                  </span>
                   <span className="flex items-center gap-2 text-[var(--text-muted)]">
                     {!isEnglish && (
                       <ExternalLink className="h-3.5 w-3.5" strokeWidth={2} />

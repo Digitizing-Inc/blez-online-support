@@ -19,9 +19,6 @@ export default function NotFound() {
           <ArrowLeft className="h-4 w-4" strokeWidth={2} />
           Browse articles
         </Link>
-        <Link href="/chat" className="btn btn-secondary btn-md">
-          Ask the BlezBot
-        </Link>
       </div>
     </section>
   )

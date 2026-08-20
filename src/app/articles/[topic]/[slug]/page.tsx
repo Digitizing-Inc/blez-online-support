@@ -5,11 +5,16 @@ import { ArrowRight, ChevronRight } from 'lucide-react'
 import Breadcrumb from '@/components/Breadcrumb'
 import TableOfContents from '@/components/TableOfContents'
 import WasThisHelpful from '@/components/WasThisHelpful'
+import StillNeedHelp from '@/components/StillNeedHelp'
+import ShopCTA from '@/components/ShopCTA'
+import SectionHeading from '@/components/SectionHeading'
+import ViewCount from '@/components/ViewCount'
 import JsonLd, {
   articleSchema,
   breadcrumbSchema,
 } from '@/lib/seo/jsonld'
 import { siteConfig } from '@/lib/config'
+import { formatDate } from '@/lib/date'
 import {
   articles,
   getArticle,
@@ -37,6 +42,9 @@ export async function generateMetadata({
     title: article.title,
     description: article.summary,
     alternates: { canonical: url },
+    // Placeholder bodies stay out of the index until real copy ships — flip
+    // NEXT_PUBLIC_ALLOW_INDEX=true to release. See siteConfig.allowIndex.
+    robots: siteConfig.allowIndex ? undefined : { index: false, follow: true },
     openGraph: {
       type: 'article',
       title: article.title,
@@ -65,6 +73,25 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     .filter((a) => a.slug !== article.slug)
     .slice(0, 4)
 
+  const ripCopy =
+    topicSlug === 'getting-started'
+      ? {
+          title: 'New to Blez?',
+          body: 'See how it works — browse packs and find your first great card.',
+          cta: 'Browse packs',
+        }
+      : topicSlug === 'ripping-reveals'
+        ? {
+            title: 'Ready to rip?',
+            body: 'Browse hand-curated packs of real cards and open one on the spot.',
+            cta: 'Browse packs',
+          }
+        : {
+            title: 'Ready to rip?',
+            body: 'Ship what you pull or sell it back instantly at 90% — browse the packs.',
+            cta: 'Browse packs',
+          }
+
   const base = siteConfig.siteUrl.replace(/\/$/, '')
   const breadcrumbLd = breadcrumbSchema([
     { name: 'Support Articles', url: base },
@@ -85,16 +112,21 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               { label: article.title },
             ]}
           />
-          <h1 className="mt-6 text-3xl font-bold leading-tight text-[var(--text-primary)] sm:text-4xl">
+          <h1 className="mt-6 text-2xl font-bold leading-tight text-[var(--text-primary)] sm:text-3xl">
             {article.title}
           </h1>
-          <p className="mt-3 text-base text-[var(--text-secondary)] sm:text-lg">
+          <p className="mt-3 text-base text-[var(--text-secondary)]">
             {article.summary}
           </p>
-          <p className="mt-4 text-xs text-[var(--text-faint)]">
-            Last updated{' '}
-            <time dateTime={article.lastUpdated}>{article.lastUpdated}</time>
-          </p>
+          <div className="mt-4 flex flex-wrap items-center text-xs text-[var(--text-faint)]">
+            <span>
+              Last updated{' '}
+              <time dateTime={article.lastUpdated}>
+                {formatDate(article.lastUpdated)}
+              </time>
+            </span>
+            <ViewCount slug={article.slug} />
+          </div>
 
           {/* Mobile-only TOC: native <details> disclosure so phone readers
               can still jump between sections of long articles. The desktop
@@ -129,10 +161,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <article className="mt-12 flex flex-col gap-12">
             {sections.map((section) => (
               <section key={section.id} id={section.id} className="scroll-mt-24">
-                <h2 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-3xl">
+                <SectionHeading id={section.id}>
                   {section.heading}
-                </h2>
-                <div className="mt-4 flex flex-col gap-4 text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg">
+                </SectionHeading>
+                <div className="mt-4 flex flex-col gap-4 text-[15px] leading-relaxed text-[var(--text-secondary)]">
                   {section.body.split('\n\n').map((paragraph, i) => (
                     <p key={i}>{paragraph}</p>
                   ))}
@@ -142,7 +174,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </article>
 
           <div className="mt-12">
-            <WasThisHelpful articleSlug={article.slug} />
+            <WasThisHelpful
+              articleSlug={article.slug}
+              articleTitle={article.title}
+            />
+            {/* Contact escape hatch — inline on mobile/tablet where the TOC
+                sidebar is hidden; on lg+ it lives under the TOC instead. */}
+            <div className="mt-8 lg:hidden">
+              <StillNeedHelp subject={`Help with: ${article.title}`} />
+            </div>
           </div>
 
           {related.length > 0 && (
@@ -170,14 +210,32 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </ul>
             </div>
           )}
+
+          <div className="mt-10">
+            <Link
+              href="/resources"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--blez-blue)] hover:no-underline"
+            >
+              Prefer a deep dive? Browse our guides
+              <ArrowRight className="h-4 w-4" strokeWidth={2} />
+            </Link>
+          </div>
         </div>
 
         {/* Right TOC sidebar — hidden on small screens */}
         <aside className="hidden lg:block">
-          <div className="sticky top-24">
+          <div className="sticky top-24 flex flex-col gap-6">
             <TableOfContents items={tocItems} />
+            <StillNeedHelp
+              subject={`Help with: ${article.title}`}
+              compact
+            />
           </div>
         </aside>
+      </div>
+
+      <div className="mt-16">
+        <ShopCTA title={ripCopy.title} body={ripCopy.body} cta={ripCopy.cta} />
       </div>
     </div>
   )
